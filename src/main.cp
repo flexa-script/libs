@@ -1,3 +1,3 @@
-using tests.test_suite;
+using tests.suite as suite;
 
-executeTestSuite();
+suite.executeTestSuite();

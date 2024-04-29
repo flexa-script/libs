@@ -1,11 +1,11 @@
-using util.print;
+using util.print as out;
 
 
 def print_test() {
-  println(false);
-  println(true);
-  println(10);
-  println(10.5);
-  println('1');
-  println("String");
+  out.println(false);
+  out.println(true);
+  out.println(10);
+  out.println(10.5);
+  out.println('1');
+  out.println("String");
 }

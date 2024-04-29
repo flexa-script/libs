@@ -12,10 +12,10 @@ def printFooter() {
 
 def executeTestSuite() {
   printHeader("print");
-  print_test();
+  tests.print_test.print_test();
   printFooter();
   
   printHeader("math");
-  math_test();
+  tests.math_test.math_test();
   printFooter();
 }

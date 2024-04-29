@@ -7,10 +7,10 @@ def abs_positive() {
   var num : float = 6.667;
   
   // act
-  var res : float = abs(num);
+  var res : float = math.abs(num);
   
   // assert
-  assertEquals("abs_positive", 6.667, res);
+  cptest.assertEquals("abs_positive", 6.667, res);
 }
 
 def abs_negative() {
@@ -18,10 +18,10 @@ def abs_negative() {
   var num : float = -6.667;
   
   // act
-  var res : float = abs(num);
+  var res : float = math.abs(num);
   
   // assert
-  assertEquals("abs_negative", 6.667, res);
+  cptest.assertEquals("abs_negative", 6.667, res);
 }
 
 def clamp_greater() {
@@ -31,10 +31,10 @@ def clamp_greater() {
   var max : float = 5;
   
   // act
-  var res : float = clamp(num, min, max);
+  var res : float = math.clamp(num, min, max);
   
   // assert
-  assertEquals("clamp_greater", 5., res);
+  cptest.assertEquals("clamp_greater", 5., res);
 }
 
 def clamp_lower() {
@@ -44,10 +44,10 @@ def clamp_lower() {
   var max : float = 5;
   
   // act
-  var res : float = clamp(num, min, max);
+  var res : float = math.clamp(num, min, max);
   
   // assert
-  assertEquals("clamp_lower", -5., res);
+  cptest.assertEquals("clamp_lower", -5., res);
 }
 
 def clamp_between() {
@@ -57,10 +57,10 @@ def clamp_between() {
   var max : float = 5;
   
   // act
-  var res : float = clamp(num, min, max);
+  var res : float = math.clamp(num, min, max);
   
   // assert
-  assertEquals("clamp_between", 0., res);
+  cptest.assertEquals("clamp_between", 0., res);
 }
 
 def math_test() {

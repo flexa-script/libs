@@ -24,8 +24,12 @@ def to_degrees(angrad: float): float {
 	return angrad * RADIANS_TO_DEGREES;
 }
 
-def round(val: float): float {
-	return 
+def round(val: float): int {
+	if (val < 0.0) {
+        return int(val - 0.49999999999999994);
+    } else {
+        return int(val + 0.49999999999999994);
+	}
 }
 
 def clamp(val: int, min: int, max: int): int {
@@ -71,7 +75,7 @@ def max(arr[]: int): int {
 	
 	var greater: int = arr[0];
 	
-	foreach(var val: int : arr) {
+	foreach (var val: int in arr) {
 		greater = max(val, greater);
 	}
 
@@ -85,7 +89,7 @@ def max(arr[]: float): float {
 	
 	var greater: float = arr[0];
 	
-	foreach(var val: float : arr) {
+	foreach (var val: float in arr) {
 		greater = max(val, greater);
 	}
 
@@ -110,7 +114,7 @@ def min(arr[]: int): int {
 	
 	var lesser: int = arr[0];
 	
-	foreach(var val: int : arr) {
+	foreach (var val: int in arr) {
 		lesser = min(val, lesser);
 	}
 
@@ -124,7 +128,7 @@ def min(arr[]: float): float {
 	
 	var lesser: float = arr[0];
 	
-	foreach(var val: float : arr) {
+	foreach (var val: float in arr) {
 		lesser = min(val, lesser);
 	}
 

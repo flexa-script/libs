@@ -3,7 +3,7 @@
 // MIT License
 // Copyright (c) 2023 Carlos Eduardo de Borba Machado
 
-using math;
+using cp.std.math;
 
 namespace random;
 

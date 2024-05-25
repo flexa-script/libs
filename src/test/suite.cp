@@ -1,21 +1,20 @@
-using tests.print_test;
+// MIT License
+// Copyright (c) 2023 Carlos Eduardo de Borba Machado
+
+
 using tests.math_test;
 
 
-def printHeader(libName : string) {
-  print("--- Tests of lib <" + libName + "> ---\n");
+def print_header(lib_name: string) {
+  print("--- Tests of lib <" + lib_name + "> ---\n");
 }
 
-def printFooter() {
+def print_footer() {
   print("------------------------------\n");
 }
 
-def executeTestSuite() {
-  printHeader("print");
-  tests.print_test.print_test();
-  printFooter();
-  
-  printHeader("math");
-  tests.math_test.math_test();
-  printFooter();
+def execute_test_suite() {
+  print_header("math");
+  math_test();
+  print_footer();
 }

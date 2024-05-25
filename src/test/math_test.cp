@@ -1,66 +1,70 @@
-using cptest;
-using math;
+// MIT License
+// Copyright (c) 2023 Carlos Eduardo de Borba Machado
+
+
+using cp.testing;
+using cp.math;
 
 
 def abs_positive() {
   // arrange
-  var num : float = 6.667;
+  var num: float = 6.667;
   
   // act
-  var res : float = math.abs(num);
+  var res: float = abs(num);
   
   // assert
-  cptest.assertEquals("abs_positive", 6.667, res);
+  assert_equals("abs_positive", 6.667, res);
 }
 
 def abs_negative() {
   // arrange
-  var num : float = -6.667;
+  var num: float = -6.667;
   
   // act
-  var res : float = math.abs(num);
+  var res: float = abs(num);
   
   // assert
-  cptest.assertEquals("abs_negative", 6.667, res);
+  assert_equals("abs_negative", 6.667, res);
 }
 
 def clamp_greater() {
   // arrange
-  var num : float = 10;
-  var min : float = -5;
-  var max : float = 5;
+  var num: float = 10;
+  var min: float = -5;
+  var max: float = 5;
   
   // act
-  var res : float = math.clamp(num, min, max);
+  var res: float = clamp(num, min, max);
   
   // assert
-  cptest.assertEquals("clamp_greater", 5., res);
+  assert_equals("clamp_greater", 5., res);
 }
 
 def clamp_lower() {
   // arrange
-  var num : float = -10;
-  var min : float = -5;
-  var max : float = 5;
+  var num: float = -10;
+  var min: float = -5;
+  var max: float = 5;
   
   // act
-  var res : float = math.clamp(num, min, max);
+  var res: float = clamp(num, min, max);
   
   // assert
-  cptest.assertEquals("clamp_lower", -5., res);
+  assert_equals("clamp_lower", -5., res);
 }
 
 def clamp_between() {
   // arrange
-  var num : float = 0;
-  var min : float = -5;
-  var max : float = 5;
+  var num: float = 0;
+  var min: float = -5;
+  var max: float = 5;
   
   // act
-  var res : float = math.clamp(num, min, max);
+  var res: float = clamp(num, min, max);
   
   // assert
-  cptest.assertEquals("clamp_between", 0., res);
+  assert_equals("clamp_between", 0., res);
 }
 
 def math_test() {

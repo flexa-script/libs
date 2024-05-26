@@ -32,10 +32,6 @@ def round(val: float): int {
 	}
 }
 
-def clamp(val: int, min: int, max: int): int {
-	return int(clamp(float(val), float(min), float(max)));
-}
-
 def clamp(val: float, min: float, max: float): float {
 	if (val > max) {
 		return max;
@@ -46,8 +42,8 @@ def clamp(val: float, min: float, max: float): float {
 	return val;
 }
 
-def abs(val: int): int {
-	return int(abs(float(val)));
+def clamp(val: int, min: int, max: int): int {
+	return int(clamp(float(val), float(min), float(max)));
 }
 
 def abs(val: float): float {
@@ -57,8 +53,8 @@ def abs(val: float): float {
 	return val;
 }
 
-def max(a: int, b: int): int {
-	return int(max(float(a), float(b)));
+def abs(val: int): int {
+	return int(abs(float(val)));
 }
 
 def max(a: float, b: float): float {
@@ -66,6 +62,10 @@ def max(a: float, b: float): float {
 		return a;
 	}
 	return b;
+}
+
+def max(a: int, b: int): int {
+	return int(max(float(a), float(b)));
 }
 
 def max(arr[]: int): int {
@@ -96,15 +96,15 @@ def max(arr[]: float): float {
 	return greater;
 }
 
-def min(a: int, b: int): int {
-	return int(min(float(a), float(b)));
-}
-
 def min(a: float, b: float): float {
 	if (a <= b) {
 		return a;
 	}
 	return b;
+}
+
+def min(a: int, b: int): int {
+	return int(min(float(a), float(b)));
 }
 
 def min(arr[]: int): int {
@@ -141,7 +141,7 @@ def normalize(value: float, min: float, max: float): float {
 }
 
 def denormalize(normalized: float, min: float, max: float): float {
-	var denormalized = normalized * (max - min) + min;
+	var denormalized: float = normalized * (max - min) + min;
 	return denormalized;
 }
 

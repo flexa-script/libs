@@ -14,16 +14,24 @@ const _RAND_MAX2 = 2 * 4294967295;
 var _next: int = 1;
 
 def randomize(seed: int) {
-	_next = _seed;
+	_next = seed;
 }
 
 def randomize(seed: float) {
 	randomize(int(seed));
 }
 
-def _rand(): float {
+def _rand(): int {
     _next = _next * 1103515245 + 12345;
     return (_next / _RAND_MAX2) % RAND_MAX;
+}
+
+def randf(): float {
+	return math::normalize(float(_rand()), 0.0, 1.0);
+}
+
+def randf_range(from: float, to: float): float {
+	return from + _rand() * (to - from) / RAND_MAX;
 }
 
 def randi(): int {
@@ -31,13 +39,5 @@ def randi(): int {
 }
 
 def randi_range(from: int, to: int): int {
-	return int(randf_range(from, to));
-}
-
-def randf(): float {
-	return math::normalize(_rand(), 0, 1);
-}
-
-def randf_range(from: float, to: float): float {
-	return from + _rand() * (to - from) / RAND_MAX;
+	return int(randf_range(float(from), float(to)));
 }

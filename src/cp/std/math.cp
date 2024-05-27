@@ -48,7 +48,7 @@ def clamp(val: int, min: int, max: int): int {
 
 def abs(val: float): float {
 	if (val < 0) {
-		return val * -1;
+		return val * -1.0;
 	}
 	return val;
 }

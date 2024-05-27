@@ -10,3 +10,11 @@ const NEW_LINE: string = "\r\n";
 def println(value: any) {
     print(string(value) + NEW_LINE);
 }
+
+def printlns(value: any) {
+    print(NEW_LINE + string(value));
+}
+
+def printlnb(value: any) {
+    print(NEW_LINE + string(value) + NEW_LINE);
+}

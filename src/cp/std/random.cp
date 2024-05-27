@@ -9,7 +9,6 @@ namespace random;
 
 
 const RAND_MAX = 4294967295;
-const _RAND_MAX2 = 2 * 4294967295;
 
 var _next: int = 1;
 
@@ -22,8 +21,8 @@ def randomize(seed: float) {
 }
 
 def _rand(): int {
-    _next = _next * 1103515245 + 12345;
-    return (_next / _RAND_MAX2) % RAND_MAX;
+    _next = (_next * 1103515245 + 12345) % RAND_MAX;
+		return _next;
 }
 
 def randf(): float {

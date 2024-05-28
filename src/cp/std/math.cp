@@ -3,7 +3,7 @@
 // MIT License
 // Copyright (c) 2023 Carlos Eduardo de Borba Machado
 
-namespace math;
+namespace cp;
 
 
 const MAX_VALUE = 9223372036854775807; //18446744073709551615

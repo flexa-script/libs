@@ -5,7 +5,7 @@
 
 using cp.std.math;
 
-namespace random;
+namespace cp;
 
 
 const RAND_MAX = 4294967295;

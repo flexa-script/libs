@@ -6,6 +6,13 @@
 
 namespace cp;
 
+struct Graphics {
+	var title: string;
+	var width: int;
+	var height: int;
+	var _instance: int;
+};
+
 struct Color {
 	var r: int;
 	var g: int;
@@ -21,4 +28,5 @@ def fill_rect(x: int, y: int, width: int, height: int, color: Color);
 def draw_circle(xc: int, yc: int, radius: int, color: Color);
 def fill_circle(xc: int, yc: int, radius: int, color: Color);
 def update();
+def destroy();
 def is_quit(): bool;

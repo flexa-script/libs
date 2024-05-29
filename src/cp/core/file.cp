@@ -4,4 +4,10 @@
 // Copyright (c) 2023 Carlos Eduardo de Borba Machado
 
 
-default load(path: string);
+struct File {
+	var path: string;
+	var _instance: int;
+};
+
+def load(path: string);
+def save(path: string);

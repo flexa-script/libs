@@ -1,10 +1,8 @@
 // list standard lib
-
 // MIT License
 // Copyright (c) 2023 Carlos Eduardo de Borba Machado
 
-namespace list;
-
+namespace cp;
 
 struct Node {
     var value: any;

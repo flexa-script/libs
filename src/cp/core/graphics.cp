@@ -1,11 +1,8 @@
 // graphics core lib
-
 // MIT License
 // Copyright (c) 2023 Carlos Eduardo de Borba Machado
 
-
 namespace cp;
-
 
 struct Color {
 	var r: int;

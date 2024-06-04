@@ -1,10 +1,10 @@
 // MIT License
 // Copyright (c) 2023 Carlos Eduardo de Borba Machado
 
+using cp.std.testing;
+using cp.std.math;
 
-using cp.testing;
-using cp.math;
-
+as namespace cp;
 
 def abs_positive() {
   // arrange
@@ -67,10 +67,48 @@ def clamp_between() {
   assert_equals("clamp_between", 0., res);
 }
 
-def math_test() {
+def round_higher_low_limit() {
+  // arrange
+  var num: float = 1.5;
+  
+  // act
+  var res: int = round(num);
+  
+  // assert
+  assert_equals(this, 2, res);
+}
+
+def round_higher_high_limit() {
+  // arrange
+  var num: float = 1.9;
+  
+  // act
+  var res: int = round(num);
+  
+  // assert
+  assert_equals(this, 2, res);
+}
+
+def round_higher_mid_limit() {
+  // arrange
+  var num: float = 1.7;
+  
+  // act
+  var res: int = round(num);
+  
+  // assert
+  assert_equals(this, 2, res);
+}
+
+def math_test_suite() {
   abs_positive();
   abs_negative();
+
   clamp_greater();
   clamp_lower();
   clamp_between();
+
+  round_higher_low_limit();
+  round_higher_high_limit();
+  round_higher_mid_limit();
 }

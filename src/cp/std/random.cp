@@ -2,10 +2,9 @@
 // MIT License
 // Copyright (c) 2023 Carlos Eduardo de Borba Machado
 
-using cp.std.math;
-
 namespace cp;
 
+using cp.std.math;
 
 const RAND_MAX = 4294967295;
 
@@ -25,7 +24,7 @@ def _rand(): int {
 }
 
 def randf(): float {
-	return math::normalize(float(_rand()), 0.0, 1.0);
+	return normalize(float(_rand()), 0.0, 1.0);
 }
 
 def randf_range(from: float, to: float): float {

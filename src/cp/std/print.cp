@@ -2,6 +2,8 @@
 // MIT License
 // Copyright (c) 2023 Carlos Eduardo de Borba Machado
 
+namespace cp;
+
 const NEW_LINE: string = "\n";
 
 def println(value: any) {

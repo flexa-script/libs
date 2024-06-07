@@ -61,8 +61,8 @@ def is_empty(list: List): bool {
     return list.size == 0;
 }
 
-def to_array(list: List): any[] {
-    var arr[list.size]: any = {null};
+def to_array(dict: Dict): any[] {
+    var arr[dict.order.size]: any = {null};
     var curr_node = list.first;
     for (var i = 0; i < list.size; i++) {
         if (typeof(curr_node.value) == typeof(List)) {

@@ -4,14 +4,14 @@
 
 namespace cp;
 
-struct RGB {
+struct Color {
 	var r: int;
 	var g: int;
 	var b: int;
 };
 
-def rgb(r: int, g: int, b: int): RGB {
-	return RGB{r=r, g=g, b=b};
+def rgb(r: int, g: int, b: int): Color {
+	return Color{r=r, g=g, b=b};
 }
 
 struct Image {

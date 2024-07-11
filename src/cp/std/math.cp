@@ -22,6 +22,20 @@ def to_degrees(angrad: float): float {
 	return angrad * RADIANS_TO_DEGREES;
 }
 
+def pow(x: float, n: float): float {
+	//return exp(log(x) * n);
+
+	if (int(n) == 0) {
+		return 1f;
+	}
+
+	if (int(n) % 2 == 0) {
+		return pow(x, n / 2) * pow(x, n / 2);
+	}
+	
+	return x * pow(x, n / 2) * pow(x, n / 2);
+}
+
 def round(val: float): int {
 	if (val < 0.0) {
         return int(val - 0.49999999999999994);
@@ -60,6 +74,10 @@ def max(a: float, b: float): float {
 		return a;
 	}
 	return b;
+}
+
+def max(...values: int): int {
+	return 0;
 }
 
 def max(a: int, b: int): int {

@@ -14,15 +14,15 @@ const DEGREES_TO_RADIANS: float = 0.017453292519943295;
 const RADIANS_TO_DEGREES: float = 57.29577951308232;
 
 
-def to_radians(angdeg: float): float {
+fun to_radians(angdeg: float): float {
 	return angdeg * DEGREES_TO_RADIANS;
 }
 
-def to_degrees(angrad: float): float {
+fun to_degrees(angrad: float): float {
 	return angrad * RADIANS_TO_DEGREES;
 }
 
-def pow(x: float, n: float): float {
+fun pow(x: float, n: float): float {
 	//return exp(log(x) * n);
 
 	if (int(n) == 0) {
@@ -36,7 +36,7 @@ def pow(x: float, n: float): float {
 	return x * pow(x, n / 2) * pow(x, n / 2);
 }
 
-def round(val: float): int {
+fun round(val: float): int {
 	if (val < 0.0) {
         return int(val - 0.49999999999999994);
     } else {
@@ -44,7 +44,7 @@ def round(val: float): int {
 	}
 }
 
-def clamp(val: float, min: float, max: float): float {
+fun clamp(val: float, min: float, max: float): float {
 	if (val > max) {
 		return max;
 	}
@@ -54,37 +54,37 @@ def clamp(val: float, min: float, max: float): float {
 	return val;
 }
 
-def clamp(val: int, min: int, max: int): int {
+fun clamp(val: int, min: int, max: int): int {
 	return int(clamp(float(val), float(min), float(max)));
 }
 
-def abs(val: float): float {
+fun abs(val: float): float {
 	if (val < 0) {
 		return val * -1.0;
 	}
 	return val;
 }
 
-def abs(val: int): int {
+fun abs(val: int): int {
 	return int(abs(float(val)));
 }
 
-def max(a: float, b: float): float {
+fun max(a: float, b: float): float {
 	if (a >= b) {
 		return a;
 	}
 	return b;
 }
 
-def max(...values: int): int {
+fun max(...values: int): int {
 	return 0;
 }
 
-def max(a: int, b: int): int {
+fun max(a: int, b: int): int {
 	return int(max(float(a), float(b)));
 }
 
-def max(arr[]: int): int {
+fun max(arr[]: int): int {
 	if (len(arr) == 0) {
 		return null;
 	}
@@ -98,7 +98,7 @@ def max(arr[]: int): int {
 	return greater;
 }
 
-def max(arr[]: float): float {
+fun max(arr[]: float): float {
 	if (len(arr) == 0) {
 		return null;
 	}
@@ -112,18 +112,18 @@ def max(arr[]: float): float {
 	return greater;
 }
 
-def min(a: float, b: float): float {
+fun min(a: float, b: float): float {
 	if (a <= b) {
 		return a;
 	}
 	return b;
 }
 
-def min(a: int, b: int): int {
+fun min(a: int, b: int): int {
 	return int(min(float(a), float(b)));
 }
 
-def min(arr[]: int): int {
+fun min(arr[]: int): int {
 	if (len(arr) == 0) {
 		return null;
 	}
@@ -137,7 +137,7 @@ def min(arr[]: int): int {
 	return lesser;
 }
 
-def min(arr[]: float): float {
+fun min(arr[]: float): float {
 	if (len(arr) == 0) {
 		return null;
 	}
@@ -151,17 +151,17 @@ def min(arr[]: float): float {
 	return lesser;
 }
 
-def normalize(value: float, min: float, max: float): float {
+fun normalize(value: float, min: float, max: float): float {
 	var normalized: float = (value - min) / (max - min);
 	return normalized;
 }
 
-def denormalize(normalized: float, min: float, max: float): float {
+fun denormalize(normalized: float, min: float, max: float): float {
 	var denormalized: float = normalized * (max - min) + min;
 	return denormalized;
 }
 
-def hash(str: string) {
+fun hash(str: string) {
 	var h: int = 0;
 	for (var i: int = 0; i < len(str); i++) {
 		h = h * 31 + int(str[i]);

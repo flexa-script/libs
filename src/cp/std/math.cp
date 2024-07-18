@@ -76,10 +76,6 @@ fun max(a: float, b: float): float {
 	return b;
 }
 
-fun max(...values: int): int {
-	return 0;
-}
-
 fun max(a: int, b: int): int {
 	return int(max(float(a), float(b)));
 }

@@ -1,8 +1,8 @@
 // MIT License
 // Copyright (c) 2023 Carlos Eduardo de Borba Machado
 
-using cp.std.testing;
-using cp.std.math;
+using libs.cp.std.testing;
+using libs.cp.std.math;
 
 as namespace cp;
 
@@ -38,7 +38,7 @@ fun clamp_greater() {
   var res: float = clamp(num, min, max);
   
   // assert
-  assert_equals("clamp_greater", 5., res);
+  assert_equals("clamp_greater", 5f, res);
 }
 
 fun clamp_lower() {

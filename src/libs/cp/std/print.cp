@@ -6,14 +6,10 @@ namespace cp;
 
 const NEW_LINE: string = "\n";
 
-def println(value: any) {
-    print(string(value) + NEW_LINE);
-}
-
-def printlns(value: any) {
+fun printls(...value: any) {
     print(NEW_LINE + string(value));
 }
 
-def printlnb(value: any) {
+fun printlb(...value: any) {
     print(NEW_LINE + string(value) + NEW_LINE);
 }

@@ -4,7 +4,7 @@
 // Copyright (c) 2023 Carlos Eduardo de Borba Machado
 
 
-def assert_equals(test: string, expected: string, value: string) {
+fun assert_equals(test: string, expected: string, value: string) {
   var res: bool = expected == value;
   if (res) {
     print("PASS: <" + test + ">");
@@ -14,14 +14,14 @@ def assert_equals(test: string, expected: string, value: string) {
   print("\n");
 }
 
-def assert_equals(test: string, expected: int, value: int) {
+fun assert_equals(test: string, expected: int, value: int) {
   assert_equals(test, string(expected), string(value));
 }
 
-def assert_equals(test: string, expected: float, value: float) {
+fun assert_equals(test: string, expected: float, value: float) {
   assert_equals(test, string(expected), string(value));
 }
 
-def assert_equals(test: string, expected: bool, value: bool) {
+fun assert_equals(test: string, expected: bool, value: bool) {
   assert_equals(test, string(expected), string(value));
 }

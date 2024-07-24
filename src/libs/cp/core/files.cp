@@ -17,16 +17,16 @@ struct File {
 	var mode: int;
 };
 
-def open(file: File, path: string, mode: int): bool;
-def is_open(file: File): bool;
-def read(file: File): string;
-def read_line(file: File): string;
-def write(file: File, data: string);
-def read_all_bytes(file: File): char[];
-def write_bytes(file: File, bytes[]: char);
-def close(file: File);
+fun open(file: File, path: string, mode: int): bool;
+fun is_open(file: File): bool;
+fun read(file: File): string;
+fun read_line(file: File): string;
+fun write(file: File, data: string);
+fun read_all_bytes(file: File): char[];
+fun write_bytes(file: File, bytes[]: char);
+fun close(file: File);
 
-def del_file(path: string): bool;
-def del_folder(path: string): bool;
+fun del_file(path: string): bool;
+fun del_folder(path: string): bool;
 
-def path_exists(path: string): bool;
+fun path_exists(path: string): bool;

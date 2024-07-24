@@ -10,7 +10,7 @@ struct Color {
 	var b: int;
 };
 
-def rgb(r: int, g: int, b: int): Color {
+fun rgb(r: int, g: int, b: int): Color {
 	return Color{r=r, g=g, b=b};
 }
 
@@ -20,7 +20,7 @@ struct Image {
 	var height: int;
 };
 
-def load_image(path: string): Image;
+fun load_image(path: string): Image;
 
 struct Window {
 	var title: string;
@@ -28,15 +28,15 @@ struct Window {
 	var height: int;
 };
 
-def create_window(title: string, width: int, height: int): bool;
-def clear_screen(window: Window, color: Color);
-def draw_pixel(window: Window, x: int, y: int, color: Color);
-def draw_line(window: Window, x1: int, y1: int, x2: int, y2: int, color: Color);
-def draw_rect(window: Window, x: int, y: int, width: int, height: int, color: Color);
-def fill_rect(window: Window, x: int, y: int, width: int, height: int, color: Color);
-def draw_circle(window: Window, xc: int, yc: int, radius: int, color: Color);
-def fill_circle(window: Window, xc: int, yc: int, radius: int, color: Color);
-def draw_image(window: Window, image: Image, x: int, y: int);
-def update(window: Window);
-def destroy_window(window: Window);
-def is_quit(window: Window): bool;
+fun create_window(title: string, width: int, height: int): bool;
+fun clear_screen(window: Window, color: Color);
+fun draw_pixel(window: Window, x: int, y: int, color: Color);
+fun draw_line(window: Window, x1: int, y1: int, x2: int, y2: int, color: Color);
+fun draw_rect(window: Window, x: int, y: int, width: int, height: int, color: Color);
+fun fill_rect(window: Window, x: int, y: int, width: int, height: int, color: Color);
+fun draw_circle(window: Window, xc: int, yc: int, radius: int, color: Color);
+fun fill_circle(window: Window, xc: int, yc: int, radius: int, color: Color);
+fun draw_image(window: Window, image: Image, x: int, y: int);
+fun update(window: Window);
+fun destroy_window(window: Window);
+fun is_quit(window: Window): bool;

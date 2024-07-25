@@ -112,5 +112,4 @@ fun math_test_suite() {
   round_higher_high_limit();
   round_higher_mid_limit();
 
-  print(pow(2f, 3f));
 }

@@ -1,8 +1,10 @@
 // testing standard lib
-
 // MIT License
 // Copyright (c) 2023 Carlos Eduardo de Borba Machado
 
+namespace cp;
+
+using cp.core.console;
 
 fun assert_equals(test: string, expected: string, value: string) {
   var res: bool = expected == value;
@@ -11,6 +13,7 @@ fun assert_equals(test: string, expected: string, value: string) {
   } else {
     print("ERROR: <" + test + "> Expected '" + expected + "', got '" + value + "'");
   }
+  set_console_color(BLACK, WHITE);
   print("\n");
 }
 

@@ -1,8 +1,8 @@
 // MIT License
 // Copyright (c) 2023 Carlos Eduardo de Borba Machado
 
-using libs.cp.std.testing;
-using libs.cp.std.math;
+using cp.std.testing;
+using cp.std.math;
 
 as namespace cp;
 

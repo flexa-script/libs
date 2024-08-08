@@ -43,3 +43,41 @@ fun contains(str: string, strc: string): bool {
 
 	return false;
 }
+
+fun starts_with(str: string, strc: string): bool {
+  var str_size = strlen(str);
+  var strc_size = strlen(strc);
+
+  if (str_size < strc_size) {
+    return false;
+  }
+
+  if (substr(str, 0, strc_size) == strc) {
+    return true;
+  }
+
+	return false;
+}
+
+fun ends_with(str: string, strc: string): bool {
+  var str_size = strlen(str);
+  var strc_size = strlen(strc);
+
+  if (str_size < strc_size) {
+    return false;
+  }
+
+  if (substr(str, str_size - strc_size) == strc) {
+    return true;
+  }
+
+	return false;
+}
+
+fun join(...args: any): string {
+  var ss: string = "";
+  foreach (var a in args) {
+    ss += string(a);
+  }
+  return ss;
+}

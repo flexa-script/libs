@@ -18,9 +18,9 @@
     - [ ] String
         - [X] size: size of string
         - [X] contains: string is contained in other string
-        - [ ] ends_with, starts_with: string is contained in extremities
+        - [X] ends_with, starts_with: string is contained in extremities
         - [X] substring: returns substring
-        - [ ] replace: replace substrinf for another
+        - [ ] replace: replace substring for another
         - [ ] to_lower, to_upper: capitalize, uncapitalize
         - [ ] to_string: value to string
         - [ ] split: split string in array
@@ -51,4 +51,6 @@
         - [ ] struct to json
         - [ ] json_stringfy
         - [ ] json_parse
-    - [ ] Util?
+    - [ ] Util:
+        - [ ] is_number_t
+        - [ ] is_text_t

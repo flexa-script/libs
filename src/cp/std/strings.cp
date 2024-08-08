@@ -81,3 +81,11 @@ fun join(...args: any): string {
   }
   return ss;
 }
+
+// fun left_trim(str: string): string {
+//   var start = 0;
+//   while (str[start] == ' ') {
+//     start++;
+//   }
+//   return substr(str, start);
+// }

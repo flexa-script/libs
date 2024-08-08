@@ -22,9 +22,9 @@
         - [X] substring: returns substring
         - [ ] replace: replace substring for another
         - [ ] to_lower, to_upper: capitalize, uncapitalize
-        - [ ] to_string: value to string
+        <!--- [ ] to_string: value to string -->
         - [ ] split: split string in array
-        - [ ] join: merge array values in string
+        - [X] join: merge array values in string
         - [ ] left_trim, right_trim, trim: removes whitespaces strings
     - [ ] Array:
         - [ ] size: size of array

@@ -173,13 +173,78 @@ fun str_ends_with_false() {
 
 fun str_join_any_ret() {
   // arrange
-  var v1: any = "12";
   
   // act
-  var res: string = join("12", 34, '5', 67);
+  var res: string = join("12", 34, '5', 6789f);
   
   // assert
-  assert_equals(this, "1234567", res);
+  assert_equals(this, "123456789.000000", res);
+}
+
+fun str_join_any_ret2() {
+  // arrange
+  var v1: any = "12";
+  var v2: any = 34;
+  var v3: any = '5';
+  var v4: any = 6789f;
+  
+  // act
+  var res: string = join(v1, v2, v3, v4);
+  
+  // assert
+  assert_equals(this, "123456789.000000", res);
+}
+
+fun str_join_type_ret() {
+  // arrange
+  var v1: string = "12";
+  var v2: int = 34;
+  var v3: char = '5';
+  var v4: float = 6789;
+  
+  // act
+  var res: string = join(v1, v2, v3, v4);
+  
+  // assert
+  assert_equals(this, "123456789.000000", res);
+}
+
+fun str_join_any_arr() {
+  // arrange
+  
+  // act
+  var res: string = join({"12", 34, '5', 6789f});
+  
+  // assert
+  assert_equals(this, "123456789.000000", res);
+}
+
+fun str_join_any_arr2() {
+  // arrange
+  var v: any = {"12", 34, '5', 6789f};
+  
+  // act
+  var res: string = join(v);
+  
+  // assert
+  assert_equals(this, "123456789.000000", res);
+}
+
+fun str_join_type_arr() {
+  // arrange
+  try {
+    var v[]: string = {"12", 34, '5', 6789f};
+  }
+  catch (var [error]) {
+    println(error);
+  }
+  var v[]: string = {"12", "34", "5", "6789"};
+  
+  // act
+  var res: string = join(v);
+  
+  // assert
+  assert_equals(this, "123456789", res);
 }
 
 fun strings_test_suite() {
@@ -198,4 +263,7 @@ fun strings_test_suite() {
   str_ends_with();
   str_ends_with_false();
   str_join_any_ret();
+  str_join_any_ret2();
+  str_join_type_ret();
+  str_join_any_arr();
 }

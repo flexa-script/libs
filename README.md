@@ -25,7 +25,7 @@
         <!--- [ ] to_string: value to string -->
         - [ ] split: split string in array
         - [X] join: merge array values in string
-        - [ ] left_trim, right_trim, trim: removes whitespaces strings
+        - [X] left_trim, right_trim, trim: removes whitespaces strings
     - [ ] Array:
         - [ ] size: size of array
         - [ ] contains: value is contained in array

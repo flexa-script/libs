@@ -82,10 +82,22 @@ fun join(...args: any): string {
   return ss;
 }
 
-// fun left_trim(str: string): string {
-//   var start = 0;
-//   while (str[start] == ' ') {
-//     start++;
-//   }
-//   return substr(str, start);
-// }
+fun left_trim(str: string): string {
+  var start = 0;
+  while (str[start] == ' ') {
+    start++;
+  }
+  return substr(str, start);
+}
+
+fun right_trim(str: string): string {
+  var end = strlen(str) - 1;
+  while (str[end] == ' ') {
+    end--;
+  }
+  return substr(str, 0, end + 1);
+}
+
+fun trim(str: string): string {
+  return left_trim(right_trim(str));
+}

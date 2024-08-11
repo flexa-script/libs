@@ -232,16 +232,43 @@ fun str_join_any_arr2() {
 
 fun str_join_type_arr() {
   // arrange
-  try {
-    var v[]: string = {"12", 34, '5', 6789f};
-  }
-  catch (var [error]) {
-    println(error);
-  }
   var v[]: string = {"12", "34", "5", "6789"};
   
   // act
   var res: string = join(v);
+  
+  // assert
+  assert_equals(this, "123456789", res);
+}
+
+fun str_left_trim() {
+  // arrange
+  var v: string = "   123456789";
+  
+  // act
+  var res: string = left_trim(v);
+  
+  // assert
+  assert_equals(this, "123456789", res);
+}
+
+fun str_right_trim() {
+  // arrange
+  var v: string = "123456789   ";
+  
+  // act
+  var res: string = right_trim(v);
+  
+  // assert
+  assert_equals(this, "123456789", res);
+}
+
+fun str_trim() {
+  // arrange
+  var v: string = "   123456789   ";
+  
+  // act
+  var res: string = trim(v);
   
   // assert
   assert_equals(this, "123456789", res);
@@ -266,4 +293,8 @@ fun strings_test_suite() {
   str_join_any_ret2();
   str_join_type_ret();
   str_join_any_arr();
+  str_join_type_arr();
+  str_left_trim();
+  str_right_trim();
+  str_trim();
 }

@@ -61,6 +61,28 @@ fun str_substring_endless() {
   assert_equals(this, "67890", res);
 }
 
+fun str_counts() {
+  // arrange
+  var s: string = "1234567890123123";
+  
+  // act
+  var res: int = counts(s, "123");
+  
+  // assert
+  assert_equals(this, 3, res);
+}
+
+fun str_counts_0() {
+  // arrange
+  var s: string = "123456780123123";
+  
+  // act
+  var res: int = counts(s, "9");
+  
+  // assert
+  assert_equals(this, 0, res);
+}
+
 fun str_contains_start() {
   // arrange
   var s: string = "1234567890";
@@ -274,11 +296,24 @@ fun str_trim() {
   assert_equals(this, "123456789", res);
 }
 
+fun str_split_ms() {
+  // arrange
+  var v: string = "123456123789123987123";
+  
+  // act
+  var res[]: string = split(v, "123");
+  
+  // assert
+  assert_equals(this, {"", "456", "789", "987", ""}, res);
+}
+
 fun strings_test_suite() {
   str_size();
   str_substring_start();
   str_substring_midle();
   str_substring_endless();
+  str_counts();
+  str_counts_0();
   str_contains_start();
   str_contains_end();
   str_contains_midle();
@@ -297,4 +332,5 @@ fun strings_test_suite() {
   str_left_trim();
   str_right_trim();
   str_trim();
+  str_split_ms();
 }

@@ -44,6 +44,29 @@ fun contains(str: string, strc: string): bool {
 	return false;
 }
 
+fun counts(str: string, strc: string): int {
+  var str_size = strlen(str);
+  var strc_size = strlen(strc);
+  var start: int = 0;
+  var end: int = strc_size;
+
+  var count: int = 0;
+
+  if (str_size < strc_size) {
+    return count;
+  }
+
+	while (end <= str_size) {
+		if (substr(str, start, end) == strc) {
+      count++;
+    }
+    start++;
+    end++;
+	}
+
+	return count;
+}
+
 fun starts_with(str: string, strc: string): bool {
   var str_size = strlen(str);
   var strc_size = strlen(strc);
@@ -100,4 +123,36 @@ fun right_trim(str: string): string {
 
 fun trim(str: string): string {
   return left_trim(right_trim(str));
+}
+
+fun split(str: string, strc: string): string[] {
+  var str_size = strlen(str);
+  var strc_size = strlen(strc);
+
+  if (str_size < strc_size) {
+    return {};
+  }
+
+  var size: int = counts(str, strc) + 1;
+  var splitted[size]: string = {""};
+  var i: int = 0;
+  var res_i: int = 0;
+  var start: int = 0;
+  var end: int = strc_size;
+
+	while (end <= str_size) {
+		if (substr(str, start, end) == strc) {
+      res_i++;
+      i += strc_size;
+      start += strc_size;
+      end += strc_size;
+    } else {
+      splitted[res_i] += str[i];
+    }
+    i++;
+    start++;
+    end++;
+	}
+
+  return splitted;
 }

@@ -296,15 +296,70 @@ fun str_trim() {
   assert_equals(this, "123456789", res);
 }
 
-fun str_split_ms() {
+fun str_split_multi() {
   // arrange
   var v: string = "123456123789123987123";
   
   // act
-  var res[]: string = split(v, "123");
-  
+  var res[]: any = split(v, "123");
+
   // assert
   assert_equals(this, {"", "456", "789", "987", ""}, res);
+}
+
+fun str_split_single() {
+  // arrange
+  var v: string = "123456123789123987123";
+  
+  // act
+  var res[]: any = split(v, "2");
+
+  // assert
+  assert_equals(this, {"1", "34561", "37891", "39871", "3"}, res);
+}
+
+fun str_split_multi_repeat() {
+  // arrange
+  var v: string = "123456123789123123987123123";
+  
+  // act
+  var res[]: any = split(v, "123");
+
+  // assert
+  assert_equals(this, {"", "456", "789", "", "987", "", ""}, res);
+}
+
+fun str_split_single_repeat() {
+  // arrange
+  var v: string = "12234561237891223987123";
+  
+  // act
+  var res[]: any = split(v, "2");
+
+  // assert
+  assert_equals(this, {"1", "", "34561", "37891", "", "39871", "3"}, res);
+}
+
+fun str_replace_multi() {
+  // arrange
+  var v: string = "123456123789123987123";
+  
+  // act
+  var res: string = replace(v, "123", "999999");
+
+  // assert
+  assert_equals(this, "999999456999999789999999987999999", res);
+}
+
+fun str_replace_single() {
+  // arrange
+  var v: string = "123456123789123987123";
+  
+  // act
+  var res: string = replace(v, "2", "7777");
+
+  // assert
+  assert_equals(this, "177773456177773789177773987177773", res);
 }
 
 fun strings_test_suite() {
@@ -332,5 +387,10 @@ fun strings_test_suite() {
   str_left_trim();
   str_right_trim();
   str_trim();
-  str_split_ms();
+  str_split_multi();
+  str_split_single();
+  str_split_multi_repeat();
+  str_split_single_repeat();
+  str_replace_multi();
+  str_replace_single();
 }

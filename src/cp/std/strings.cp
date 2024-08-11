@@ -4,6 +4,9 @@
 
 namespace cp;
 
+const _LOWER = "abcdefghijklmnopqrstuvwxyzàáâãäèéêëìíîïòóôõöùúüŷç";
+const _UPPER = "ABCDEFGHIJKLMNOPQRSTUVWXYZÀÁÂÃÄÈÉÊËÌÍÎÏÒÓÔÕÖÙÚÜŶÇ";
+
 fun strlen(str: string): int {
   var count: int = 0;
   foreach (var c: char in str) {
@@ -135,7 +138,6 @@ fun split(str: string, strc: string): string[] {
 
   var size: int = counts(str, strc) + 1;
   var splitted[size]: string = {""};
-  var i: int = 0;
   var res_i: int = 0;
   var start: int = 0;
   var end: int = strc_size;
@@ -143,16 +145,43 @@ fun split(str: string, strc: string): string[] {
 	while (end <= str_size) {
 		if (substr(str, start, end) == strc) {
       res_i++;
-      i += strc_size;
       start += strc_size;
       end += strc_size;
-    } else {
-      splitted[res_i] += str[i];
+      continue;
     }
-    i++;
+    splitted[res_i] += str[start];
     start++;
     end++;
 	}
 
   return splitted;
+}
+
+fun replace(str: string, strc: string, strr: string): string {
+  var str_size = strlen(str);
+  var strc_size = strlen(strc);
+  var strr_size = strlen(strr);
+
+  if (str_size < strc_size) {
+    return str;
+  }
+
+  var ss: string = "";
+  var res_i: int = 0;
+  var start: int = 0;
+  var end: int = strc_size;
+
+	while (end <= str_size) {
+		if (substr(str, start, end) == strc) {
+      ss += strr;
+      start += strc_size;
+      end += strc_size;
+      continue;
+    }
+    ss += str[start];
+    start++;
+    end++;
+	}
+
+  return ss;
 }

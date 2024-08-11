@@ -185,3 +185,7 @@ fun replace(str: string, strc: string, strr: string): string {
 
   return ss;
 }
+
+fun to_string(value: any): string {
+  return string(value);
+}

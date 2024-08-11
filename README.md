@@ -21,8 +21,8 @@
         - [X] ends_with, starts_with: string is contained in extremities
         - [X] substring: returns substring
         - [X] replace: replace substring for another
-        - [ ] to_lower, to_upper: capitalize, uncapitalize
-        <!--- [ ] to_string: value to string -->
+        - [ ] to_lower, to_upper
+        - [X] to_string: value to string
         - [X] split: split string in array
         - [X] join: merge array values in string
         - [X] left_trim, right_trim, trim: removes whitespaces strings

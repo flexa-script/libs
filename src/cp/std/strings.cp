@@ -1,4 +1,4 @@
-// string standard lib
+// strings standard lib
 // MIT License
 // Copyright (c) 2024 Carlos Eduardo de Borba Machado
 

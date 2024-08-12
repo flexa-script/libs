@@ -21,14 +21,14 @@
         - [X] ends_with, starts_with: string is contained in extremities
         - [X] substring: returns substring
         - [X] replace: replace substring for another
-        - [ ] to_lower, to_upper
+        - [X] to_lower, to_upper
         - [X] to_string: value to string
         - [X] split: split string in array
         - [X] join: merge array values in string
         - [X] left_trim, right_trim, trim: removes whitespaces strings
     - [ ] Array:
-        - [ ] size: size of array
-        - [ ] contains: value is contained in array
+        - [X] size: size of array
+        - [X] contains: value is contained in array
         - [ ] sorted: sort a list
         - [ ] reversed: reverse a list
     - [ ] Math

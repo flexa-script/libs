@@ -4,6 +4,7 @@
 
 namespace cp;
 
+const _CONVERTER = 32;
 const _LOWER = "abcdefghijklmnopqrstuvwxyzàáâãäèéêëìíîïòóôõöùúüŷç";
 const _UPPER = "ABCDEFGHIJKLMNOPQRSTUVWXYZÀÁÂÃÄÈÉÊËÌÍÎÏÒÓÔÕÖÙÚÜŶÇ";
 
@@ -188,4 +189,25 @@ fun replace(str: string, strc: string, strr: string): string {
 
 fun to_string(value: any): string {
   return string(value);
+}
+
+fun _turn_case(str: string, dir: int = 1): string {
+  var ss: string = "";
+  var str_size = strlen(str);
+  var dict = dir == 1 ? _LOWER : _UPPER;
+  var conv = _CONVERTER * dir;
+  
+  for (var i: int = 0; i < str_size; i++) {
+    ss += str[i] in dict ? char(int(str[i]) - conv) : str[i];
+  }
+
+  return ss;
+}
+
+fun to_upper(str: string): string {
+  return _turn_case(str);
+}
+
+fun to_lower(str: string): string {
+  return _turn_case(str, -1);
 }

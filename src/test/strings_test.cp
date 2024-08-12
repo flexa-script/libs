@@ -362,6 +362,28 @@ fun str_replace_single() {
   assert_equals(this, "177773456177773789177773987177773", res);
 }
 
+fun str_to_upper() {
+  // arrange
+  var v: string = "abcdefghijklmnopqrstuvwxyz";
+  
+  // act
+  var res: string = to_upper(v);
+
+  // assert
+  assert_equals(this, "ABCDEFGHIJKLMNOPQRSTUVWXYZ", res);
+}
+
+fun str_to_lower() {
+  // arrange
+  var v: string = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+  
+  // act
+  var res: string = to_lower(v);
+
+  // assert
+  assert_equals(this, "abcdefghijklmnopqrstuvwxyz", res);
+}
+
 fun strings_test_suite() {
   str_size();
   str_substring_start();
@@ -393,4 +415,6 @@ fun strings_test_suite() {
   str_split_single_repeat();
   str_replace_multi();
   str_replace_single();
+  str_to_upper();
+  str_to_lower();
 }

@@ -7,9 +7,9 @@ using test.strings_test;
 using test.arrays_test;
 
 fun print_test_suite(lib_name: string, test_suite: function) {
-  print("--- Tests of lib <" + lib_name + "> ---\n");
+  println("--- Tests of lib <" + lib_name + "> ---");
   test_suite();
-  print("------------------------------\n");
+  println("------------------------------\n");
 }
 
 fun execute_test_suite() {

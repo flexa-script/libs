@@ -29,8 +29,8 @@
     - [ ] Array:
         - [X] size: size of array
         - [X] contains: value is contained in array
-        - [ ] sorted: sort a list
-        - [ ] reversed: reverse a list
+        - [X] sorted: sort a list
+        - [X] reverse: reverse a list
     - [ ] Math
         - [X] abs: ret absolute value of a number
         - [X] max: return greather from two or more parameters

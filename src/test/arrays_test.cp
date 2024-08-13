@@ -134,6 +134,50 @@ fun not_contains_end_ref() {
   assert_true(this, res);
 }
 
+fun sort_default() {
+  // arrange
+  var arr = {6, 5, 4, 3, 2, 1};
+  
+  // act
+  var res[]: any = sort(arr);
+  
+  // assert
+  assert_equals(this, {1, 2, 3, 4, 5, 6}, res);
+}
+
+fun sort_shuffled() {
+  // arrange
+  var arr = {5, 5, 1, 3, 9, 10, 2, 20, 4, 6, 9, 0, 8, 7};
+  
+  // act
+  var res[]: any = sort(arr);
+  
+  // assert
+  assert_equals(this, {0, 1, 2, 3, 4, 5, 5, 6, 7, 8, 9, 9, 10, 20}, res);
+}
+
+fun reverse_default() {
+  // arrange
+  var arr = {1, 2, 3, 4, 5, 6};
+  
+  // act
+  var res[]: any = reverse(arr);
+  
+  // assert
+  assert_equals(this, {6, 5, 4, 3, 2, 1}, res);
+}
+
+fun reverse_palindrome() {
+  // arrange
+  var arr = {1, 2, 3, 3, 2, 1};
+  
+  // act
+  var res[]: any = reverse(arr);
+  
+  // assert
+  assert_equals(this, {1, 2, 3, 3, 2, 1}, res);
+}
+
 fun arrays_test_suite() {
   calc_arr_size();
   contains();
@@ -146,4 +190,8 @@ fun arrays_test_suite() {
   not_contains_start_ref();
   not_contains_end_ref();
   not_contains_ref();
+  sort_default();
+  sort_shuffled();
+  reverse_default();
+  reverse_palindrome();
 }

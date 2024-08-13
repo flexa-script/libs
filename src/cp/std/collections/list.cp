@@ -1,6 +1,6 @@
 // list standard lib
 // MIT License
-// Copyright (c) 2023 Carlos Eduardo de Borba Machado
+// Copyright (c) 2024 Carlos Eduardo de Borba Machado
 
 namespace cp;
 
@@ -36,9 +36,30 @@ fun add(list: List, value: any) {
     }
 }
 
-fun remove(list: List, index: int): bool {
+fun add(list: List, value: any, index: int) {
     if (index >= list.size) {
-        return false;
+        throw "invalid access position";
+    }
+
+    if (index == 0) {
+        list.first = Node{value=value, next=list.first};
+    } else {
+        var prev_node;
+        var curr_node = list.first;
+
+        for (var i = 0; i < index; i++) {
+            prev_node = curr_node;
+            curr_node = curr_node.next;
+        }
+
+        curr_node.next = Node{value=value, next=curr_node.next};
+    }
+    list.size++;
+}
+
+fun remove(list: List, index: int) {
+    if (index >= list.size) {
+        throw "invalid access position";
     }
 
     if (index == 0) {
@@ -55,8 +76,6 @@ fun remove(list: List, index: int): bool {
         prev_node.next = curr_node.next;
     }
     list.size--;
-
-    return true;
 }
 
 fun get(list: List, index: int): any {

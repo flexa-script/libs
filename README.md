@@ -47,8 +47,9 @@
         - [ ] Queue
         - [ ] Stack
         - [ ] Dict
-    - [ ] JSON (use Dict)
-        - [ ] struct to json
+            - [ ] struct to dict
+            - [ ] dict to json string
+    - [ ] JSON
         - [ ] json_stringfy
         - [ ] json_parse
     - [ ] Util:

@@ -14,16 +14,11 @@ struct List {
     var size: int;
 };
 
-
-def create(): List {
+fun create_list(): List {
     return List{first=null, size=0};
 }
 
-def init(list: List) {
-    list = create();
-}
-
-def add(list: List, value: any) {
+fun add(list: List, value: any) {
     if (list.first == null) {
         list.first = Node{value=value, next=null};
         list.size = 1;
@@ -41,7 +36,7 @@ def add(list: List, value: any) {
     }
 }
 
-def remove(list: List, index: int): bool {
+fun remove(list: List, index: int): bool {
     if (index >= list.size) {
         return false;
     }
@@ -64,7 +59,7 @@ def remove(list: List, index: int): bool {
     return true;
 }
 
-def get(list: List, index: int): any {
+fun get(list: List, index: int): any {
     if (index >= list.size) {
         return null;
     }
@@ -78,15 +73,15 @@ def get(list: List, index: int): any {
     return node.value;
 }
 
-def clear(list: List) {
-    list = create();
+fun clear(list: List) {
+    list = create_list();
 }
 
-def is_empty(list: List): bool {
+fun is_empty(list: List): bool {
     return list.size == 0;
 }
 
-def to_array(list: List): any[] {
+fun to_array(list: List): any[] {
     var arr[list.size]: any = {null};
     var curr_node = list.first;
     for (var i = 0; i < list.size; i++) {
@@ -98,23 +93,4 @@ def to_array(list: List): any[] {
         curr_node = curr_node.next;
     }
     return arr;
-}
-
-def to_string(list: List): string {
-    if (list.first == null) {
-        return "[]";
-    }
-
-    var str: string = "[";
-    var node = list.first;
-    while (node != null) {
-        str += string(node.value);
-        if (node.next != null) {
-            str += ",";
-        }
-        node = node.next;
-    }
-    str += "]";
-
-    return str;
 }

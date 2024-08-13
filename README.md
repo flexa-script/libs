@@ -15,7 +15,7 @@
         - [X] Set font
     - [ ] Web/API
 - [ ] Add CP library:
-    - [ ] String
+    - [X] String
         - [X] size: size of string
         - [X] contains: string is contained in other string
         - [X] ends_with, starts_with: string is contained in extremities
@@ -26,12 +26,12 @@
         - [X] split: split string in array
         - [X] join: merge array values in string
         - [X] left_trim, right_trim, trim: removes whitespaces strings
-    - [ ] Array:
+    - [X] Array:
         - [X] size: size of array
         - [X] contains: value is contained in array
         - [X] sorted: sort a list
         - [X] reverse: reverse a list
-    - [ ] Math
+    - [X] Math
         - [X] abs: ret absolute value of a number
         - [X] max: return greather from two or more parameters
         - [X] min: return lesser from two or more parameters
@@ -43,7 +43,7 @@
         - [X] seed(seed: int)
         - [X] ...
     - [ ] Collections
-        - [ ] List
+        - [X] List
         - [ ] Queue
         - [ ] Stack
         - [ ] Dict

@@ -6,7 +6,7 @@ using cp.std.collections.list;
 
 as namespace cp;
 
-var default_list: List = create_list();
+var default_list: Collection = create_collection();
 add(default_list, 1);
 add(default_list, 2);
 add(default_list, 3);
@@ -16,7 +16,7 @@ add(default_list, 6);
 
 fun list_add() {
   // arrange
-  var list: List = create_list();
+  var list: Collection = create_collection();
   
   // act
   add(list, 1);
@@ -30,7 +30,7 @@ fun list_add() {
 
 fun list_add_position() {
   // arrange
-  var list: List = create_list();
+  var list: Collection = create_collection();
 
   // act
   add(list, 4, 0);
@@ -47,7 +47,7 @@ fun list_add_position() {
 
 fun list_add_position_with_existent() {
   // arrange
-  var list: List = create_list();
+  var list: Collection = create_collection();
   add(list, 1);
   add(list, 3);
   add(list, 5);
@@ -65,7 +65,7 @@ fun list_add_position_with_existent() {
 
 fun list_remove() {
   // arrange
-  var list: List = unref default_list;
+  var list: Collection = unref default_list;
   
   // act
   remove(list, 0);
@@ -109,7 +109,7 @@ fun list_get_end() {
 
 fun list_is_empty() {
   // arrange
-  var list: List = create_list();
+  var list: Collection = create_collection();
   
   // act
   var res: bool = is_empty(list);
@@ -130,7 +130,7 @@ fun list_is_not_empty() {
 
 fun list_is_empty_removed() {
   // arrange
-  var list: List = unref default_list;
+  var list: Collection = unref default_list;
   remove(list, 0);
   remove(list, 0);
   remove(list, 0);
@@ -147,7 +147,7 @@ fun list_is_empty_removed() {
 
 fun list_is_empty_cleared() {
   // arrange
-  var list: List = unref default_list;
+  var list: Collection = unref default_list;
   clear(list);
   
   // act

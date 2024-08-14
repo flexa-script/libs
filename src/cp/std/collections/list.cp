@@ -4,21 +4,9 @@
 
 namespace cp;
 
-struct Node {
-    var value: any;
-    var next: Node;
-};
+using cp.std.collections.collection;
 
-struct List {
-    var first: Node;
-    var size: int;
-};
-
-fun create_list(): List {
-    return List{first=null, size=0};
-}
-
-fun add(list: List, value: any) {
+fun add(list: Collection, value: any) {
     if (list.first == null) {
         list.first = Node{value=value, next=null};
         list.size = 1;
@@ -36,7 +24,7 @@ fun add(list: List, value: any) {
     }
 }
 
-fun add(list: List, value: any, index: int) {
+fun add(list: Collection, value: any, index: int) {
     if (index > list.size) {
         throw "invalid access position";
     }
@@ -57,7 +45,7 @@ fun add(list: List, value: any, index: int) {
     list.size++;
 }
 
-fun remove(list: List, index: int) {
+fun remove(list: Collection, index: int) {
     if (index >= list.size) {
         throw "invalid access position";
     }
@@ -78,7 +66,7 @@ fun remove(list: List, index: int) {
     list.size--;
 }
 
-fun get(list: List, index: int): any {
+fun get(list: Collection, index: int): any {
     if (index >= list.size) {
         return null;
     }
@@ -90,26 +78,4 @@ fun get(list: List, index: int): any {
     }
 
     return node.value;
-}
-
-fun clear(list: List) {
-    list = create_list();
-}
-
-fun is_empty(list: List): bool {
-    return list.size == 0;
-}
-
-fun to_array(list: List): any[] {
-    var arr[list.size]: any = {null};
-    var curr_node = list.first;
-    for (var i = 0; i < list.size; i++) {
-        if (typeof(curr_node.value) == typeof(List)) {
-            arr[i] = to_array(curr_node.value);
-        } else {
-            arr[i] = curr_node.value;
-        }
-        curr_node = curr_node.next;
-    }
-    return arr;
 }

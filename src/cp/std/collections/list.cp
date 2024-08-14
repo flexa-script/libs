@@ -37,7 +37,7 @@ fun add(list: List, value: any) {
 }
 
 fun add(list: List, value: any, index: int) {
-    if (index >= list.size) {
+    if (index > list.size) {
         throw "invalid access position";
     }
 
@@ -47,7 +47,7 @@ fun add(list: List, value: any, index: int) {
         var prev_node;
         var curr_node = list.first;
 
-        for (var i = 0; i < index; i++) {
+        for (var i = 0; i < index - 1; i++) {
             prev_node = curr_node;
             curr_node = curr_node.next;
         }

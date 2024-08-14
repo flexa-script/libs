@@ -35,7 +35,7 @@ fun list_add_position() {
   
   // assert
   assert_equals(this + "[size]", 7, list.size);
-  assert_equals(this + "[content]", {0, 1, 2, 3, 4, 5, 6, 7}, to_array(list));
+  assert_equals(this + "[content]", {0, 1, 2, 3, 4, 5, 6}, to_array(list));
 }
 
 fun list_test_suite() {

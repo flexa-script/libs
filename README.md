@@ -15,7 +15,7 @@
         - [X] Set font
     - [ ] Web/API
 - [ ] Add CP library:
-    - [X] String
+    - [X] Strings
         - [X] size: size of string
         - [X] contains: string is contained in other string
         - [X] ends_with, starts_with: string is contained in extremities
@@ -26,7 +26,7 @@
         - [X] split: split string in array
         - [X] join: merge array values in string
         - [X] left_trim, right_trim, trim: removes whitespaces strings
-    - [X] Array:
+    - [X] Arrays
         - [X] size: size of array
         - [X] contains: value is contained in array
         - [X] sorted: sort a list
@@ -42,30 +42,31 @@
         - [X] randi(from: int, to: int): int
         - [X] seed(seed: int)
         - [X] ...
-    - [ ] Collections
+    - [ ] Collections [null <- first -> , <- item2 -> , <- item3 -> , <- last -> null]
         - [X] Collection
-            - [ ] _add: adds end
-            - [ ] _remove: removes end
-            - [ ] create: create new collection
-            - [ ] create: from array
-            - [ ] clear: delete all items
-            - [ ] is_empty: check if is empty
-            - [ ] to_array: converts to array
+            - [X] _default_add: adds end
+            - [X] _default_get: gets end
+            - [X] _default_remove: removes end
+            - [X] create: create new collection
+            - [X] create: from array
+            - [X] clear: delete all items
+            - [X] is_empty: check if is empty
+            - [X] to_array: converts to array
         - [X] List
-            - [ ] add: adds end
+            - [X] add: _default_add
             - [ ] insert: insert index
-            - [ ] remove: removes end
-            - [ ] remove: delete index
+            - [X] remove: _default_remove
+            - [ ] delete: delete index
             - [ ] get: get index
         - [ ] Queue
-            - [ ] enqueue: adds end
+            - [X] enqueue: _default_add
             - [ ] dequeue: removes from start
-            - [ ] front: gets fisrt
-            - [ ] back: gets last
+            - [X] front: gets fisrt
+            - [X] back: _default_get
         - [ ] Stack
-            - [ ] push: adds end
-            - [ ] pop: removes end
-            - [ ] peek: gets end
+            - [X] push: _default_add
+            - [X] pop: _default_remove
+            - [X] peek: _default_get
         - [ ] Dict
             - [ ] struct to dict
             - [ ] dict to json string

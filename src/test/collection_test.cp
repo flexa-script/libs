@@ -7,12 +7,38 @@ using cp.std.collections.list;
 as namespace cp;
 
 var default_collection: Collection = create_collection();
-add(default_collection, 1);
-add(default_collection, 2);
-add(default_collection, 3);
-add(default_collection, 4);
-add(default_collection, 5);
-add(default_collection, 6);
+_default_add(default_collection, 1);
+_default_add(default_collection, 2);
+_default_add(default_collection, 3);
+_default_add(default_collection, 4);
+_default_add(default_collection, 5);
+_default_add(default_collection, 6);
+
+fun collection_removed() {
+  // arrange
+  var collection: Collection = unref default_collection;
+  
+  // act
+  _default_remove(collection);
+  _default_remove(collection);
+  _default_remove(collection);
+  
+  // assert
+  assert_equals(this, {1, 2, 3}, res);
+}
+
+fun collection_removed_all() {
+  // arrange
+  var collection: Collection = unref default_collection;
+  
+  // act
+  _default_remove(collection);
+  _default_remove(collection);
+  _default_remove(collection);
+  
+  // assert
+  assert_equals(this, {1, 2, 3}, res);
+}
 
 fun collection_is_empty() {
   // arrange
@@ -38,12 +64,12 @@ fun collection_is_not_empty() {
 fun collection_is_empty_removed() {
   // arrange
   var collection: Collection = unref default_collection;
-  remove(collection, 0);
-  remove(collection, 0);
-  remove(collection, 0);
-  remove(collection, 0);
-  remove(collection, 0);
-  remove(collection, 0);
+  _default_remove(collection);
+  _default_remove(collection);
+  _default_remove(collection);
+  _default_remove(collection);
+  _default_remove(collection);
+  _default_remove(collection);
   
   // act
   var res: bool = is_empty(collection);
@@ -65,6 +91,8 @@ fun collection_is_empty_cleared() {
 }
 
 fun collection_test_suite() {
+  collection_removed();
+  collection_removed_all();
   collection_is_empty();
   collection_is_not_empty();
   collection_is_empty_removed();

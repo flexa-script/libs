@@ -7,27 +7,21 @@ namespace cp;
 using cp.std.collections.collection;
 
 fun enqueue(queue: Collection, value: any) {
-    if (queue.first == null) {
-        queue.first = Node{value=value};
-        queue.last = queue.first;
-        queue.size = 1;
-    } else {
-        var last = queue.last;
-        queue.last = Node{value=value, prev=last};
-        last.next = queue.last;
-        queue.size++;
-    }
+    _default_add(queue, value);
 }
 
-fun dequeue(queue: Collection): any {
-    queue.size--;
-    return queue.first;
+fun dequeue(queue: Collection) {
+    
 }
 
 fun front(queue: Collection): any {
+    if (first == null) {
+        throw "Tryed to get from empty collection";
+    }
+
     return queue.first;
 }
 
 fun back(queue: Collection): any {
-    return queue.last;
+    _default_get(stack);
 }

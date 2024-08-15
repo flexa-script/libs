@@ -7,21 +7,13 @@ namespace cp;
 using cp.std.collections.collection;
 
 fun push(stack: Collection, value: any) {
-    if (stack.first == null) {
-        stack.first = Node{value=value, next=null};
-        stack.last = stack.first;
-        stack.size = 1;
-    } else {
-        
-        stack.size++;
-    }
+    _default_add(stack, value);
 }
 
 fun pop(stack: Collection): any {
-    stack.size--;
-    return stack.last;
+    _default_remove(stack);
 }
 
 fun peek(stack: Collection): any {
-    return stack.last;
+    _default_get(stack);
 }

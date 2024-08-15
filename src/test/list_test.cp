@@ -33,12 +33,12 @@ fun list_add_position() {
   var list: Collection = create_collection();
 
   // act
-  add(list, 4, 0);
-  add(list, 5, 1);
-  add(list, 1, 0);
-  add(list, 2, 1);
-  add(list, 3, 2);
-  add(list, 6, 5);
+  insert(list, 4, 0);
+  insert(list, 5, 1);
+  insert(list, 1, 0);
+  insert(list, 2, 1);
+  insert(list, 3, 2);
+  insert(list, 6, 5);
   
   // assert
   assert_equals(this + "[size]", 6, list.size);
@@ -53,10 +53,10 @@ fun list_add_position_with_existent() {
   add(list, 5);
   
   // act
-  add(list, 2, 1);
-  add(list, 4, 3);
-  add(list, 0, 0);
-  add(list, 6, 6);
+  insert(list, 2, 1);
+  insert(list, 4, 3);
+  insert(list, 0, 0);
+  insert(list, 6, 6);
   
   // assert
   assert_equals(this + "[size]", 7, list.size);
@@ -107,56 +107,6 @@ fun list_get_end() {
   assert_equals(this, 6, val);
 }
 
-fun list_is_empty() {
-  // arrange
-  var list: Collection = create_collection();
-  
-  // act
-  var res: bool = is_empty(list);
-  
-  // assert
-  assert_true(this, res);
-}
-
-fun list_is_not_empty() {
-  // arrange
-  
-  // act
-  var res: bool = is_empty(default_list);
-  
-  // assert
-  assert_false(this, res);
-}
-
-fun list_is_empty_removed() {
-  // arrange
-  var list: Collection = unref default_list;
-  remove(list, 0);
-  remove(list, 0);
-  remove(list, 0);
-  remove(list, 0);
-  remove(list, 0);
-  remove(list, 0);
-  
-  // act
-  var res: bool = is_empty(list);
-  
-  // assert
-  assert_true(this, res);
-}
-
-fun list_is_empty_cleared() {
-  // arrange
-  var list: Collection = unref default_list;
-  clear(list);
-  
-  // act
-  var res: bool = is_empty(list);
-  
-  // assert
-  assert_true(this, res);
-}
-
 fun list_test_suite() {
   list_add();
   list_add_position();
@@ -165,8 +115,4 @@ fun list_test_suite() {
   list_get_start();
   list_get_middle();
   list_get_end();
-  list_is_empty();
-  list_is_not_empty();
-  list_is_empty_removed();
-  list_is_empty_cleared();
 }

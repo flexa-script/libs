@@ -24,7 +24,7 @@ fun add(list: Collection, value: any) {
     }
 }
 
-fun add(list: Collection, value: any, index: int) {
+fun insert(list: Collection, value: any, index: int) {
     if (index > list.size) {
         throw "invalid access position";
     }

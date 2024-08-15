@@ -43,9 +43,29 @@
         - [X] seed(seed: int)
         - [X] ...
     - [ ] Collections
+        - [X] Collection
+            - [ ] _add: adds end
+            - [ ] _remove: removes end
+            - [ ] create: create new collection
+            - [ ] create: from array
+            - [ ] clear: delete all items
+            - [ ] is_empty: check if is empty
+            - [ ] to_array: converts to array
         - [X] List
+            - [ ] add: adds end
+            - [ ] insert: insert index
+            - [ ] remove: removes end
+            - [ ] remove: delete index
+            - [ ] get: get index
         - [ ] Queue
+            - [ ] enqueue: adds end
+            - [ ] dequeue: removes from start
+            - [ ] front: gets fisrt
+            - [ ] back: gets last
         - [ ] Stack
+            - [ ] push: adds end
+            - [ ] pop: removes end
+            - [ ] peek: gets end
         - [ ] Dict
             - [ ] struct to dict
             - [ ] dict to json string

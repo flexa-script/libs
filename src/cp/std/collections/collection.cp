@@ -17,31 +17,24 @@ struct Collection {
 };
 
 fun _default_add(collection: Collection, value: any) {
-    if (collection.size == 0) {
+    if (collection.first == null) {
         collection.first = Node{value=value, next=null, prev=null};
         collection.last = collection.first;
+		collection.last.value *= 10;
         collection.size = 1;
-        // println("if ", collection);
-    } else if (collection.size == 1) {
-        var old_last = collection.last;
-        println("old_last ", old_last);
-        println("collection.last ", collection.last);
-        collection.last = Node{value=value, prev=old_last, next=null};
-        collection.first.next = collection.last;
-        collection.last.prev = collection.first;
+		println("1 curr coll: ", collection);
+	} else if (ref collection.first == ref collection.last) {
+		var new_node = Node{value=value, prev=collection.first, next=null};
+        collection.first.next = new_node;
+		collection.last = new_node;
         collection.size = 2;
-        // println("else ", collection);
+		println("2 curr coll: ", collection);
     } else {
-        var old_last = collection.last;
-        println("old_last ", old_last);
-        println("collection.last ", collection.last);
-        collection.last = Node{value=value, prev=old_last, next=null};
-        old_last.next = collection.last;
-        collection.last.prev = old_last;
+		var new_node = Node{value=value, prev=collection.last.prev, next=null};
+        collection.last.next = new_node;
         collection.size++;
-        // println("else ", collection);
+		println("3 curr coll: ", collection);
     }
-        // println("collection.size ", collection.size);
 }
 
 fun _default_get(collection: Collection): any {
@@ -76,13 +69,12 @@ fun is_empty(collection: Collection): bool {
 }
 
 fun to_array(collection: Collection): any[] {
-  // println("1 ",collection);
+  println("1 ",collection);
     var arr[collection.size]: any = {null};
     var curr_node = collection.first;
-    // println("2 ",curr_node);
     for (var i = 0; i < collection.size; i++) {
-      // println("2.5 ",curr_node);
-      //   println("i ", i);
+      println("2 ",curr_node);
+        println("i ", i);
         if (typeof(curr_node.value) == typeof(Collection)) {
             arr[i] = to_array(curr_node.value);
         } else {

@@ -10,10 +10,10 @@ fun push(stack: Collection, value: any) {
     _default_add(stack, value);
 }
 
-fun pop(stack: Collection): any {
+fun pop(stack: Collection) {
     _default_remove(stack);
 }
 
 fun peek(stack: Collection): any {
-    _default_get(stack);
+    return _default_get(stack);
 }

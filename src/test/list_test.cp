@@ -63,14 +63,14 @@ fun list_add_position_with_existent() {
   assert_equals(this + "[content]", {0, 1, 2, 3, 4, 5, 6}, to_array(list));
 }
 
-fun list_remove() {
+fun list_delete() {
   // arrange
   var list: Collection = unref default_list;
   
   // act
-  remove(list, 0);
-  remove(list, 4);
-  remove(list, 1);
+  delete(list, 0);
+  delete(list, 4);
+  delete(list, 1);
   
   // assert
   assert_equals(this + "[size]", 3, list.size);
@@ -111,7 +111,7 @@ fun list_test_suite() {
   list_add();
   list_add_position();
   list_add_position_with_existent();
-  list_remove();
+  list_delete();
   list_get_start();
   list_get_middle();
   list_get_end();

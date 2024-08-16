@@ -15,7 +15,7 @@ fun dequeue(queue: Collection) {
 }
 
 fun front(queue: Collection): any {
-    if (first == null) {
+    if (queue.first == null) {
         throw "Tryed to get from empty collection";
     }
 
@@ -23,5 +23,5 @@ fun front(queue: Collection): any {
 }
 
 fun back(queue: Collection): any {
-    _default_get(stack);
+    return _default_get(queue);
 }

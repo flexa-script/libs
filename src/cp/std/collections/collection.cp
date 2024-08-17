@@ -20,20 +20,21 @@ fun _default_add(collection: Collection, value: any) {
     if (collection.first == null) {
         collection.first = Node{value=value, next=null, prev=null};
         collection.last = collection.first;
-		collection.last.value *= 10;
+		// collection.last.value *= 10;
         collection.size = 1;
-		println("1 curr coll: ", collection);
+		// println("1 curr coll: ", collection);
 	} else if (ref collection.first == ref collection.last) {
 		var new_node = Node{value=value, prev=collection.first, next=null};
         collection.first.next = new_node;
 		collection.last = new_node;
         collection.size = 2;
-		println("2 curr coll: ", collection);
+		// println("2 curr coll: ", collection);
     } else {
-		var new_node = Node{value=value, prev=collection.last.prev, next=null};
+		var new_node = Node{value=value, prev=collection.last, next=null};
         collection.last.next = new_node;
+		collection.last = new_node;
         collection.size++;
-		println("3 curr coll: ", collection);
+		// println("3 curr coll: ", collection);
     }
 }
 
@@ -49,11 +50,14 @@ fun _default_remove(collection: Collection) {
     if (collection.first == null) {
         throw "Tryed to remove from empty collection";
     }
-
-    var old_last = collection.last;
-
-    collection.last = old_last.prev;
-    collection.last.next = null;
+	if(collection.size == 1){
+		collection.first = null;
+		collection.last = null;
+	} else {
+		collection.last = collection.last.prev;
+		collection.last.next = null;
+	}
+	collection.size--;
 }
 
 fun create_collection(): Collection {
@@ -69,12 +73,12 @@ fun is_empty(collection: Collection): bool {
 }
 
 fun to_array(collection: Collection): any[] {
-  println("1 ",collection);
+//   println("1 ",collection);
     var arr[collection.size]: any = {null};
     var curr_node = collection.first;
     for (var i = 0; i < collection.size; i++) {
-      println("2 ",curr_node);
-        println("i ", i);
+    //   println("2 ",curr_node);
+    //     println("i ", i);
         if (typeof(curr_node.value) == typeof(Collection)) {
             arr[i] = to_array(curr_node.value);
         } else {

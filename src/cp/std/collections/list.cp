@@ -15,8 +15,16 @@ fun insert(list: Collection, value: any, index: int) {
         throw "invalid access position";
     }
 
+    if (index == list.size) {
+        _default_add(list, value);
+        return;
+    }
+
     if (index == 0) {
-        list.first = Node{value=value, next=list.first};
+        var new_node = Node{value=value, next=list.first};
+        new_node.next.prev = new_node;
+        list.first = new_node;
+        list.size = 1;
     } else {
         var prev_node;
         var curr_node = list.first;
@@ -26,9 +34,11 @@ fun insert(list: Collection, value: any, index: int) {
             curr_node = curr_node.next;
         }
 
-        curr_node.next = Node{value=value, next=curr_node.next};
+        var new_node = Node{value=value, next=curr_node.next};
+        curr_node.next.prev = new_node;
+        curr_node.next = new_node;
+        list.size++;
     }
-    list.size++;
 }
 
 fun remove(list: Collection) {
@@ -52,6 +62,7 @@ fun delete(list: Collection, index: int) {
         }
 
         prev_node.next = curr_node.next;
+        curr_node.next.prev = prev_node;
     }
     list.size--;
 }
@@ -64,6 +75,7 @@ fun get(list: Collection, index: int): any {
     var node = list.first;
 
     for (var i = 0; i < index; i++) {
+        println("node ",node);
         node = node.next;
     }
 

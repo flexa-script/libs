@@ -24,7 +24,6 @@ fun insert(list: Collection, value: any, index: int) {
         var new_node = Node{value=value, next=list.first};
         new_node.next.prev = new_node;
         list.first = new_node;
-        list.size = 1;
     } else {
         var prev_node;
         var curr_node = list.first;
@@ -37,8 +36,8 @@ fun insert(list: Collection, value: any, index: int) {
         var new_node = Node{value=value, next=curr_node.next};
         curr_node.next.prev = new_node;
         curr_node.next = new_node;
-        list.size++;
     }
+    list.size++;
 }
 
 fun remove(list: Collection) {
@@ -53,16 +52,20 @@ fun delete(list: Collection, index: int) {
     if (index == 0) {
         list.first = list.first.next;
     } else {
-        var prev_node;
+        // var prev_node;
         var curr_node = list.first;
 
         for (var i = 0; i < index; i++) {
-            prev_node = curr_node;
+            // prev_node = curr_node;
             curr_node = curr_node.next;
         }
 
-        prev_node.next = curr_node.next;
-        curr_node.next.prev = prev_node;
+        var prev_node = curr_node.prev;
+        var next_node = curr_node.next;
+        prev_node.next = next_node;
+        if (next_node != null) {
+            next_node.prev = prev_node;
+        }
     }
     list.size--;
 }
@@ -75,7 +78,6 @@ fun get(list: Collection, index: int): any {
     var node = list.first;
 
     for (var i = 0; i < index; i++) {
-        println("node ",node);
         node = node.next;
     }
 

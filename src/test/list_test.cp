@@ -91,6 +91,7 @@ fun list_get_middle() {
   // arrange
   
   // act
+  println("default_list ", to_array(default_list));
   var val: int = get(default_list, 2);
   
   // assert

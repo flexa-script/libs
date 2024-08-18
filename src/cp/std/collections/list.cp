@@ -52,11 +52,9 @@ fun delete(list: Collection, index: int) {
     if (index == 0) {
         list.first = list.first.next;
     } else {
-        // var prev_node;
         var curr_node = list.first;
 
         for (var i = 0; i < index; i++) {
-            // prev_node = curr_node;
             curr_node = curr_node.next;
         }
 

@@ -81,3 +81,12 @@ fun to_array(collection: Collection): any[] {
     }
     return arr;
 }
+
+fun copy(collection: Collection): Collection {
+    var copy = Collection{};
+	var arr = to_array(collection);
+    foreach (var v in arr) {
+		_default_add(copy, v);
+	}
+	return copy;
+}

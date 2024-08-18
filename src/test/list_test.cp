@@ -65,7 +65,7 @@ fun list_add_position_with_existent() {
 
 fun list_delete() {
   // arrange
-  var list: Collection = unref default_list;
+  var list: Collection = copy(default_list);
   
   // act
   delete(list, 0);
@@ -91,7 +91,6 @@ fun list_get_middle() {
   // arrange
   
   // act
-  println("default_list ", to_array(default_list));
   var val: int = get(default_list, 2);
   
   // assert

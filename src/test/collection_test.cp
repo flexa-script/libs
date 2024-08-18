@@ -17,7 +17,7 @@ _default_add(default_collection, 6);
 fun collection_removed() {
   // arrange
   var collection: Collection = unref default_collection;
-  // println(collection);
+  
   // act
   _default_remove(collection);
   _default_remove(collection);

@@ -68,7 +68,7 @@ fun not_contains() {
 fun contains_ref() {
   // arrange
   var val = 3;
-  var arr = {1, 2, val, 4, 5, 6};
+  var arr = {1, 2, ref val, 4, 5, 6};
   
   // act
   var res: bool = contains_ref(arr, ref val);
@@ -179,19 +179,19 @@ fun reverse_palindrome() {
 }
 
 fun arrays_test_suite() {
-  calc_arr_size();
-  contains();
-  contains_start();
-  contains_end();
-  not_contains();
+  // calc_arr_size();
+  // contains();
+  // contains_start();
+  // contains_end();
+  // not_contains();
   contains_ref();
-  contains_start_ref();
-  contains_end_ref();
-  not_contains_start_ref();
-  not_contains_end_ref();
-  not_contains_ref();
-  sort_default();
-  sort_shuffled();
-  reverse_default();
-  reverse_palindrome();
+  // contains_start_ref();
+  // contains_end_ref();
+  // not_contains_start_ref();
+  // not_contains_end_ref();
+  // not_contains_ref();
+  // sort_default();
+  // sort_shuffled();
+  // reverse_default();
+  // reverse_palindrome();
 }

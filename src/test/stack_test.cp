@@ -30,7 +30,7 @@ fun stack_push() {
 
 fun stack_pop() {
   // arrange
-  var stack: Collection = unref default_stack;
+  var stack: Collection = copy(default_stack);
   
   // act
   pop(stack);
@@ -46,7 +46,7 @@ fun stack_peek() {
   // arrange
   
   // act
-  var val: int = back(default_stack);
+  var val: int = peek(default_stack);
   
   // assert
   assert_equals(this, 6, val);
@@ -54,6 +54,6 @@ fun stack_peek() {
 
 fun stack_test_suite() {
   stack_push();
-  // stack_pop();
-  // stack_peek();
+  stack_pop();
+  stack_peek();
 }

@@ -7,22 +7,20 @@ namespace cp;
 using cp.core.math;
 using cp.std.collections.list;
 
-struct Dict {
-    var order: List;
+struct Hashtable {
     var keys[MAX_VALUE]: string;
     var values[MAX_VALUE]: any;
 };
 
 
-def dict_create(): Dict {
-    return Dict{order=list_create(), keys={null}, values={null}};
+def hashtable_create(): Hashtable {
+    return Hashtable{keys={null}, values={null}};
 }
 
-def assign(dict: Dict, key: string, value: any) {
+def put(dict: Dict, key: string, value: any) {
     var h = hash(key);
     dict.keys[h] = key;
     dict.values[h] = value;
-    add(dict.order, h);
 }
 
 def delete(dict: Dict, key: string): bool {
@@ -32,7 +30,6 @@ def delete(dict: Dict, key: string): bool {
     }
     dict.keys[h] = null;
     dict.values[h] = null;
-    remove_value(dict.order, h);
 
     return true;
 }
@@ -52,11 +49,7 @@ def get(list: List, index: int): any {
 }
 
 def clear(list: List) {
-    list = create();
-}
-
-def is_empty(list: List): bool {
-    return list.size == 0;
+    list = hashtable_create();
 }
 
 def to_array(dict: Dict): any[] {

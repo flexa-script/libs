@@ -6,27 +6,37 @@ namespace cp;
 
 using cp.std.collections.collection;
 
-fun add(list: Collection, value: any) {
-    _default_add(list, value);
+struct List {
+    var collection: Collection;
+};
+
+fun create_list() {
+    return List{collection=create_collection()};
 }
 
-fun insert(list: Collection, value: any, index: int) {
-    if (index > list.size) {
+fun add(list: List, value: any) {
+    _default_add(list.collection, value);
+}
+
+fun insert(list: List, value: any, index: int) {
+    var collection = list.collection;
+
+    if (index > collection.size) {
         throw "invalid access position";
     }
 
-    if (index == list.size) {
-        _default_add(list, value);
+    if (index == collection.size) {
+        _default_add(collection, value);
         return;
     }
 
     if (index == 0) {
-        var new_node = Node{value=value, next=list.first};
+        var new_node = Node{value=value, next=collection.first};
         new_node.next.prev = new_node;
-        list.first = new_node;
+        collection.first = new_node;
     } else {
         var prev_node;
-        var curr_node = list.first;
+        var curr_node = collection.first;
 
         for (var i = 0; i < index - 1; i++) {
             prev_node = curr_node;
@@ -37,22 +47,24 @@ fun insert(list: Collection, value: any, index: int) {
         curr_node.next.prev = new_node;
         curr_node.next = new_node;
     }
-    list.size++;
+    collection.size++;
 }
 
-fun remove(list: Collection) {
-    _default_remove(list);
+fun remove(list: List) {
+    _default_remove(list.collection);
 }
 
-fun delete(list: Collection, index: int) {
-    if (index >= list.size) {
+fun delete(list: List, index: int) {
+    var collection = list.collection;
+
+    if (index >= collection.size) {
         throw "invalid access position";
     }
 
     if (index == 0) {
-        list.first = list.first.next;
+        collection.first = collection.first.next;
     } else {
-        var curr_node = list.first;
+        var curr_node = collection.first;
 
         for (var i = 0; i < index; i++) {
             curr_node = curr_node.next;
@@ -65,19 +77,33 @@ fun delete(list: Collection, index: int) {
             next_node.prev = prev_node;
         }
     }
-    list.size--;
+    collection.size--;
 }
 
-fun get(list: Collection, index: int): any {
-    if (index >= list.size) {
+fun get(list: List, index: int): any {
+    var collection = list.collection;
+
+    if (index >= collection.size) {
         return null;
     }
 
-    var node = list.first;
+    var node = collection.first;
 
     for (var i = 0; i < index; i++) {
         node = node.next;
     }
 
     return node.value;
+}
+
+fun size(list: List): int {
+    return list.collection.size;
+}
+
+fun to_array(list: List): any[] {
+    return to_array(list.collection);
+}
+
+fun copy(list: List): List {
+    return List{collection=copy(list.collection)};
 }

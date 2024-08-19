@@ -30,7 +30,7 @@ fun queue_enqueue() {
 
 fun queue_dequeue() {
   // arrange
-  var queue: Collection = unref default_queue;
+  var queue: Collection = copy(default_queue);
   
   // act
   dequeue(queue);
@@ -64,7 +64,7 @@ fun queue_back() {
 
 fun queue_test_suite() {
   queue_enqueue();
-  // queue_dequeue();
-  // queue_front();
-  // queue_back();
+  queue_dequeue();
+  queue_front();
+  queue_back();
 }

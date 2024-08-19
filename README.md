@@ -42,7 +42,7 @@
         - [X] randi(from: int, to: int): int
         - [X] seed(seed: int)
         - [X] ...
-    - [ ] Collections [null <- first -> , <- item2 -> , <- item3 -> , <- last -> null]
+    - [ ] Collections [null (<- first ->) , (<- item2 ->) , (<- item3 ->) , (<- last ->) null]
         - [X] Collection
             - [X] _default_add: adds end
             - [X] _default_get: gets end
@@ -54,16 +54,16 @@
             - [X] to_array: converts to array
         - [X] List
             - [X] add: _default_add
-            - [ ] insert: insert index
+            - [X] insert: insert index
             - [X] remove: _default_remove
-            - [ ] delete: delete index
-            - [ ] get: get index
-        - [ ] Queue
+            - [X] delete: delete index
+            - [X] get: get index
+        - [X] Queue
             - [X] enqueue: _default_add
-            - [ ] dequeue: removes from start
+            - [X] dequeue: removes from start
             - [X] front: gets fisrt
             - [X] back: _default_get
-        - [ ] Stack
+        - [X] Stack
             - [X] push: _default_add
             - [X] pop: _default_remove
             - [X] peek: _default_get

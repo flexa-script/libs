@@ -11,7 +11,12 @@ fun enqueue(queue: Collection, value: any) {
 }
 
 fun dequeue(queue: Collection) {
-    
+    if (queue.first == null) {
+        throw "Tryed dequeue from empty collection";
+    }
+
+    queue.first = queue.first.next;
+    queue.size--;
 }
 
 fun front(queue: Collection): any {
@@ -19,7 +24,7 @@ fun front(queue: Collection): any {
         throw "Tryed to get from empty collection";
     }
 
-    return queue.first;
+    return queue.first.value;
 }
 
 fun back(queue: Collection): any {

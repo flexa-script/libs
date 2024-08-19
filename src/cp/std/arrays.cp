@@ -14,7 +14,7 @@ fun size(arr[]: any): int {
 
 fun contains(arr[]: any, cval: any): bool {
   foreach (var v in arr) {
-    if (unref v == unref cval) {
+    if (v == cval) {
       return true;
     }
   }

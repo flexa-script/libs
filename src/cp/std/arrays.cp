@@ -21,15 +21,6 @@ fun contains(arr[]: any, cval: any): bool {
   return false;
 }
 
-fun contains_ref(arr[]: any, cval: any): bool {
-  foreach (var v in arr) {
-    if (ref v == ref cval) {
-      return true;
-    }
-  }
-  return false;
-}
-
 fun sort(arr[]: any): any[] {
   var arr_size = size(arr);
   for (var j = 0; j < arr_size; j++) {

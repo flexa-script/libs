@@ -16,6 +16,10 @@ struct Collection {
     var size: int;
 };
 
+fun create_collection(): Collection {
+    return Collection{first=null, last=null, size=0};
+}
+
 fun _default_add(collection: Collection, value: any) {
     if (collection.first == null) {
         collection.first = Node{value=value, next=null, prev=null};
@@ -56,8 +60,22 @@ fun _default_remove(collection: Collection) {
 	collection.size--;
 }
 
-fun create_collection(): Collection {
-    return Collection{first=null, last=null, size=0};
+fun exists(collection: Collection, value: any, comparator: function = null) {
+    var current = collection.first;
+
+    while (current != null) {
+        if (comparator != null) {
+            if (comparator(current.value, value)) {
+                return true;
+            }
+        } else {
+            if (current.value == value) {
+                return true;
+            }
+        }
+    }
+
+    return false;
 }
 
 fun clear(collection: Collection) {

@@ -9,6 +9,7 @@ using test.collection_test;
 using test.list_test;
 using test.queue_test;
 using test.stack_test;
+using test.dictionary_test;
 
 fun print_test_suite(lib_name: string, test_suite: function) {
   println("--- Tests of lib <" + lib_name + "> ---");
@@ -25,4 +26,5 @@ fun execute_test_suite() {
   print_test_suite("list", list_test_suite);
   print_test_suite("queue", queue_test_suite);
   print_test_suite("stack", stack_test_suite);
+  print_test_suite("dictionary", dictionary_test_suite);
 }

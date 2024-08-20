@@ -6,7 +6,7 @@ using cp.std.collections.stack;
 
 as namespace cp;
 
-var default_stack: Collection = create_collection();
+var default_stack: Stack = create_stack();
 push(default_stack, 1);
 push(default_stack, 2);
 push(default_stack, 3);
@@ -16,7 +16,7 @@ push(default_stack, 6);
 
 fun stack_push() {
   // arrange
-  var stack: Collection = create_collection();
+  var stack: Stack = create_stack();
   
   // act
   push(stack, 1);
@@ -24,13 +24,13 @@ fun stack_push() {
   push(stack, 3);
   
   // assert
-  assert_equals(this + "[size]", 3, stack.size);
+  assert_equals(this + "[size]", 3, size(stack));
   assert_equals(this + "[content]", {1, 2, 3}, to_array(stack));
 }
 
 fun stack_pop() {
   // arrange
-  var stack: Collection = copy(default_stack);
+  var stack: Stack = copy(default_stack);
   
   // act
   pop(stack);
@@ -38,7 +38,7 @@ fun stack_pop() {
   pop(stack);
   
   // assert
-  assert_equals(this + "[size]", 3, stack.size);
+  assert_equals(this + "[size]", 3, size(stack));
   assert_equals(this + "[content]", {1, 2, 3}, to_array(stack));
 }
 

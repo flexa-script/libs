@@ -10,7 +10,7 @@ struct List {
     var collection: Collection;
 };
 
-fun create_list() {
+fun create_list(): List {
     return List{collection=create_collection()};
 }
 
@@ -94,6 +94,10 @@ fun get(list: List, index: int): any {
     }
 
     return node.value;
+}
+
+fun exists(list: List, value: any, comparator: function = null) {
+    return exists(list.collection, value, comparator);
 }
 
 fun size(list: List): int {

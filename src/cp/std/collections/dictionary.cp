@@ -22,17 +22,28 @@ struct Dictionary {
     var size: int;
 };
 
+fun create_dictionary(): Dictionary {
+    return Dictionary{root=null, size=0};
+}
+
 fun put(dict: Dictionary, key: any, value: any) {
+    // println(this);
+    // println("dict=", dict);
     var str_key = string(key);
     var h = hash(str_key);
+    // println("str_key=", str_key);
+    // println("h=", h);
 
     var new_node = DictionaryNode{key=key, key_hash=h, value=value, left=null, right=null};
+    // println("new_node=", new_node);
 
     if (dict.root == null) {
+        // println("adding first");
         dict.root = new_node;
         dict.size = 1;
         return;
     }
+    // println("dict.root=",dict.root);
 
     var prev = dict.root;
     var current = dict.root;
@@ -62,6 +73,10 @@ fun put(dict: Dictionary, key: any, value: any) {
     }
 
     dict.size++;
+}
+
+fun size(dict: Dictionary): int {
+    return dict.size;
 }
 
 fun _pair_comparator(rval: Pair, lval: Pair) {

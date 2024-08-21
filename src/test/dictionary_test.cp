@@ -19,9 +19,9 @@ fun dict_put() {
   var dict: Dictionary = create_dictionary();
   
   // act
-  put(default_dict, "one", 1);
-  put(default_dict, "two", 2);
-  put(default_dict, "three", 3);
+  put(dict, "one", 1);
+  put(dict, "two", 2);
+  put(dict, "three", 3);
   
   // assert
   assert_equals(this + "[size]", 3, size(dict));
@@ -52,7 +52,7 @@ fun dict_put() {
 //   assert_equals(this, 6, val);
 // }
 
-fun dict_test_suite() {
+fun dictionary_test_suite() {
   dict_put();
   // dict_pop();
   // dict_peek();

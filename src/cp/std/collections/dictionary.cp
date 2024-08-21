@@ -13,12 +13,12 @@ struct DictionaryNode {
     var value: any;
     var key: any;
     var key_hash: int;
-    var left: Node;
-    var right: Node;
+    var left: DictionaryNode;
+    var right: DictionaryNode;
 };
 
 struct Dictionary {
-    var root: Node;
+    var root: DictionaryNode;
     var size: int;
 };
 
@@ -39,7 +39,7 @@ fun put(dict: Dictionary, key: any, value: any) {
     var right = false;
 
     while (current != null) {
-        if (unref str_key == unref current.key) {
+        if (unref key == unref current.key) {
             current.key = new_node.key;
             current.key_hash = new_node.key_hash;
             current.value = new_node.value;
@@ -74,14 +74,24 @@ fun to_array(dict: Dictionary): any[] {
     var current = dict.root;
 
     while (current != null) {
-        if (not exists(visited_list, current, _pair_comparator)) {
-            push(current_stack, current);
-            add(visited_list, Pair{key=current.key, value=current.value});
+        var current_pair = Pair{key=current.key, value=current.value};
+        var current_left_pair = null;
+        var current_right_pair = null;
+        if (current.left != null) {
+            current_left_pair = Pair{key=current.left.key};
+        }
+        if (current.right != null) {
+            current_right_pair = Pair{key=current.right.key};
         }
 
-        if (current.left != null and not exists(visited_list, current.left, _pair_comparator)) {
+        if (not exists(visited_list, current_pair, _pair_comparator)) {
+            push(current_stack, current);
+            add(visited_list, current_pair);
+        }
+
+        if (current.left != null and not exists(visited_list, current_left_pair, _pair_comparator)) {
             current = current.left;
-        } else if (current.right and not exists(visited_list, current.right, _pair_comparator)) {
+        } else if (current.right != null and not exists(visited_list, current_right_pair, _pair_comparator)) {
             current = current.right;
         } else {
             pop(current_stack);

@@ -14,33 +14,48 @@ put(default_dict, "four", 4);
 put(default_dict, "five", 5);
 put(default_dict, "six", 6);
 
-fun dict_put() {
-  // arrange
-  var dict: Dictionary = create_dictionary();
-  
-  // act
-  put(dict, "one", 1);
-  put(dict, "two", 2);
-  put(dict, "three", 3);
-  
-  // assert
-  assert_equals(this + "[size]", 3, size(dict));
-  assert_equals(this + "[content]", {Pair{key="one", value=1}, Pair{key="two", value=2}, Pair{key="three", value=3}}, to_array(dict));
+fun _arr_pair_comparator(rval[]: Pair, lval[]: Pair) {
+	if (len(rval) != len(lval)) {
+		return false;
+	}
+    for (var i = 0; i < len(rval); i++) {
+		if (lval[i] == null or rval[i] == null) {
+			return false;
+		}
+		if (rval[i].key != lval[i].key) {
+			return false;
+		}
+    }
+    return true;
 }
 
-// fun dict_pop() {
-//   // arrange
-//   var dict: Dictionary = copy(default_dict);
-  
-//   // act
-//   pop(dict);
-//   pop(dict);
-//   pop(dict);
-  
-//   // assert
-//   assert_equals(this + "[size]", 3, dict.size);
-//   assert_equals(this + "[content]", {1, 2, 3}, to_array(dict));
-// }
+fun dict_put() {
+	// arrange
+	var dict: Dictionary = create_dictionary();
+	
+	// act
+	put(dict, "one", 1);
+	put(dict, "two", 2);
+	put(dict, "three", 3);
+	
+	// assert
+	assert_equals(this + "[size]", 3, size(dict));
+	assert_equals(this + "[content]", {Pair{key="one", value=1}, Pair{key="two", value=2}, Pair{key="three", value=3}}, to_array(dict), _arr_pair_comparator);
+}
+
+fun dict_pop() {
+	// arrange
+	var dict: Dictionary = copy(default_dict);
+	
+	// act
+	pop(dict);
+	pop(dict);
+	pop(dict);
+	
+	// assert
+	assert_equals(this + "[size]", 3, dict.size);
+	assert_equals(this + "[content]", {Pair{key="one", value=1}, Pair{key="two", value=2}, Pair{key="three", value=3}}, to_array(dict), _arr_pair_comparator);
+}
 
 // fun dict_peek() {
 //   // arrange

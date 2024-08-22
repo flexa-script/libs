@@ -51,7 +51,11 @@ fun insert(list: List, value: any, index: int) {
 }
 
 fun remove(list: List) {
-    _default_remove(list.collection);
+    try {
+        _default_remove(list.collection);
+    } catch (...) {
+        throw "Tryed to remove from empty list";
+    }
 }
 
 fun delete(list: List, index: int) {
@@ -84,7 +88,7 @@ fun get(list: List, index: int): any {
     var collection = list.collection;
 
     if (index >= collection.size) {
-        return null;
+        throw "invalid access position";
     }
 
     var node = collection.first;

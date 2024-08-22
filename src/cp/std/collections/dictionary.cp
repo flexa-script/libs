@@ -27,23 +27,16 @@ fun create_dictionary(): Dictionary {
 }
 
 fun put(dict: Dictionary, key: any, value: any) {
-    // println(this);
-    // println("dict=", dict);
     var str_key = string(key);
     var h = hash(str_key);
-    // println("str_key=", str_key);
-    // println("h=", h);
 
     var new_node = DictionaryNode{key=key, key_hash=h, value=value, left=null, right=null};
-    // println("new_node=", new_node);
 
     if (dict.root == null) {
-        // println("adding first");
         dict.root = new_node;
         dict.size = 1;
         return;
     }
-    // println("dict.root=",dict.root);
 
     var prev = dict.root;
     var current = dict.root;
@@ -75,8 +68,16 @@ fun put(dict: Dictionary, key: any, value: any) {
     dict.size++;
 }
 
+fun clear(dict: Dictionary) {
+    dict = create_dictionary();
+}
+
 fun size(dict: Dictionary): int {
     return dict.size;
+}
+
+fun is_empty(dict: Dictionary): bool {
+    return dict.size == 0;
 }
 
 fun _pair_comparator(rval: Pair, lval: Pair) {
@@ -103,16 +104,24 @@ fun to_array(dict: Dictionary): any[] {
             push(current_stack, current);
             add(visited_list, current_pair);
         }
-
         if (current.left != null and not exists(visited_list, current_left_pair, _pair_comparator)) {
             current = current.left;
         } else if (current.right != null and not exists(visited_list, current_right_pair, _pair_comparator)) {
             current = current.right;
         } else {
             pop(current_stack);
-            current = peek(current_stack);
+            current = size(current_stack) > 0 ? peek(current_stack) : null;
         }
     }
 
     return to_array(visited_list);
+}
+
+fun copy(dict: Dictionary): Dictionary {
+    var copyd = create_dictionary();
+	var arr = to_array(dict);
+    foreach (var v: Pair in arr) {
+		put(copyd, v.key, v.value);
+	}
+	return copyd;
 }

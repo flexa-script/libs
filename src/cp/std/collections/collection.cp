@@ -73,6 +73,7 @@ fun exists(collection: Collection, value: any, comparator: function = null) {
                 return true;
             }
         }
+        current = current.next;
     }
 
     return false;

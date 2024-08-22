@@ -19,11 +19,19 @@ fun push(stack: Stack, value: any) {
 }
 
 fun pop(stack: Stack) {
-    _default_remove(stack.collection);
+    try {
+        _default_remove(stack.collection);
+    } catch (...) {
+        throw "Tryed to pop from empty stack";
+    }
 }
 
 fun peek(stack: Stack): any {
-    return _default_get(stack.collection);
+    try {
+        return _default_get(stack.collection);
+    } catch (...) {
+        throw "Tryed to peek from empty stack";
+    }
 }
 
 fun clear(stack: Stack) {

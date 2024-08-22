@@ -7,12 +7,12 @@ using cp.std.collections.dictionary;
 as namespace cp;
 
 var default_dict: Dictionary = create_dictionary();
-put(default_dict, "one", 1);
-put(default_dict, "two", 2);
-put(default_dict, "three", 3);
-put(default_dict, "four", 4);
-put(default_dict, "five", 5);
-put(default_dict, "six", 6);
+emplace(default_dict, "one", 1);
+emplace(default_dict, "two", 2);
+emplace(default_dict, "three", 3);
+emplace(default_dict, "four", 4);
+emplace(default_dict, "five", 5);
+emplace(default_dict, "six", 6);
 
 fun _arr_pair_comparator(rval[]: Pair, lval[]: Pair) {
 	if (len(rval) != len(lval)) {
@@ -29,32 +29,32 @@ fun _arr_pair_comparator(rval[]: Pair, lval[]: Pair) {
     return true;
 }
 
-fun dict_put() {
+fun dict_emplace() {
 	// arrange
 	var dict: Dictionary = create_dictionary();
 	
 	// act
-	put(dict, "one", 1);
-	put(dict, "two", 2);
-	put(dict, "three", 3);
+	emplace(dict, "one", 1);
+	emplace(dict, "two", 2);
+	emplace(dict, "three", 3);
 	
 	// assert
 	assert_equals(this + "[size]", 3, size(dict));
 	assert_equals(this + "[content]", {Pair{key="one", value=1}, Pair{key="two", value=2}, Pair{key="three", value=3}}, to_array(dict), _arr_pair_comparator);
 }
 
-fun dict_pop() {
+fun dict_erase() {
 	// arrange
 	var dict: Dictionary = copy(default_dict);
 	
 	// act
-	pop(dict);
-	pop(dict);
-	pop(dict);
+	erase(dict, "two");
+	erase(dict, "four");
+	erase(dict, "six");
 	
 	// assert
 	assert_equals(this + "[size]", 3, dict.size);
-	assert_equals(this + "[content]", {Pair{key="one", value=1}, Pair{key="two", value=2}, Pair{key="three", value=3}}, to_array(dict), _arr_pair_comparator);
+	assert_equals(this + "[content]", {Pair{key="one", value=1}, Pair{key="three", value=2}, Pair{key="five", value=3}}, to_array(dict), _arr_pair_comparator);
 }
 
 // fun dict_peek() {
@@ -68,7 +68,7 @@ fun dict_pop() {
 // }
 
 fun dictionary_test_suite() {
-  dict_put();
-  // dict_pop();
+  dict_emplace();
+  dict_erase();
   // dict_peek();
 }

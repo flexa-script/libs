@@ -4,6 +4,8 @@
 
 namespace cp;
 
+using cp.core.pair;
+
 struct Node {
     var value: any;
     var next: Node;

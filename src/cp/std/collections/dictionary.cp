@@ -26,7 +26,7 @@ fun create_dictionary(): Dictionary {
     return Dictionary{root=null, size=0};
 }
 
-fun put(dict: Dictionary, key: any, value: any) {
+fun emplace(dict: Dictionary, key: any, value: any) {
     var str_key = string(key);
     var h = hash(str_key);
 
@@ -66,6 +66,43 @@ fun put(dict: Dictionary, key: any, value: any) {
     }
 
     dict.size++;
+}
+
+fun erase(dict: Dictionary, key: any) {
+    if (dict.root == null) {
+        throw "Tryed to erase from empty dictionary";
+    }
+
+    var h = hash(string(key));
+
+    var side = 0;
+    var prev = dict.root;
+    var current = dict.root;
+
+    while (current != null) {
+        if (unref key == unref current.key) {
+            if (side == 0) {
+                dict.root = null;
+            } else if (side > 0) {
+                prev.right = current.right;
+                prev.left = current.left;
+            } else {
+                prev.right = current.right;
+                prev.left = current.left;
+            }
+        }
+        if (h > current.key_hash) {
+            prev = current;
+            current = current.right;
+            side = 1;
+        } else if (h < current.key_hash) {
+            prev = current;
+            current = current.left;
+            side = left;
+        }
+    }
+
+    dict.size--;
 }
 
 fun clear(dict: Dictionary) {
@@ -120,7 +157,7 @@ fun to_array(dict: Dictionary): any[] {
 fun copy(dict: Dictionary): Dictionary {
     var copyd = create_dictionary();
 	var arr = to_array(dict);
-    foreach (var v: Pair in arr) {
+    foreach (var v in arr) {
 		put(copyd, v.key, v.value);
 	}
 	return copyd;

@@ -48,9 +48,13 @@ fun dict_erase() {
 	var dict: Dictionary = copy(default_dict);
 	
 	// act
+	// println(to_array(dict));
 	erase(dict, "two");
+	// println(to_array(dict));
 	erase(dict, "four");
+	// println(to_array(dict));
 	erase(dict, "six");
+	// println(to_array(dict));
 	
 	// assert
 	assert_equals(this + "[size]", 3, dict.size);

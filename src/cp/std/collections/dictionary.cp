@@ -38,7 +38,7 @@ fun emplace(dict: Dictionary, key: any, value: any) {
         return;
     }
 
-    var prev = dict.root;
+    var parent = dict.root;
     var current = dict.root;
     var right = false;
 
@@ -49,23 +49,65 @@ fun emplace(dict: Dictionary, key: any, value: any) {
             current.value = new_node.value;
         }
         if (h > current.key_hash) {
-            prev = current;
+            parent = current;
             current = current.right;
             right = true;
         } else if (h < current.key_hash) {
-            prev = current;
+            parent = current;
             current = current.left;
             right = false;
         }
     }
 
     if (right) {
-        prev.right = new_node;
+        parent.right = new_node;
     } else {
-        prev.left = new_node;
+        parent.left = new_node;
     }
 
     dict.size++;
+}
+
+fun erase_iosd(node: DictionaryNode): DictionaryNode {
+    var parent: DictionaryNode = node;
+    node = node.right;
+    var right_child: bool = node.left == null;
+
+    while (node.left != null) {
+        parent = node;
+        node = node.left;
+    }
+
+    if (right_child) {
+        parent.right = node.right;
+    } else {
+        parent.left = node.right;
+    }
+
+    node.right = null;
+    return node;
+}
+
+fun erase_node(node: DictionaryNode): DictionaryNode {
+    if (node != null) {
+        if (node.left == null and node.right == null) {
+            return null;
+        }
+
+        if (node.left != null and node.right != null) {
+    println("here=",node,"\n");
+            var ios: DictionaryNode = erase_iosd(node);
+            node.value = ios.value;
+            node.key = ios.key;
+            node.key_hash = ios.key_hash;
+        } else if (node.left != null) {
+            node = node.left;
+        } else {
+            node = node.right;
+        }
+    }
+
+    return node;
 }
 
 fun erase(dict: Dictionary, key: any) {
@@ -76,30 +118,39 @@ fun erase(dict: Dictionary, key: any) {
     var h = hash(string(key));
 
     var side = 0;
-    var prev = dict.root;
+    var parent = null;
     var current = dict.root;
 
     while (current != null) {
         if (unref key == unref current.key) {
-            if (side == 0) {
-                dict.root = null;
-            } else if (side > 0) {
-                prev.right = current.right;
-                prev.left = current.left;
-            } else {
-                prev.right = current.right;
-                prev.left = current.left;
-            }
+            break;
         }
+
+        parent = current;
         if (h > current.key_hash) {
-            prev = current;
             current = current.right;
             side = 1;
         } else if (h < current.key_hash) {
-            prev = current;
             current = current.left;
-            side = left;
+            side = -1;
         }
+    }
+    
+    println("parent=",parent,"\n");
+    println("current=",current,"\n");
+
+    if (parent == null) {
+        erase_node(current);
+    }
+    
+    if (side > 0) {
+    println("b parent.right=",parent.right,"\n");
+        parent.right = erase_node(current);
+    println("a parent.right=",parent.right,"\n");
+    } else {
+    println("b parent.left=",parent.left,"\n");
+        parent.left = erase_node(current);
+    println("a parent.left=",parent.left,"\n");
     }
 
     dict.size--;
@@ -158,7 +209,7 @@ fun copy(dict: Dictionary): Dictionary {
     var copyd = create_dictionary();
 	var arr = to_array(dict);
     foreach (var v in arr) {
-		put(copyd, v.key, v.value);
+		emplace(copyd, v.key, v.value);
 	}
 	return copyd;
 }

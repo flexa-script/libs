@@ -10,6 +10,10 @@ using cp.std.collections.stack;
 using cp.std.collections.list;
 using cp.std.arrays;
 
+const LEFT_SIDE = -1;
+const MIDDLE = 0;
+const RIGHT_SIDE = 1;
+
 struct DictionaryNode {
 	var value: any;
 	var key: any;
@@ -41,7 +45,7 @@ fun emplace(dict: Dictionary, key: any, value: any) {
 
 	var parent = dict.root;
 	var current = dict.root;
-	var right = false;
+	var side = MIDDLE;
 
 	while (current != null) {
 		if (unref key == unref current.key) {
@@ -52,15 +56,15 @@ fun emplace(dict: Dictionary, key: any, value: any) {
 		if (h > current.key_hash) {
 			parent = current;
 			current = current.right;
-			right = true;
+			side = RIGHT_SIDE;
 		} else if (h < current.key_hash) {
 			parent = current;
 			current = current.left;
-			right = false;
+			side = LEFT_SIDE;
 		}
 	}
 
-	if (right) {
+	if (side > MIDDLE) {
 		parent.right = new_node;
 	} else {
 		parent.left = new_node;
@@ -77,7 +81,7 @@ fun erase(dict: Dictionary, key: any) {
 	var h = hash(string(key));
 	var parent: DictionaryNode = null;
 	var current = dict.root;
-	var side = 0;
+	var side = MIDDLE;
 
 	while (current != null) {
 		if (unref key == unref current.key) {
@@ -87,10 +91,10 @@ fun erase(dict: Dictionary, key: any) {
 		parent = current;
 		if (h > current.key_hash) {
 			current = current.right;
-			side = 1;
+			side = RIGHT_SIDE;
 		} else {
 			current = current.left;
-			side = -1;
+			side = LEFT_SIDE;
 		}
 	}
 
@@ -101,7 +105,7 @@ fun erase(dict: Dictionary, key: any) {
 	if (current.left == null and current.right == null) {
 		if (parent == null) {
 			dict.root = null;
-		} else if (side > 0) {
+		} else if (side > MIDDLE) {
 			parent.right = null;
 		} else {
 			parent.left = null;
@@ -110,7 +114,7 @@ fun erase(dict: Dictionary, key: any) {
 		var child = current.left != null ? current.left : current.right;
 		if (parent == null) {
 			dict.root = child;
-		} else if (side > 0) {
+		} else if (side > MIDDLE) {
 			parent.right = child;
 		} else {
 			parent.left = child;
@@ -135,6 +139,29 @@ fun erase(dict: Dictionary, key: any) {
 	}
 
 	dict.size--;
+}
+
+fun find(dict: Dictionary, key: any): any {
+	if (dict.root == null) {
+		throw "Tryed to find in empty dictionary";
+	}
+
+	var h = hash(string(key));
+
+	var current = dict.root;
+
+	while (current != null) {
+		if (unref key == unref current.key) {
+			return current.value;
+		}
+		if (h > current.key_hash) {
+			current = current.right;
+		} else if (h < current.key_hash) {
+			current = current.left;
+		}
+	}
+
+	throw "Tryed deleting non existent key";
 }
 
 fun clear(dict: Dictionary) {

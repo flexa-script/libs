@@ -32,6 +32,10 @@ fun _arr_pair_comparator(rval[]: Pair, lval[]: Pair) {
 	return true;
 }
 
+fun _pair_comparator(rval: Pair, lval: Pair) {
+	return rval.key == lval.key;
+}
+
 fun dict_emplace() {
 	// arrange
 	var dict: Dictionary = create_dictionary();
@@ -60,18 +64,18 @@ fun dict_erase() {
 	assert_equals(this + "[content]", {Pair{key="one", value=1}, Pair{key="three", value=3}, Pair{key="five", value=5}}, to_array(dict), _arr_pair_comparator);
 }
 
-// fun dict_peek() {
-//   // arrange
-  
-//   // act
-//   var val: int = peek(default_dict);
-  
-//   // assert
-//   assert_equals(this, 6, val);
-// }
+fun dict_find() {
+	// arrange
+	
+	// act
+	var val: int = find(default_dict, "four");
+	
+	// assert
+	assert_equals(this, 4, val);
+}
 
 fun dictionary_test_suite() {
 	dict_emplace();
 	dict_erase();
-	// dict_peek();
+	dict_find();
 }

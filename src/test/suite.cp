@@ -12,19 +12,19 @@ using test.stack_test;
 using test.dictionary_test;
 
 fun print_test_suite(lib_name: string, test_suite: function) {
-  println("--- Tests of lib <" + lib_name + "> ---");
-  test_suite();
-  println("------------------------------\n");
+	println("--- Tests of lib <" + lib_name + "> ---");
+	test_suite();
+	println("------------------------------\n");
 }
 
 fun execute_test_suite() {
-  print_test_suite("math", math_test_suite);
-  print_test_suite("random", random_test_suite);
-  print_test_suite("strings", strings_test_suite);
-  print_test_suite("arrays", arrays_test_suite);
-  print_test_suite("collection", collection_test_suite);
-  print_test_suite("list", list_test_suite);
-  print_test_suite("queue", queue_test_suite);
-  print_test_suite("stack", stack_test_suite);
-  print_test_suite("dictionary", dictionary_test_suite);
+	print_test_suite("math", math_test_suite);
+	print_test_suite("random", random_test_suite);
+	print_test_suite("strings", strings_test_suite);
+	print_test_suite("arrays", arrays_test_suite);
+	print_test_suite("collection", collection_test_suite);
+	print_test_suite("list", list_test_suite);
+	print_test_suite("queue", queue_test_suite);
+	print_test_suite("stack", stack_test_suite);
+	print_test_suite("dictionary", dictionary_test_suite);
 }

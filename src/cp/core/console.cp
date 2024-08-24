@@ -24,7 +24,5 @@ enum {
 };
 
 fun set_console_color(background_color: int, foreground_color: int);
-
 fun set_console_cursor_position(x: int, y: int);
-
 fun set_console_font(font_name: string, font_width: int, font_height: int);

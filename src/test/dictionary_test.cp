@@ -18,7 +18,7 @@ fun _arr_pair_comparator(rval[]: Pair, lval[]: Pair) {
 	if (len(rval) != len(lval)) {
 		return false;
 	}
-    for (var i = 0; i < len(rval); i++) {
+	for (var i = 0; i < len(rval); i++) {
 		if (lval[i] == null or rval[i] == null) {
 			if (lval[i] == rval[i]) {
 				continue;
@@ -28,8 +28,8 @@ fun _arr_pair_comparator(rval[]: Pair, lval[]: Pair) {
 		if (rval[i].key != lval[i].key) {
 			return false;
 		}
-    }
-    return true;
+	}
+	return true;
 }
 
 fun dict_emplace() {
@@ -71,7 +71,7 @@ fun dict_erase() {
 // }
 
 fun dictionary_test_suite() {
-  dict_emplace();
-  dict_erase();
-  // dict_peek();
+	dict_emplace();
+	dict_erase();
+	// dict_peek();
 }

@@ -7,9 +7,9 @@ namespace cp;
 const NEW_LINE: string = "\n";
 
 fun printls(...value: any) {
-    print(NEW_LINE + string(value));
+	print(NEW_LINE + string(value));
 }
 
 fun printlb(...value: any) {
-    print(NEW_LINE + string(value) + NEW_LINE);
+	print(NEW_LINE + string(value) + NEW_LINE);
 }

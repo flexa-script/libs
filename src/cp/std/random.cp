@@ -19,8 +19,8 @@ fun randomize(seed: float) {
 }
 
 fun _rand(): int {
-    _next = (_next * 1103515245 + 12345) % RAND_MAX;
-		return _next;
+	_next = (_next * 1103515245 + 12345) % RAND_MAX;
+	return _next;
 }
 
 fun randf(): float {

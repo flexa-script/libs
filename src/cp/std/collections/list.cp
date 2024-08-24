@@ -100,6 +100,28 @@ fun get(list: List, index: int): any {
 	return node.value;
 }
 
+fun indexof(list: List, value: any, comparator: function = null): int {
+	var collection = list.collection;
+	var current = collection.first;
+	var index = 0;
+
+	while (current != null) {
+		if (comparator != null) {
+			if (comparator(current.value, value)) {
+				return index;
+			}
+		} else {
+			if (current.value == value) {
+				return index;
+			}
+		}
+		current = current.next;
+		index++;
+	}
+
+	return -1;
+}
+
 fun exists(list: List, value: any, comparator: function = null) {
 	return exists(list.collection, value, comparator);
 }

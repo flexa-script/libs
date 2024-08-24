@@ -4,16 +4,18 @@
 
 namespace cp;
 
-using cp.core.math;
+using cp.core.pair;
+using cp.std.math;
 using cp.std.collections.list;
 
 struct Hashtable {
+	var used_keys: List;
 	var keys[MAX_VALUE]: string;
 	var values[MAX_VALUE]: any;
 };
 
-fun hashtable_create(): Hashtable {
-	return Hashtable{keys={null}, values={null}};
+fun create_hashtable(): Hashtable {
+	return Hashtable{keys={null}, values={null}, used_keys=create_list()};
 }
 
 fun hashtable_hash(key: string): int {
@@ -21,9 +23,12 @@ fun hashtable_hash(key: string): int {
 }
 
 fun put(ht: Hashtable, key: string, value: any) {
-	var h = hahashtable_hashsh(key);
+	var h = hashtable_hash(key);
+	println("h=", h);
+	println("ht.keys=", len(ht.keys));
 	ht.keys[h] = key;
 	ht.values[h] = value;
+	add(ht.used_keys, h);
 }
 
 fun delete(ht: Hashtable, key: string) {
@@ -33,6 +38,7 @@ fun delete(ht: Hashtable, key: string) {
 	}
 	ht.keys[h] = null;
 	ht.values[h] = null;
+	delete(ht.used_keys, indexof(ht.used_keys, h));
 }
 
 fun get(ht: Hashtable, key: string): any {
@@ -43,6 +49,26 @@ fun get(ht: Hashtable, key: string): any {
 	return ht.values[h];
 }
 
+fun to_array(ht: Hashtable): any[] {
+	var uk_arr = to_array(ht.used_keys);
+	var uk_size = size(ht.used_keys);
+	var ht_arr[uk_size] = {null};
+
+	for (var i = 0; i < uk_size; i++) {
+		ht_arr[i] = Pair{key=ht.keys[uk_arr[i]], value=ht.values[uk_arr[i]]};
+	}
+
+	return ht_arr;
+}
+
 fun clear(ht: Hashtable) {
-	ht = hashtable_create();
+	ht = create_hashtable();
+}
+
+fun size(ht: Hashtable) {
+	return size(ht.used_keys);
+}
+
+fun copy(ht: Hashtable) {
+	return Hashtable{keys=ht.keys, values=ht.values, used_keys=copy(ht.used_keys)};
 }

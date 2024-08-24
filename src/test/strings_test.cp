@@ -254,10 +254,10 @@ fun str_join_any_arr2() {
 
 fun str_join_type_arr() {
   // arrange
-  var v2[]: string = {"12", "34", "5", "6789"};
+  var v[]: string = {"12", "34", "5", "6789"};
   
   // act
-  var res: string = join(v2);
+  var res: string = join(v);
   
   // assert
   assert_equals(this, "123456789", res);

@@ -6,9 +6,9 @@ namespace cp;
 
 using cp.core.console;
 
-fun assert_equals(test: string, expected: any, value: any, comparatorx: function = null) {
-  if (comparatorx != null and comparatorx(expected, value) or
-      comparatorx == null and expected == value) {
+fun assert_equals(test: string, expected: any, value: any, comparator: function = null) {
+  if (comparator != null and comparator(expected, value) or
+      comparator == null and expected == value) {
     set_console_color(BLACK, LIGHT_GREEN);
     print("PASS: <" + test + ">");
   } else {

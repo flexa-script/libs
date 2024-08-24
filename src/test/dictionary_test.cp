@@ -20,6 +20,9 @@ fun _arr_pair_comparator(rval[]: Pair, lval[]: Pair) {
 	}
     for (var i = 0; i < len(rval); i++) {
 		if (lval[i] == null or rval[i] == null) {
+			if (lval[i] == rval[i]) {
+				continue;
+			}
 			return false;
 		}
 		if (rval[i].key != lval[i].key) {
@@ -48,16 +51,12 @@ fun dict_erase() {
 	var dict: Dictionary = copy(default_dict);
 	
 	// act
-	// println(to_array(dict));
 	erase(dict, "two");
-	// println(to_array(dict));
 	erase(dict, "four");
-	// println(to_array(dict));
 	erase(dict, "six");
-	// println(to_array(dict));
 	
 	// assert
-	assert_equals(this + "[size]", 3, dict.size);
+	assert_equals(this + "[size]", 3, size(dict));
 	assert_equals(this + "[content]", {Pair{key="one", value=1}, Pair{key="three", value=3}, Pair{key="five", value=5}}, to_array(dict), _arr_pair_comparator);
 }
 

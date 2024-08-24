@@ -107,6 +107,16 @@ fun list_get_end() {
 	assert_equals(this, 6, val);
 }
 
+fun list_indexof() {
+	// arrange
+	
+	// act
+	var val: int = indexof(default_list, 5);
+	
+	// assert
+	assert_equals(this, 4, val);
+}
+
 fun list_test_suite() {
 	list_add();
 	list_add_position();
@@ -115,4 +125,5 @@ fun list_test_suite() {
 	list_get_start();
 	list_get_middle();
 	list_get_end();
+	list_indexof();
 }

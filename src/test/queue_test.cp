@@ -6,7 +6,7 @@ using cp.std.collections.queue;
 
 as namespace cp;
 
-var default_queue: Collection = create_collection();
+var default_queue: Queue = create_queue();
 enqueue(default_queue, 1);
 enqueue(default_queue, 2);
 enqueue(default_queue, 3);
@@ -16,7 +16,7 @@ enqueue(default_queue, 6);
 
 fun queue_enqueue() {
   // arrange
-  var queue: Collection = create_collection();
+  var queue: Queue = create_queue();
   
   // act
   enqueue(queue, 1);
@@ -24,13 +24,13 @@ fun queue_enqueue() {
   enqueue(queue, 3);
   
   // assert
-  assert_equals(this + "[size]", 3, queue.size);
+  assert_equals(this + "[size]", 3, size(queue));
   assert_equals(this + "[content]", {1, 2, 3}, to_array(queue));
 }
 
 fun queue_dequeue() {
   // arrange
-  var queue: Collection = copy(default_queue);
+  var queue: Queue = copy(default_queue);
   
   // act
   dequeue(queue);
@@ -38,7 +38,7 @@ fun queue_dequeue() {
   dequeue(queue);
   
   // assert
-  assert_equals(this + "[size]", 3, queue.size);
+  assert_equals(this + "[size]", 3, size(queue));
   assert_equals(this + "[content]", {4, 5, 6}, to_array(queue));
 }
 

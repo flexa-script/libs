@@ -1,6 +1,6 @@
 // console core lib
 // MIT License
-// Copyright (c) 2023 Carlos Eduardo de Borba Machado
+// Copyright (c) 2024 Carlos Eduardo de Borba Machado
 
 namespace cp;
 

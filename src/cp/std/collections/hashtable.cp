@@ -1,6 +1,6 @@
-// list standard lib
+// hashtable standard lib
 // MIT License
-// Copyright (c) 2023 Carlos Eduardo de Borba Machado
+// Copyright (c) 2024 Carlos Eduardo de Borba Machado
 
 namespace cp;
 
@@ -12,75 +12,37 @@ struct Hashtable {
     var values[MAX_VALUE]: any;
 };
 
-
-def hashtable_create(): Hashtable {
+fun hashtable_create(): Hashtable {
     return Hashtable{keys={null}, values={null}};
 }
 
-def put(dict: Dict, key: string, value: any) {
-    var h = hash(key);
-    dict.keys[h] = key;
-    dict.values[h] = value;
+fun hashtable_hash(key: string): int {
+    return hash(key) % MAX_VALUE;
 }
 
-def delete(dict: Dict, key: string): bool {
-    var h = hash(key);
-    if (dict.values[h] == null) {
-        return false;
-    }
-    dict.keys[h] = null;
-    dict.values[h] = null;
-
-    return true;
+fun put(ht: Hashtable, key: string, value: any) {
+    var h = hahashtable_hashsh(key);
+    ht.keys[h] = key;
+    ht.values[h] = value;
 }
 
-def get(list: List, index: int): any {
-    if (index >= list.size) {
-        return null;
+fun delete(ht: Hashtable, key: string) {
+    var h = hashtable_hash(key);
+    if (ht.keys[h] == null) {
+        throw "Tryed deleting non existent key";
     }
-
-    var node = list.first;
-
-    for (var i = 0; i < index; i++) {
-        node = node.next;
-    }
-
-    return node.value;
+    ht.keys[h] = null;
+    ht.values[h] = null;
 }
 
-def clear(list: List) {
-    list = hashtable_create();
+fun get(ht: Hashtable, key: string): any {
+    var h = hashtable_hash(key);
+    if (ht.keys[h] == null) {
+        throw "Tryed get from non existent key";
+    }
+    return ht.values[h];
 }
 
-def to_array(dict: Dict): any[] {
-    var arr[dict.order.size]: any = {null};
-    var curr_node = list.first;
-    for (var i = 0; i < list.size; i++) {
-        if (typeof(curr_node.value) == typeof(List)) {
-            arr[i] = to_array(curr_node.value);
-        } else {
-            arr[i] = curr_node.value;
-        }
-        curr_node = curr_node.next;
-    }
-    return arr;
-}
-
-def to_string(list: List): string {
-    if (list.first == null) {
-        return "[]";
-    }
-
-    var str: string = "[";
-    var node = list.first;
-    while (node != null) {
-        str += string(node.value);
-        if (node.next != null) {
-            str += ",";
-        }
-        node = node.next;
-    }
-    str += "]";
-
-    return str;
+fun clear(ht: Hashtable) {
+    ht = hashtable_create();
 }

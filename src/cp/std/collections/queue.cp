@@ -6,27 +6,55 @@ namespace cp;
 
 using cp.std.collections.collection;
 
-fun enqueue(queue: Collection, value: any) {
-    _default_add(queue, value);
+struct Queue {
+    var collection: Collection;
+};
+
+fun create_queue(): Queue {
+    return Queue{collection=create_collection()};
 }
 
-fun dequeue(queue: Collection) {
-    if (queue.first == null) {
+fun enqueue(queue: Queue, value: any) {
+    _default_add(queue.collection, value);
+}
+
+fun dequeue(queue: Queue) {
+    if (queue.collection.first == null) {
         throw "Tryed dequeue from empty collection";
     }
 
-    queue.first = queue.first.next;
-    queue.size--;
+    queue.collection.first = queue.collection.first.next;
+    queue.collection.size--;
 }
 
-fun front(queue: Collection): any {
-    if (queue.first == null) {
+fun front(queue: Queue): any {
+    if (queue.collection.first == null) {
         throw "Tryed to get from empty collection";
     }
 
-    return queue.first.value;
+    return queue.collection.first.value;
 }
 
-fun back(queue: Collection): any {
-    return _default_get(queue);
+fun back(queue: Queue): any {
+    return _default_get(queue.collection);
+}
+
+fun clear(queue: Queue) {
+    queue = create_queue();
+}
+
+fun size(queue: Queue): int {
+    return queue.collection.size;
+}
+
+fun is_empty(queue: Queue): bool {
+    return queue.collection.size == 0;
+}
+
+fun to_array(queue: Queue): any[] {
+    return to_array(queue.collection);
+}
+
+fun copy(queue: Queue): Queue {
+    return Queue{collection=copy(queue.collection)};
 }

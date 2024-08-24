@@ -22,7 +22,7 @@ fun contains(arr[]: any, cval: any): bool {
 }
 
 // temporary, it will be changed to quick sort
-fun sort(arr[]: any, comparator: function): any[] {
+fun sort(arr[]: any, comparator: function = null): any[] {
 	var arr_size = size(arr);
 	for (var j = 0; j < arr_size; j++) {
 		for (var i = 0; i < arr_size - 1; i++) {

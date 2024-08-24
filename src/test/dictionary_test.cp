@@ -58,7 +58,7 @@ fun dict_erase() {
 	
 	// assert
 	assert_equals(this + "[size]", 3, dict.size);
-	assert_equals(this + "[content]", {Pair{key="one", value=1}, Pair{key="three", value=2}, Pair{key="five", value=3}}, to_array(dict), _arr_pair_comparator);
+	assert_equals(this + "[content]", {Pair{key="one", value=1}, Pair{key="three", value=3}, Pair{key="five", value=5}}, to_array(dict), _arr_pair_comparator);
 }
 
 // fun dict_peek() {

@@ -1,6 +1,6 @@
-// dict standard lib
+// dictionary standard lib
 // MIT License
-// Copyright (c) 2023 Carlos Eduardo de Borba Machado
+// Copyright (c) 2024 Carlos Eduardo de Borba Machado
 
 namespace cp;
 
@@ -8,6 +8,7 @@ using cp.core.pair;
 using cp.std.math;
 using cp.std.collections.stack;
 using cp.std.collections.list;
+using cp.std.arrays;
 
 struct DictionaryNode {
     var value: any;
@@ -68,58 +69,15 @@ fun emplace(dict: Dictionary, key: any, value: any) {
     dict.size++;
 }
 
-fun erase_iosd(node: DictionaryNode): DictionaryNode {
-    var parent: DictionaryNode = node;
-    node = node.right;
-    var right_child: bool = node.left == null;
-
-    while (node.left != null) {
-        parent = node;
-        node = node.left;
-    }
-
-    if (right_child) {
-        parent.right = node.right;
-    } else {
-        parent.left = node.right;
-    }
-
-    node.right = null;
-    return node;
-}
-
-fun erase_node(node: DictionaryNode): DictionaryNode {
-    if (node != null) {
-        if (node.left == null and node.right == null) {
-            return null;
-        }
-
-        if (node.left != null and node.right != null) {
-    println("here=",node,"\n");
-            var ios: DictionaryNode = erase_iosd(node);
-            node.value = ios.value;
-            node.key = ios.key;
-            node.key_hash = ios.key_hash;
-        } else if (node.left != null) {
-            node = node.left;
-        } else {
-            node = node.right;
-        }
-    }
-
-    return node;
-}
-
 fun erase(dict: Dictionary, key: any) {
     if (dict.root == null) {
         throw "Tryed to erase from empty dictionary";
     }
 
     var h = hash(string(key));
-
-    var side = 0;
-    var parent = null;
+    var parent: DictionaryNode = null;
     var current = dict.root;
+    var side = 0;
 
     while (current != null) {
         if (unref key == unref current.key) {
@@ -130,27 +88,50 @@ fun erase(dict: Dictionary, key: any) {
         if (h > current.key_hash) {
             current = current.right;
             side = 1;
-        } else if (h < current.key_hash) {
+        } else {
             current = current.left;
             side = -1;
         }
     }
-    
-    println("parent=",parent,"\n");
-    println("current=",current,"\n");
 
-    if (parent == null) {
-        erase_node(current);
+    if (current == null) {
+        return;
     }
-    
-    if (side > 0) {
-    println("b parent.right=",parent.right,"\n");
-        parent.right = erase_node(current);
-    println("a parent.right=",parent.right,"\n");
+
+    if (current.left == null and current.right == null) {
+        if (parent == null) {
+            dict.root = null;
+        } else if (side > 0) {
+            parent.right = null;
+        } else {
+            parent.left = null;
+        }
+    } else if (current.left == null or current.right == null) {
+        var child = current.left != null ? current.left : current.right;
+        if (parent == null) {
+            dict.root = child;
+        } else if (side > 0) {
+            parent.right = child;
+        } else {
+            parent.left = child;
+        }
     } else {
-    println("b parent.left=",parent.left,"\n");
-        parent.left = erase_node(current);
-    println("a parent.left=",parent.left,"\n");
+        var successor_parent = current;
+        var successor = current.right;
+        while (successor.left != null) {
+            successor_parent = successor;
+            successor = successor.left;
+        }
+
+        current.key = successor.key;
+        current.key_hash = successor.key_hash;
+        current.value = successor.value;
+
+        if (successor_parent.left == successor) {
+            successor_parent.left = successor.right;
+        } else {
+            successor_parent.right = successor.right;
+        }
     }
 
     dict.size--;
@@ -170,6 +151,10 @@ fun is_empty(dict: Dictionary): bool {
 
 fun _pair_comparator(rval: Pair, lval: Pair) {
     return rval.key == lval.key;
+}
+
+fun _pair_greater_comparator(rval: Pair, lval: Pair) {
+    return hash(string(rval.value)) > hash(string(lval.value));
 }
 
 fun to_array(dict: Dictionary): any[] {
@@ -202,7 +187,7 @@ fun to_array(dict: Dictionary): any[] {
         }
     }
 
-    return to_array(visited_list);
+    return sort(to_array(visited_list), _pair_greater_comparator);
 }
 
 fun copy(dict: Dictionary): Dictionary {

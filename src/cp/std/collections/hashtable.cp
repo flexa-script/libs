@@ -15,7 +15,7 @@ struct Hashtable {
 };
 
 fun create_hashtable(): Hashtable {
-	return Hashtable{keys={null}, values={null}, used_keys=create_list()};
+	return Hashtable{used_keys=create_list()};
 }
 
 fun hashtable_hash(key: string): int {
@@ -24,8 +24,6 @@ fun hashtable_hash(key: string): int {
 
 fun put(ht: Hashtable, key: string, value: any) {
 	var h = hashtable_hash(key);
-	println("h=", h);
-	println("ht.keys=", len(ht.keys));
 	ht.keys[h] = key;
 	ht.values[h] = value;
 	add(ht.used_keys, h);

@@ -16,7 +16,7 @@ _default_add(default_collection, 6);
 
 fun collection_removed() {
 	// arrange
-	var collection: Collection = unref default_collection;
+	var collection: Collection = copy(default_collection);
 	
 	// act
 	_default_remove(collection);
@@ -29,7 +29,7 @@ fun collection_removed() {
 
 fun collection_removed_all() {
 	// arrange
-	var collection: Collection = unref default_collection;
+	var collection: Collection = copy(default_collection);
 	
 	// act
 	_default_remove(collection);
@@ -63,7 +63,7 @@ fun collection_is_not_empty() {
 
 fun collection_is_empty_removed() {
 	// arrange
-	var collection: Collection = unref default_collection;
+	var collection: Collection = copy(default_collection);
 	_default_remove(collection);
 	_default_remove(collection);
 	_default_remove(collection);
@@ -80,7 +80,7 @@ fun collection_is_empty_removed() {
 
 fun collection_is_empty_cleared() {
 	// arrange
-	var collection: Collection = unref default_collection;
+	var collection: Collection = copy(default_collection);
 	clear(collection);
 	
 	// act

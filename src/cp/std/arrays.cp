@@ -4,6 +4,8 @@
 
 namespace cp;
 
+const MAX_ARRAY_SIZE = 99999999;
+
 fun size(arr[]: any): int {
 	var count: int = 0;
 	foreach (var v in arr) {
@@ -15,7 +17,7 @@ fun size(arr[]: any): int {
 fun contains(arr[]: any, cval: any): bool {
 	foreach (var v in arr) {
 		if (v == cval) {
-		return true;
+			return true;
 		}
 	}
 	return false;

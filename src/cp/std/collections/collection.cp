@@ -52,7 +52,7 @@ fun _default_remove(collection: Collection) {
 	if (collection.first == null) {
 		throw "Tryed to remove from empty collection";
 	}
-	if(collection.size == 1){
+	if (collection.size == 1) {
 		collection.first = null;
 		collection.last = null;
 	} else {

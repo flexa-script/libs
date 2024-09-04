@@ -5,21 +5,21 @@
 namespace cp;
 
 using cp.core.pair;
-using cp.std.math;
+using cp.std.arrays;
 using cp.std.collections.list;
 
 struct Hashtable {
 	var used_keys: List;
-	var keys[MAX_VALUE]: string;
-	var values[MAX_VALUE]: any;
+	var keys[MAX_ARRAY_SIZE]: string;
+	var values[MAX_ARRAY_SIZE]: any;
 };
 
 fun create_hashtable(): Hashtable {
-	return Hashtable{used_keys=create_list()};
+	return Hashtable{keys={}, values={}, used_keys=create_list()};
 }
 
 fun hashtable_hash(key: string): int {
-	return hash(key) % MAX_VALUE;
+	return hash(key) % MAX_ARRAY_SIZE;
 }
 
 fun put(ht: Hashtable, key: string, value: any) {

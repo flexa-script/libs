@@ -6,10 +6,20 @@ namespace cp;
 
 const NEW_LINE: string = "\n";
 
-fun printls(...value: any) {
-	print(NEW_LINE + string(value));
+fun _print_values(...values: any) {
+	println();
+	foreach (var v in values) {
+		print(v);
+	}
 }
 
-fun printlb(...value: any) {
-	print(NEW_LINE + string(value) + NEW_LINE);
+fun printls(...values: any) {
+	println();
+	_print_values(values);
+}
+
+fun printlb(...values: any) {
+	println();
+	_print_values(values);
+	println();
 }

@@ -72,6 +72,6 @@
             - [X] dict to json string
             - [X] json_stringfy
             - [ ] json_parse
-    - [ ] Util:
-        - [ ] is_number_t
-        - [ ] is_text_t
+    - [X] Util:
+        - [X] isnumber
+        - [X] istext

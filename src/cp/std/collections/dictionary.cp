@@ -9,6 +9,7 @@ using cp.std.math;
 using cp.std.collections.stack;
 using cp.std.collections.list;
 using cp.std.arrays;
+using cp.std.strings;
 
 const LEFT_SIDE = -1;
 const MIDDLE = 0;
@@ -26,6 +27,8 @@ struct Dictionary {
 	var root: DictionaryNode;
 	var size: int;
 };
+
+fun stringfy(dict: Dictionary): string;
 
 fun create_dictionary(): Dictionary {
 	return Dictionary{root=null, size=0};
@@ -215,6 +218,79 @@ fun to_array(dict: Dictionary): any[] {
 	}
 
 	return sort(to_array(visited_list), _pair_greater_comparator);
+}
+
+fun parse_struct(str: any): Dictionary {
+	if (not is_struct(str)) {
+		throw "Value must be a struct";
+	}
+
+	var dict = create_dictionary();
+
+	foreach (var [key, value] in str) {
+		emplace(dict, key, is_struct(value) ? parse_struct(value) : value);
+	}
+	
+	return dict;
+}
+
+fun stringfy_value(value: any): string {
+	var json: string = "";
+
+	if (typeof(value) == "Dictionary") {
+		json = stringfy(value);
+	} else if (is_struct(value)) {
+		json = stringfy(parse_struct(value));
+	} else if (typeof(value) in {typeof(string), typeof(char)}) {
+		json = '"' + string(value) + '"';
+	} else if (is_array(value)) {
+		json = "[";
+		foreach (var v in value) {
+			json += stringfy_value(v) + ",";
+		}
+
+		if (json[strlen(json) - 1] == ',') {
+			json = substr(json, 0, strlen(json) - 1);
+		}
+
+		json += "]";
+
+	} else {
+		json += string(value);
+	}
+	
+	return json;
+}
+
+fun stringfy(dict: Dictionary): string {
+	var json: string = "{";
+	var visited_list = create_list();
+	var current_stack = create_stack();
+	var current = dict.root;
+
+	while (current != null) {
+		if (not exists(visited_list, current.key)) {
+			push(current_stack, current);
+			add(visited_list, current.key);
+			json += '"' + current.key + "\":" + stringfy_value(current.value) + ',';
+		}
+		if (current.left != null and not exists(visited_list, current.left.key)) {
+			current = current.left;
+		} else if (current.right != null and not exists(visited_list, current.right.key)) {
+			current = current.right;
+		} else {
+			pop(current_stack);
+			current = size(current_stack) > 0 ? peek(current_stack) : null;
+		}
+	}
+
+	if (json[strlen(json) - 1] == ',') {
+		json = substr(json, 0, strlen(json) - 1);
+	}
+
+	json += "}";
+
+	return json;
 }
 
 fun copy(dict: Dictionary): Dictionary {

@@ -68,11 +68,10 @@
             - [X] pop: _default_remove
             - [X] peek: _default_get
         - [ ] Dict
-            - [ ] struct to dict
-            - [ ] dict to json string
-    - [ ] JSON
-        - [ ] json_stringfy
-        - [ ] json_parse
+            - [X] struct to dict
+            - [X] dict to json string
+            - [X] json_stringfy
+            - [ ] json_parse
     - [ ] Util:
         - [ ] is_number_t
         - [ ] is_text_t

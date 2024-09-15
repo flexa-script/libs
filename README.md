@@ -9,7 +9,7 @@
     - [ ] Mouse
     - [ ] Sound
     - [X] Exception
-    - [X] Console:
+    - [X] Console
         - [X] Set caret position
         - [X] Change color
         - [X] Set font
@@ -42,7 +42,7 @@
         - [X] randi(from: int, to: int): int
         - [X] seed(seed: int)
         - [X] ...
-    - [ ] Collections [null (<- first ->) , (<- item2 ->) , (<- item3 ->) , (<- last ->) null]
+    - [ ] Collections
         - [X] Collection
             - [X] _default_add: adds end
             - [X] _default_get: gets end

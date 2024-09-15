@@ -8,9 +8,8 @@ const PATH_SEPARATOR = "/";
 
 const MODE_READ: int = 1;
 const MODE_WRITE: int = 2;
-const MODE_APPEND: int = 3;
-const MODE_TEXT: int = 10;
-const MODE_BINARY: int = 20;
+const MODE_APPEND: int = 8;
+const MODE_BINARY: int = 32;
 
 struct File {
 	var path: string;

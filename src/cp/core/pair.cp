@@ -1,4 +1,4 @@
-// pair standard lib
+// pair core lib
 // MIT License
 // Copyright (c) 2024 Carlos Eduardo de Borba Machado
 

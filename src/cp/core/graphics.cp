@@ -78,15 +78,11 @@ struct Window {
 	var title: string;
 	var width: int;
 	var height: int;
-	var content_width: int;
-	var content_height: int;
 };
 
 fun create_window(title: string, width: int, height: int): Window;
 fun get_current_width(window: Window): int;
 fun get_current_height(window: Window): int;
-fun get_current_content_width(window: Window): int;
-fun get_current_content_height(window: Window): int;
 fun clear_screen(window: Window, color: Color);
 fun get_text_size(window: Window, text: string, font: Font): Size;
 fun draw_text(window: Window, x: int, y: int, text: string, color: Color, font: Font);

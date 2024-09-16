@@ -4,7 +4,7 @@
 
 namespace cp;
 
-using cp.core.pair;
+using cp.std.structs;
 
 struct Node {
 	var value: any;

@@ -4,7 +4,7 @@
 
 namespace cp;
 
-using cp.core.pair;
+using cp.std.structs;
 using cp.std.math;
 using cp.std.collections.stack;
 using cp.std.collections.list;

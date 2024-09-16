@@ -16,25 +16,25 @@ fun rgb(r: int, g: int, b: int): Color {
 	return Color{r=r, g=g, b=b};
 }
 
-// const GR_WHITE = rgb(255, 255, 255);
-// const GR_LIGHT_GRAY = rgb(211, 211, 211);
-// const GR_SILVER = rgb(192, 192, 192);
-// const GR_GRAY = rgb(128, 128, 128);
-// const GR_DARK_GRAY = rgb(64, 64, 64);
-// const GR_BLACK = rgb(0, 0, 0);
-// const GR_MAROON = rgb(128, 0, 0);
-// const GR_RED = rgb(255, 0, 0);
-// const GR_ORANGE = rgb(255, 165, 0);
-// const GR_YELLOW = rgb(255, 255, 0);
-// const GR_OLIVE = rgb(128, 128, 0);
-// const GR_LIME = rgb(0, 255, 0);
-// const GR_GREEN = rgb(0, 128, 0);
-// const GR_AQUA = rgb(0, 255, 255);
-// const GR_BLUE = rgb(0, 0, 255);
-// const GR_NAVY = rgb(0, 0, 128);
-// const GR_TEAL = rgb(0, 128, 128);
-// const GR_FUCHSIA = rgb(255, 0, 255);
-// const GR_PURPLE = rgb(128, 0, 128);
+const GR_WHITE = Color{r=255, g=255, b=255};
+const GR_LIGHT_GRAY = Color{r=211, g=211, b=211};
+const GR_SILVER = Color{r=192, g=192, b=192};
+const GR_GRAY = Color{r=128, g=128, b=128};
+const GR_DARK_GRAY = Color{r=64, g=64, b=64};
+const GR_BLACK = Color{r=0, g=0, b=0};
+const GR_MAROON = Color{r=128, g=0, b=0};
+const GR_RED = Color{r=255, g=0, b=0};
+const GR_ORANGE = Color{r=255, g=165, b=0};
+const GR_YELLOW = Color{r=255, g=255, b=0};
+const GR_OLIVE = Color{r=128, g=128, b=0};
+const GR_LIME = Color{r=0, g=255, b=0};
+const GR_GREEN = Color{r=0, g=128, b=0};
+const GR_AQUA = Color{r=0, g=255, b=255};
+const GR_BLUE = Color{r=0, g=0, b=255};
+const GR_NAVY = Color{r=0, g=0, b=128};
+const GR_TEAL = Color{r=0, g=128, b=128};
+const GR_FUCHSIA = Color{r=255, g=0, b=255};
+const GR_PURPLE = Color{r=128, g=0, b=128};
 
 struct Image {
 	var path: string;

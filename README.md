@@ -10,9 +10,6 @@
     - [ ] Sound
     - [X] Exception
     - [X] Console
-        - [X] Set caret position
-        - [X] Change color
-        - [X] Set font
     - [ ] Web/API
 - [ ] Add CP library:
     - [X] Strings
@@ -29,8 +26,8 @@
     - [X] Arrays
         - [X] size: size of array
         - [X] contains: value is contained in array
-        - [X] sorted: sort a list
-        - [X] reverse: reverse a list
+        - [X] sorted: sort an array
+        - [X] reverse: reverse an array
     - [X] Math
         - [X] abs: ret absolute value of a number
         - [X] max: return greather from two or more parameters
@@ -38,10 +35,7 @@
         - [X] sum: sum all items from array
         - [X] round: round a float number
         - [X] hash: returns hash of string
-    - [X] Random (https://docs.godotengine.org/en/stable/classes/class_randomnumbergenerator.html):
-        - [X] randi(from: int, to: int): int
-        - [X] seed(seed: int)
-        - [X] ...
+    - [X] Random (https://docs.godotengine.org/en/stable/classes/class_randomnumbergenerator.html)
     - [ ] Collections
         - [X] Collection
             - [X] _default_add: adds end

@@ -22,9 +22,9 @@ struct DateTime {
 fun create_date_time(): DateTime;
 fun create_date_time(timestamp: int): DateTime;
 fun create_date_time(year: int, month: int, day: int, hour: int, min: int, sec: int): DateTime;
-fun local_date_time(date_time: DateTime): DateTime;
-fun utc_date_time(date_time: DateTime): DateTime;
 fun diff_date_time(left_date_time: DateTime, right_date_time: DateTime): DateTime;
-fun format_date_time(date_time: DateTime): string;
+fun format_date_time(date_time: DateTime, format: string): string;
+fun format_local_date_time(date_time: DateTime, format: string): string;
 fun ascii_date_time(date_time: DateTime): string;
+fun ascii_local_date_time(date_time: DateTime): string;
 fun clock(): int;

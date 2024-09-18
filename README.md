@@ -3,7 +3,7 @@
 ## TODO
 - [ ] Add core library:
     - [X] File I/O
-    - [ ] Time
+    - [X] DateTime
     - [X] Graphics
     - [ ] Keyboard
     - [ ] Mouse

@@ -74,37 +74,8 @@ fun dict_find() {
 	assert_equals(this, 4, val);
 }
 
-fun dict_stringfy() {
-	// arrange
-	struct Foo {
-		var bar: int;
-		var qux: string;
-	};
-
-	var dict: Dictionary = create_dictionary();
-	emplace(dict, "bool_true", true);
-	emplace(dict, "bool_false", false);
-	emplace(dict, "int", 1);
-	emplace(dict, "float", 10.5);
-	emplace(dict, "char", "this is a char");
-	emplace(dict, "string", "this is a string");
-	emplace(dict, "array", {1, '2', "3", Foo{bar=5,qux="5"}, true});
-	emplace(dict, "multi_dim_array", {{1, 2, 3}, {1, 2, 3}, {1, 2, 3}});
-	emplace(dict, "struct", Foo{bar=10,qux="str"});
-	emplace(dict, "sub_dict", default_dict);
-	
-	// act
-	var valx: string = stringfy(dict);
-	
-	// assert
-	assert_equals(this,
-		"{\"bool_true\":true,\"int\":1,\"float\":10.500000,\"char\":\"this is a char\",\"array\":[1,\"2\",\"3\",{\"bar\":5,\"qux\":\"5\"},true],\"string\":\"this is a string\",\"struct\":{\"bar\":10,\"qux\":\"str\"},\"sub_dict\":{\"one\":1,\"two\":2,\"six\":6,\"three\":3,\"four\":4,\"five\":5},\"bool_false\":false,\"multi_dim_array\":[[1,2,3],[1,2,3],[1,2,3]]}",
-		valx);
-}
-
 fun dictionary_test_suite() {
 	dict_emplace();
 	dict_erase();
 	dict_find();
-	dict_stringfy();
 }

@@ -27,6 +27,14 @@ fun substr(str: string, start: int, end: int = null): string {
 	return ss;
 }
 
+fun repeat(str: string, count: int): string {
+	var res = "";
+	for (var i = 0; i < count; i++) {
+		res += str;
+	}
+	return res;
+}
+
 fun contains(str: string, strc: string): bool {
 	var str_size = strlen(str);
 	var strc_size = strlen(strc);

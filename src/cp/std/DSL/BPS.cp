@@ -21,9 +21,9 @@ fun _bps_stringify_value(value: any): string {
 		json = bps_stringify(value);
 	} else if (is_struct(value)) {
 		json = bps_stringify(parse_struct(value));
-	} else if (typeof(value) = typeof(string)) {
+	} else if (typeof(value) == typeof(string)) {
 		json = '"' + string(value) + '"';
-	} else if (typeof(value) = typeof(char)) {
+	} else if (typeof(value) == typeof(char)) {
 		json = "'" + string(value) + "'";
 	} else if (is_array(value)) {
 		json = "[";
@@ -48,7 +48,7 @@ fun bps_stringify(data: Dictionary): string {
 	var bps_str: string = "";
 	var visited_list = create_list();
 	var current_stack = create_stack();
-	var current = dict.root;
+	var current = data.root;
 
 	while (current != null) {
 		if (not exists(visited_list, current.key)) {

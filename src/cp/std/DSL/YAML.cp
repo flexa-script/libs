@@ -9,7 +9,7 @@ using cp.std.strings;
 
 fun yaml_parse(data: string): Dictionary;
 fun _yaml_stringify_value(value: any, level: int): string;
-fun _yaml_stringify_data(data: Dictionary, level: int): string;
+fun _yaml_stringify_data(data: Dictionary, level: int = 0): string;
 fun yaml_stringify(data: Dictionary): string;
 
 fun yaml_parse(data: string): Dictionary {
@@ -27,7 +27,7 @@ fun _yaml_stringify_value(value: any, level: int): string {
 	} else if (is_struct(value)) {
 		level++;
 		yaml = "\n";
-		yaml += _yaml_stringify_data(parse_struct(value), level) ;
+		yaml += _yaml_stringify_data(parse_struct(value), level);
 		level--;
 	} else if (typeof(value) in {typeof(string), typeof(char)}) {
 		yaml = " \"" + string(value) + "\"\n";
@@ -77,5 +77,5 @@ fun _yaml_stringify_data(data: Dictionary, level: int): string {
 }
 
 fun yaml_stringify(data: Dictionary): string {
-	return "---\n" + _yaml_stringify_data(data, 0) + "...";
+	return "---\n" + _yaml_stringify_data(data) + "...";
 }

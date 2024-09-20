@@ -3,7 +3,6 @@
 
 using cp.std.testing;
 using cp.std.DSL.YAML;
-using cp.core.files;
 
 as namespace cp;
 
@@ -29,7 +28,7 @@ array:
   - 1
   - "2"
   - "3"
-  - 
+  -
     bar: 5
     qux: "5"
   - true
@@ -43,15 +42,15 @@ sub_dict:
   three: 3
 bool_false: false
 multi_dim_array:
-  - 
+  -
     - 1
     - 2
     - 3
-  - 
+  -
     - 1
     - 2
     - 3
-  - 
+  -
     - 1
     - 2
     - 3
@@ -81,20 +80,6 @@ multi_dim_array:
 	// act
 	var val: string = yaml_stringify(dict);
 	
-	var f1: File = null;
-	var f2: File = null;
-
-	open(f1, "C:/Users/6922449/repos/match_str.txt", 2);
-	open(f2, "C:/Users/6922449/repos/res_str.txt", 2);
-
-	println(f1);
-
-	write(f1, match_str);
-	write(f2, val);
-
-	close(f1);
-	close(f2);
-
 	// assert
 	assert_equals(this, match_str, val);
 }

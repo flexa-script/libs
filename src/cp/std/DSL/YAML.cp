@@ -36,11 +36,7 @@ fun _yaml_stringify_value(value: any, level: int): string {
 		yaml = '\n';
 		foreach (var v in value) {
 			yaml += repeat(" ", level * 2);
-			if (is_array(v)) {
-				yaml += "-" + _yaml_stringify_value(v, level);
-			} else {
-				yaml += "-" + _yaml_stringify_value(v, level);
-			}
+			yaml += "-" + _yaml_stringify_value(v, level);
 		}
 		level--;
 	} else {

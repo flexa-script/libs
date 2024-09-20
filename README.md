@@ -5,10 +5,10 @@
     - [X] File I/O
     - [X] DateTime
     - [X] Graphics
-    - [ ] Keyboard
-    - [ ] Mouse
+    - [X] Input
+        - [X] Keyboard
+        - [X] Mouse
     - [ ] Sound
-    - [X] Exception
     - [X] Console
     - [ ] Web/API
 - [ ] Add CP library:
@@ -36,7 +36,7 @@
         - [X] round: round a float number
         - [X] hash: returns hash of string
     - [X] Random (https://docs.godotengine.org/en/stable/classes/class_randomnumbergenerator.html)
-    - [ ] Collections
+    - [X] Collections
         - [X] Collection
             - [X] _default_add: adds end
             - [X] _default_get: gets end
@@ -61,11 +61,21 @@
             - [X] push: _default_add
             - [X] pop: _default_remove
             - [X] peek: _default_get
-        - [ ] Dict
+        - [x] Dict
             - [X] struct to dict
-            - [X] dict to json string
+    - [X] DSL:
+        - [X] JSON:
             - [X] json_stringfy
             - [ ] json_parse
+        - [X] BPS:
+            - [X] bps_stringfy
+            - [ ] bps_parse
+        - [X] YAML:
+            - [X] yaml_stringfy
+            - [ ] yaml_parse
+        - [X] XML:
+            - [X] xml_stringfy
+            - [ ] xml_parse
     - [X] Util:
         - [X] isnumber
         - [X] istext

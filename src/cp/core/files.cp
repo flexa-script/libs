@@ -16,7 +16,7 @@ struct File {
 	var mode: int;
 };
 
-fun open(file: File, path: string, mode: int): bool;
+fun open(path: string, mode: int): File;
 fun is_open(file: File): bool;
 fun read(file: File): string;
 fun read_line(file: File): string;

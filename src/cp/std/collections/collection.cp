@@ -82,7 +82,9 @@ fun exists(collection: Collection, value: any, comparator: function = null) {
 }
 
 fun clear(collection: Collection) {
-	collection = create_collection();
+	collection.first = null;
+	collection.last = null;
+	collection.size = 0;
 }
 
 fun is_empty(collection: Collection): bool {

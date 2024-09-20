@@ -102,9 +102,12 @@ const KEY_MENU = 93;
 
 const MOUSE_LEFT_BUTTON = 1;
 const MOUSE_RIGHT_BUTTON = 2;
-const MOUSE_MIDDLE_BUTTON = 3;
+const MOUSE_MIDDLE_BUTTON = 4;
 
 fun is_key_pressed(key: int): bool;
 fun get_mouse_position(): Point;
 fun set_mouse_position(x: int, y: int);
+fun start_mouse_hook();
+fun stop_mouse_hook();
+fun get_mouse_wheel_scroll(): int;
 fun is_mouse_button_pressed(button: int): bool;

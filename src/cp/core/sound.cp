@@ -4,7 +4,10 @@
 
 namespace cp;
 
-fun play_sound(file_path: string);
+const MIN_VOLUME = 0f;
+const MAX_VOLUME = 1f;
+
+fun play_sound(path: string);
+fun play_sound_once(path: string);
 fun stop_sound();
-// volume (0 to 65535, average 32767)
-fun set_volume(volume: int);
+fun set_volume(volume: float);

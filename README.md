@@ -8,10 +8,10 @@
     - [X] Input
         - [X] Keyboard
         - [X] Mouse
-    - [ ] Sound
+    - [X] Sound
     - [X] Console
     - [ ] Web/API
-- [ ] Add CP library:
+- [ ] Add standard library:
     - [X] Strings
         - [X] size: size of string
         - [X] contains: string is contained in other string

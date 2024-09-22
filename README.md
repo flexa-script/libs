@@ -10,7 +10,7 @@
         - [X] Mouse
     - [X] Sound
     - [X] Console
-    - [ ] Web/API
+    - [X] Web/API
 - [ ] Add standard library:
     - [X] Strings
         - [X] size: size of string

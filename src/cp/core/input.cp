@@ -104,7 +104,9 @@ const MOUSE_LEFT_BUTTON = 1;
 const MOUSE_RIGHT_BUTTON = 2;
 const MOUSE_MIDDLE_BUTTON = 4;
 
+fun update_key_states();
 fun is_key_pressed(key: int): bool;
+fun is_key_released(key: int): bool;
 fun get_mouse_position(): Point;
 fun set_mouse_position(x: int, y: int);
 fun start_mouse_hook();

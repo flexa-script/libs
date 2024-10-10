@@ -4,7 +4,7 @@
 using cp.std.testing;
 using cp.std.DSL.XML;
 
-as namespace cp;
+include namespace cp;
 
 fun xml_parse_full() {
 	// arrange

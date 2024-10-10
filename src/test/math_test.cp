@@ -4,7 +4,7 @@
 using cp.std.testing;
 using cp.std.math;
 
-as namespace cp;
+include namespace cp;
 
 fun abs_positive() {
 	// arrange

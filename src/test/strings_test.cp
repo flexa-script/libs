@@ -4,7 +4,7 @@
 using cp.std.testing;
 using cp.std.strings;
 
-as namespace cp;
+include namespace cp;
 
 fun str_size() {
 	// arrange

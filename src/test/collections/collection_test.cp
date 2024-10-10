@@ -4,7 +4,7 @@
 using cp.std.testing;
 using cp.std.collections.list;
 
-as namespace cp;
+include namespace cp;
 
 var default_collection: Collection = create_collection();
 _default_add(default_collection, 1);

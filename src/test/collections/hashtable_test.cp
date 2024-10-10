@@ -4,7 +4,7 @@
 using cp.std.testing;
 using cp.std.collections.hashtable;
 
-as namespace cp;
+include namespace cp;
 
 var default_hashtable: Hashtable = create_hashtable();
 put(default_hashtable, "one", 1);

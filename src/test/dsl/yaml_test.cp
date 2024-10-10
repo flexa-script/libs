@@ -4,7 +4,7 @@
 using cp.std.testing;
 using cp.std.DSL.YAML;
 
-as namespace cp;
+include namespace cp;
 
 fun yaml_parse_full() {
 	// arrange

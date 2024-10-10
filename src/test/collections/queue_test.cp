@@ -4,7 +4,7 @@
 using cp.std.testing;
 using cp.std.collections.queue;
 
-as namespace cp;
+include namespace cp;
 
 var default_queue: Queue = create_queue();
 enqueue(default_queue, 1);

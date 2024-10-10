@@ -4,7 +4,7 @@
 using cp.std.testing;
 using cp.std.collections.dictionary;
 
-as namespace cp;
+include namespace cp;
 
 var default_dict: Dictionary = create_dictionary();
 emplace(default_dict, "one", 1);

@@ -4,7 +4,7 @@
 using cp.std.testing;
 using cp.std.DSL.JSON;
 
-as namespace cp;
+include namespace cp;
 
 fun json_parse_full() {
 	// arrange

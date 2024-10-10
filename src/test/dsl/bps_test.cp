@@ -4,7 +4,7 @@
 using cp.std.testing;
 using cp.std.DSL.BPS;
 
-as namespace cp;
+include namespace cp;
 
 fun bps_parse_full() {
 	// arrange

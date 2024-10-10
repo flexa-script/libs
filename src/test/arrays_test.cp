@@ -4,7 +4,7 @@
 using cp.std.testing;
 using cp.std.arrays;
 
-as namespace cp;
+include namespace cp;
 
 fun calc_arr_size() {
 	// arrange

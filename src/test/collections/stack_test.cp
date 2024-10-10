@@ -4,7 +4,7 @@
 using cp.std.testing;
 using cp.std.collections.stack;
 
-as namespace cp;
+include namespace cp;
 
 var default_stack: Stack = create_stack();
 push(default_stack, 1);

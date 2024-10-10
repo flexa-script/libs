@@ -4,7 +4,7 @@
 using cp.std.testing;
 using cp.std.random;
 
-as namespace cp;
+include namespace cp;
 
 fun rand_int_range() {
 	// arrange

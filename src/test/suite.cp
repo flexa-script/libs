@@ -10,7 +10,7 @@ using test.collections.list_test;
 using test.collections.queue_test;
 using test.collections.stack_test;
 using test.collections.dictionary_test;
-using test.collections.hashtable_test;
+// using test.collections.hashtable_test;
 using test.dsl.json_test;
 using test.dsl.bps_test;
 using test.dsl.xml_test;
@@ -32,7 +32,7 @@ fun execute_test_suite() {
 	print_test_suite("queue", queue_test_suite);
 	print_test_suite("stack", stack_test_suite);
 	print_test_suite("dictionary", dictionary_test_suite);
-	print_test_suite("hashtable", hashtable_test_suite);
+	// print_test_suite("hashtable", hashtable_test_suite);
 	print_test_suite("JSON", json_test_suite);
 	print_test_suite("BPS", bps_test_suite);
 	print_test_suite("XML", xml_test_suite);

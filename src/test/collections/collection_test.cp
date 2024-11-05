@@ -7,7 +7,7 @@ using cp.std.collections.list;
 include namespace cp;
 
 var default_collection: Collection = create_collection();
-_default_add(default_collection, 1);
+_default_add(ref default_collection, 1);
 _default_add(default_collection, 2);
 _default_add(default_collection, 3);
 _default_add(default_collection, 4);

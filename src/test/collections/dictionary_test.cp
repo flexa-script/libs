@@ -32,10 +32,6 @@ fun _arr_pair_comparator(rval[]: Pair, lval[]: Pair) {
 	return true;
 }
 
-fun _pair_comparator(rval: Pair, lval: Pair) {
-	return rval.key == lval.key;
-}
-
 fun dict_emplace() {
 	// arrange
 	var dict: Dictionary = create_dictionary();

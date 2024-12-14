@@ -26,6 +26,8 @@ fun write_bytes(file: File, bytes[]: char);
 fun close(file: File);
 
 fun del_file(path: string): bool;
+fun create_file(path: string): bool;
 fun del_folder(path: string): bool;
+fun create_folder(path: string): bool;
 
 fun path_exists(path: string): bool;

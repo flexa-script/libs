@@ -1,10 +1,10 @@
 // MIT License
 // Copyright (c) 2023 Carlos Eduardo de Borba Machado
 
-using cp.std.testing;
-using cp.std.collections.dictionary;
+using bsl.std.testing;
+using bsl.std.collections.dictionary;
 
-include namespace cp;
+include namespace bsl;
 
 var default_dict: Dictionary = create_dictionary();
 emplace(default_dict, "one", 1);

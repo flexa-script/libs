@@ -1,10 +1,10 @@
 // MIT License
 // Copyright (c) 2023 Carlos Eduardo de Borba Machado
 
-using cp.std.testing;
-using cp.std.collections.stack;
+using bsl.std.testing;
+using bsl.std.collections.stack;
 
-include namespace cp;
+include namespace bsl;
 
 var default_stack: Stack = create_stack();
 push(default_stack, 1);

@@ -2,9 +2,9 @@
 // MIT License
 // Copyright (c) 2024 Carlos Eduardo de Borba Machado
 
-namespace cp;
+namespace bsl;
 
-using cp.std.collections.collection;
+using bsl.std.collections.collection;
 
 struct List {
 	var collection: Collection;

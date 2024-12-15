@@ -2,14 +2,14 @@
 // MIT License
 // Copyright (c) 2024 Carlos Eduardo de Borba Machado
 
-namespace cp;
+namespace bsl;
 
-using cp.std.structs;
-using cp.std.math;
-using cp.std.collections.stack;
-using cp.std.collections.list;
-using cp.std.arrays;
-using cp.std.strings;
+using bsl.std.structs;
+using bsl.std.math;
+using bsl.std.collections.stack;
+using bsl.std.collections.list;
+using bsl.std.arrays;
+using bsl.std.strings;
 
 const LEFT_SIDE = -1;
 const MIDDLE = 0;

@@ -1,10 +1,10 @@
 // MIT License
 // Copyright (c) 2023 Carlos Eduardo de Borba Machado
 
-using cp.std.testing;
-using cp.std.arrays;
+using bsl.std.testing;
+using bsl.std.arrays;
 
-include namespace cp;
+include namespace bsl;
 
 fun calc_arr_size() {
 	// arrange

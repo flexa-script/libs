@@ -2,9 +2,9 @@
 // MIT License
 // Copyright (c) 2024 Carlos Eduardo de Borba Machado
 
-namespace cp;
+namespace bsl;
 
-using cp.std.math;
+using bsl.std.math;
 
 const RAND_MAX = 4294967295;
 

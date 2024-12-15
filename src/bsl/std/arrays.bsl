@@ -2,7 +2,7 @@
 // MIT License
 // Copyright (c) 2024 Carlos Eduardo de Borba Machado
 
-namespace cp;
+namespace bsl;
 
 const MAX_ARRAY_SIZE = 99999999;
 

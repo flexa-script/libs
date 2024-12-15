@@ -2,9 +2,9 @@
 // MIT License
 // Copyright (c) 2024 Carlos Eduardo de Borba Machado
 
-namespace cp;
+namespace bsl;
 
-using cp.std.structs;
+using bsl.std.structs;
 
 const KEY_A = 65;
 const KEY_B = 66;

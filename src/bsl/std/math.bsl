@@ -2,7 +2,7 @@
 // MIT License
 // Copyright (c) 2024 Carlos Eduardo de Borba Machado
 
-namespace cp;
+namespace bsl;
 
 const MAX_VALUE = 9223372036854775807; // 18446744073709551615
 

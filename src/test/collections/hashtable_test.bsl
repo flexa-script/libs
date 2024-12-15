@@ -1,10 +1,10 @@
 // MIT License
 // Copyright (c) 2023 Carlos Eduardo de Borba Machado
 
-using cp.std.testing;
-using cp.std.collections.hashtable;
+using bsl.std.testing;
+using bsl.std.collections.hashtable;
 
-include namespace cp;
+include namespace bsl;
 
 var default_hashtable: Hashtable = create_hashtable();
 put(default_hashtable, "one", 1);

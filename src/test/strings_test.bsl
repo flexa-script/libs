@@ -1,10 +1,10 @@
 // MIT License
 // Copyright (c) 2023 Carlos Eduardo de Borba Machado
 
-using cp.std.testing;
-using cp.std.strings;
+using bsl.std.testing;
+using bsl.std.strings;
 
-include namespace cp;
+include namespace bsl;
 
 fun str_size() {
 	// arrange

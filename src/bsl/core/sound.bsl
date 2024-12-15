@@ -2,7 +2,7 @@
 // MIT License
 // Copyright (c) 2024 Carlos Eduardo de Borba Machado
 
-namespace cp;
+namespace bsl;
 
 const MIN_VOLUME = 0f;
 const MAX_VOLUME = 1f;

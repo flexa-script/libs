@@ -1,10 +1,10 @@
 // MIT License
 // Copyright (c) 2023 Carlos Eduardo de Borba Machado
 
-using cp.std.testing;
-using cp.std.DSL.YAML;
+using bsl.std.testing;
+using bsl.std.DSL.YAML;
 
-include namespace cp;
+include namespace bsl;
 
 fun yaml_parse_full() {
 	// arrange

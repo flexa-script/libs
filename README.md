@@ -67,15 +67,18 @@
         - [X] JSON:
             - [X] json_stringfy
             - [ ] json_parse
-        - [X] BPS:
-            - [X] bps_stringfy
-            - [ ] bps_parse
+        - [X] BML:
+            - [X] bml_stringfy
+            - [ ] bml_parse
         - [X] YAML:
             - [X] yaml_stringfy
             - [ ] yaml_parse
         - [X] XML:
             - [X] xml_stringfy
             - [ ] xml_parse
+        - [X] CSV:
+            - [X] csv_stringfy
+            - [ ] csv_parse
     - [X] Util:
         - [X] isnumber
         - [X] istext

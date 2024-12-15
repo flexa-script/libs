@@ -2,7 +2,7 @@
 // MIT License
 // Copyright (c) 2024 Carlos Eduardo de Borba Machado
 
-namespace cp;
+namespace bsl;
 
 const _CONVERTER = 32;
 const _LOWER = "abcdefghijklmnopqrstuvwxyzàáâãäèéêëìíîïòóôõöùúüŷç";

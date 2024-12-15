@@ -2,9 +2,9 @@
 // MIT License
 // Copyright (c) 2024 Carlos Eduardo de Borba Machado
 
-namespace cp;
+namespace bsl;
 
-using cp.std.collections.dictionary;
+using bsl.std.collections.dictionary;
 
 fun bps_parse(data: string): Dictionary;
 fun _bps_stringify_value(value: any): string;

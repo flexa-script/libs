@@ -1,10 +1,10 @@
 // MIT License
 // Copyright (c) 2023 Carlos Eduardo de Borba Machado
 
-using cp.std.testing;
-using cp.std.collections.queue;
+using bsl.std.testing;
+using bsl.std.collections.queue;
 
-include namespace cp;
+include namespace bsl;
 
 var default_queue: Queue = create_queue();
 enqueue(default_queue, 1);

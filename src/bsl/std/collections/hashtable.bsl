@@ -2,11 +2,11 @@
 // MIT License
 // Copyright (c) 2024 Carlos Eduardo de Borba Machado
 
-namespace cp;
+namespace bsl;
 
-using cp.std.structs;
-using cp.std.arrays;
-using cp.std.collections.list;
+using bsl.std.structs;
+using bsl.std.arrays;
+using bsl.std.collections.list;
 
 struct Hashtable {
 	var used_keys: List;

@@ -2,10 +2,10 @@
 // MIT License
 // Copyright (c) 2024 Carlos Eduardo de Borba Machado
 
-namespace cp;
+namespace bsl;
 
-using cp.std.collections.dictionary;
-using cp.std.strings;
+using bsl.std.collections.dictionary;
+using bsl.std.strings;
 
 fun yaml_parse(data: string): Dictionary;
 fun _yaml_stringify_value(value: any, level: int): string;

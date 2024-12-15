@@ -2,9 +2,9 @@
 // MIT License
 // Copyright (c) 2024 Carlos Eduardo de Borba Machado
 
-namespace cp;
+namespace bsl;
 
-using cp.core.console;
+using bsl.core.console;
 
 fun assert_equals(test: string, expected: any, value: any, comparator: function = null) {
 	if (comparator != null and comparator(expected, value) or

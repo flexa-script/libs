@@ -2,7 +2,7 @@
 // MIT License
 // Copyright (c) 2024 Carlos Eduardo de Borba Machado
 
-namespace cp;
+namespace bsl;
 
 fun isnumber(value: any) {
 	return typeof(value) in {typeof(int), typeof(float)};

@@ -1,10 +1,10 @@
 // MIT License
 // Copyright (c) 2023 Carlos Eduardo de Borba Machado
 
-using cp.std.testing;
-using cp.std.DSL.JSON;
+using bsl.std.testing;
+using bsl.std.DSL.JSON;
 
-include namespace cp;
+include namespace bsl;
 
 fun json_parse_full() {
 	// arrange

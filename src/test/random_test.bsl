@@ -1,10 +1,10 @@
 // MIT License
 // Copyright (c) 2023 Carlos Eduardo de Borba Machado
 
-using cp.std.testing;
-using cp.std.random;
+using bsl.std.testing;
+using bsl.std.random;
 
-include namespace cp;
+include namespace bsl;
 
 fun rand_int_range() {
 	// arrange

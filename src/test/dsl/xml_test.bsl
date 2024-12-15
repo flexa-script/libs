@@ -1,10 +1,10 @@
 // MIT License
 // Copyright (c) 2023 Carlos Eduardo de Borba Machado
 
-using cp.std.testing;
-using cp.std.DSL.XML;
+using bsl.std.testing;
+using bsl.std.DSL.XML;
 
-include namespace cp;
+include namespace bsl;
 
 fun xml_parse_full() {
 	// arrange

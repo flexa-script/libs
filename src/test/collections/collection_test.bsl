@@ -1,10 +1,10 @@
 // MIT License
 // Copyright (c) 2023 Carlos Eduardo de Borba Machado
 
-using cp.std.testing;
-using cp.std.collections.list;
+using bsl.std.testing;
+using bsl.std.collections.list;
 
-include namespace cp;
+include namespace bsl;
 
 var default_collection: Collection = create_collection();
 _default_add(ref default_collection, 1);

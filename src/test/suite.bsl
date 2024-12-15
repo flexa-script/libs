@@ -12,7 +12,7 @@ using test.collections.stack_test;
 using test.collections.dictionary_test;
 // using test.collections.hashtable_test;
 using test.dsl.json_test;
-using test.dsl.bps_test;
+using test.dsl.bml_test;
 using test.dsl.xml_test;
 using test.dsl.yaml_test;
 

@@ -17,9 +17,9 @@ using test.dsl.xml_test;
 using test.dsl.yaml_test;
 
 fun print_test_suite(lib_name: string, test_suite: function) {
-	println("--- Tests of lib <" + lib_name + "> ---");
+	start_test(lib_name);
 	test_suite();
-	println("------------------------------\n");
+	end_test();
 }
 
 fun execute_test_suite() {

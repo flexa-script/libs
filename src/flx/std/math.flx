@@ -36,6 +36,11 @@ fun pow(x: float, n: float): float {
 	return x * pow(x, n / 2) * pow(x, n / 2);
 }
 
+fun sqrt(x: float): float {
+	throw "sqrt not implemented";
+	return x;
+}
+
 fun round(val: float): int {
 	if (val < 0.0) {
 		return int(val - 0.49999999999999994);

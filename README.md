@@ -82,3 +82,6 @@
     - [X] Util:
         - [X] isnumber
         - [X] istext
+
+## Changes
+- [ ] Change size name to len in collections?

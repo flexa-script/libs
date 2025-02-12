@@ -4,10 +4,10 @@
 
 namespace flx;
 
-fun isnumber(value: any) {
+fun is_number(value: any) {
 	return typeof(value) in {typeof(int), typeof(float)};
 }
 
-fun istext(values: any) {
+fun is_text(values: any) {
 	return typeof(value) in {typeof(string), typeof(char)};
 }

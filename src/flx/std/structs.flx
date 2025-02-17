@@ -6,6 +6,7 @@ namespace flx;
 
 struct Exception {
 	var error: string;
+	var code: int;
 };
 
 struct Pair {

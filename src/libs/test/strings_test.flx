@@ -254,7 +254,7 @@ fun str_join_any_arr2() {
 
 fun str_join_type_arr() {
 	// arrange
-	var v[]: string = {"12", "34", "5", "6789"};
+	var v: string[] = {"12", "34", "5", "6789"};
 	
 	// act
 	var res: string = join(v);
@@ -301,7 +301,7 @@ fun str_split_multi() {
 	var v: string = "123456123789123987123";
 	
 	// act
-	var res[]: any = split(v, "123");
+	var res: any[] = split(v, "123");
 
 	// assert
 	assert_equals(this, {"", "456", "789", "987", ""}, res);
@@ -312,7 +312,7 @@ fun str_split_single() {
 	var v: string = "123456123789123987123";
 	
 	// act
-	var res[]: any = split(v, "2");
+	var res: any[] = split(v, "2");
 
 	// assert
 	assert_equals(this, {"1", "34561", "37891", "39871", "3"}, res);
@@ -323,7 +323,7 @@ fun str_split_multi_repeat() {
 	var v: string = "123456123789123123987123123";
 	
 	// act
-	var res[]: any = split(v, "123");
+	var res: any[] = split(v, "123");
 
 	// assert
 	assert_equals(this, {"", "456", "789", "", "987", "", ""}, res);
@@ -334,7 +334,7 @@ fun str_split_single_repeat() {
 	var v: string = "12234561237891223987123";
 	
 	// act
-	var res[]: any = split(v, "2");
+	var res: any[] = split(v, "2");
 
 	// assert
 	assert_equals(this, {"1", "", "34561", "37891", "", "39871", "3"}, res);

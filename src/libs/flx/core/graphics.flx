@@ -10,7 +10,7 @@ struct Color {
 	var r: int;
 	var g: int;
 	var b: int;
-};
+}
 
 fun rgb(r: int, g: int, b: int): Color {
 	return Color{r=r, g=g, b=b};
@@ -40,7 +40,7 @@ struct Image {
 	var path: string;
 	var width: int;
 	var height: int;
-};
+}
 
 fun load_image(path: string): Image;
 
@@ -69,7 +69,7 @@ struct Font {
 	var underline: bool;
 	var strike: bool;
 	var orientation: int;
-};
+}
 
 fun create_font(size: int = 20, name: string = "Arial", weight: int = 0, italic: bool = false,
 	underline: bool = false, strike: bool = false, orientation: int = 0): Font;
@@ -78,7 +78,7 @@ struct Window {
 	var title: string;
 	var width: int;
 	var height: int;
-};
+}
 
 fun create_window(title: string, width: int, height: int): Window;
 fun get_current_width(window: Window): int;

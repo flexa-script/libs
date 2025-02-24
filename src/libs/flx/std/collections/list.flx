@@ -8,7 +8,7 @@ using flx.std.collections.collection;
 
 struct List {
 	var collection: Collection;
-};
+}
 
 fun create_list(): List {
 	return List{collection=create_collection()};

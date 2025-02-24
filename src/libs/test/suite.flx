@@ -16,6 +16,8 @@ using test.dsl.bml_test;
 using test.dsl.xml_test;
 using test.dsl.yaml_test;
 
+include namespace flx;
+
 fun print_test_suite(lib_name: string, test_suite: function) {
 	start_test(lib_name);
 	test_suite();

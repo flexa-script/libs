@@ -14,7 +14,7 @@ const MODE_BINARY: int = 32;
 struct File {
 	var path: string;
 	var mode: int;
-};
+}
 
 fun open(path: string, mode: int): File;
 fun is_open(file: File): bool;
@@ -22,7 +22,7 @@ fun read(file: File): string;
 fun read_line(file: File): string;
 fun write(file: File, data: string);
 fun read_all_bytes(file: File): char[];
-fun write_bytes(file: File, bytes[]: char);
+fun write_bytes(file: File, bytes: char[]);
 fun close(file: File);
 
 fun del_file(path: string): bool;

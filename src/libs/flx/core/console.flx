@@ -21,7 +21,7 @@ enum {
 	CL_LIGHT_PURPLE,
 	CL_LIGHT_YELLOW,
 	CL_BRIGHT_WHITE
-};
+}
 
 fun show_console(show: bool);
 fun is_console_visible(): bool;

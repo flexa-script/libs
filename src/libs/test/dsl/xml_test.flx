@@ -22,7 +22,7 @@ fun xml_stringify_full() {
 	struct Foo {
 		var bar: int;
 		var qux: string;
-	};
+	}
 
 	var sub_dict: Dictionary = create_dictionary();
 	emplace(sub_dict, "one", 1);

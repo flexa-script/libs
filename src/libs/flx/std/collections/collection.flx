@@ -10,13 +10,13 @@ struct Node {
 	var value: any;
 	var next: Node;
 	var prev: Node;
-};
+}
 
 struct Collection {
 	var first: Node;
 	var last: Node;
 	var size: int;
-};
+}
 
 fun create_collection(): Collection {
 	return Collection{first=null, last=null, size=0};
@@ -92,7 +92,7 @@ fun is_empty(collection: Collection): bool {
 }
 
 fun to_array(collection: Collection): any[] {
-	var arr[collection.size]: any = {null};
+	var arr: any[collection.size] = {null};
 	var curr_node = collection.first;
 	for (var i = 0; i < collection.size; i++) {
 		if (typeof(curr_node.value) == typeof(Collection)) {

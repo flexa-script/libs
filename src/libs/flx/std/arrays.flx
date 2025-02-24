@@ -6,7 +6,7 @@ namespace flx;
 
 const MAX_ARRAY_SIZE = 99999999;
 
-fun size(arr[]: any): int {
+fun size(arr: any[]): int {
 	var count: int = 0;
 	foreach (var v in arr) {
 		count++;
@@ -14,7 +14,7 @@ fun size(arr[]: any): int {
 	return count;
 }
 
-fun contains(arr[]: any, cval: any): bool {
+fun contains(arr: any[], cval: any): bool {
 	foreach (var v in arr) {
 		if (v == cval) {
 			return true;
@@ -24,7 +24,7 @@ fun contains(arr[]: any, cval: any): bool {
 }
 
 // temporary, it will be changed to quick sort
-fun sort(arr[]: any, comparator: function = null): any[] {
+fun sort(arr: any[], comparator: function = null): any[] {
 	var arr_size = size(arr);
 	for (var j = 0; j < arr_size; j++) {
 		for (var i = 0; i < arr_size - 1; i++) {
@@ -46,9 +46,9 @@ fun sort(arr[]: any, comparator: function = null): any[] {
 	return arr;
 }
 
-fun reverse(arr[]: any): any[] {
+fun reverse(arr: any[]): any[] {
 	var arr_size = size(arr);
-	var rarr[arr_size]: any = {null};
+	var rarr: any[arr_size] = {null};
 	var ri = 0;
 	for (var i = arr_size - 1; i >= 0; i--) {
 		rarr[ri] = arr[i];

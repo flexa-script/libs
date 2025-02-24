@@ -24,7 +24,7 @@ struct HttpConfig {
 	var headers: Dictionary;
 	var parameters: Dictionary;
 	var data: string;
-};
+}
 
 struct HttpResponse {
 	var headers: Dictionary;
@@ -33,6 +33,6 @@ struct HttpResponse {
 	var data: string;
 	var http_version: string;
 	var raw: string;
-};
+}
 
 fun request(config: HttpConfig): HttpResponse;

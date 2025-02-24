@@ -7,8 +7,6 @@ namespace flx;
 using flx.core.console;
 using flx.std.stopwatch;
 
-include namespace flx;
-
 var usw: StopWatch = create_stopwatch();
 
 fun start_test(title: string): void {

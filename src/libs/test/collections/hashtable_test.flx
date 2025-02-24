@@ -14,7 +14,7 @@ put(default_hashtable, "four", 4);
 put(default_hashtable, "five", 5);
 put(default_hashtable, "six", 6);
 
-fun _ht_arr_pair_comparator(rval[]: Pair, lval[]: Pair) {
+fun _ht_arr_pair_comparator(rval: Pair[], lval: Pair[]) {
 	if (len(rval) != len(lval)) {
 		return false;
 	}

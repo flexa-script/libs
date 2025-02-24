@@ -12,7 +12,7 @@ struct StopWatch {
     var start_time: int;
     var end_time: int;
     var elapsed_time: int;
-};
+}
 
 fun create_stopwatch(): StopWatch {
 		return StopWatch{start_time=0, end_time=0, elapsed_time=0};

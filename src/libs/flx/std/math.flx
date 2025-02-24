@@ -85,7 +85,7 @@ fun max(a: int, b: int): int {
 	return int(max(float(a), float(b)));
 }
 
-fun max(arr[]: int): int {
+fun max(arr: int[]): int {
 	if (len(arr) == 0) {
 		return null;
 	}
@@ -99,7 +99,7 @@ fun max(arr[]: int): int {
 	return greater;
 }
 
-fun max(arr[]: float): float {
+fun max(arr: float[]): float {
 	if (len(arr) == 0) {
 		return null;
 	}
@@ -124,7 +124,7 @@ fun min(a: int, b: int): int {
 	return int(min(float(a), float(b)));
 }
 
-fun min(arr[]: int): int {
+fun min(arr: int[]): int {
 	if (len(arr) == 0) {
 		return null;
 	}
@@ -138,7 +138,7 @@ fun min(arr[]: int): int {
 	return lesser;
 }
 
-fun min(arr[]: float): float {
+fun min(arr: float[]): float {
 	if (len(arr) == 0) {
 		return null;
 	}

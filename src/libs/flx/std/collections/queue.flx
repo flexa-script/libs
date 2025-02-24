@@ -8,7 +8,7 @@ using flx.std.collections.collection;
 
 struct Queue {
 	var collection: Collection;
-};
+}
 
 fun create_queue(): Queue {
 	return Queue{collection=create_collection()};

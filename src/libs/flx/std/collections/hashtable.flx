@@ -12,7 +12,7 @@ struct Hashtable {
 	var used_keys: List;
 	var keys[MAX_ARRAY_SIZE]: string;
 	var values[MAX_ARRAY_SIZE]: any;
-};
+}
 
 fun create_hashtable(): Hashtable {
 	return Hashtable{keys={}, values={}, used_keys=create_list()};

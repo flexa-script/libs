@@ -146,7 +146,7 @@ fun split(str: string, strc: string): string[] {
 	}
 
 	var size: int = counts(str, strc) + 1;
-	var splitted[size]: string = {""};
+	var splitted: string[size] = {""};
 	var res_i: int = 0;
 	var start: int = 0;
 	var end: int = strc_size;

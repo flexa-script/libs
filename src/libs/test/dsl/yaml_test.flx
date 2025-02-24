@@ -19,7 +19,8 @@ fun yaml_parse_full() {
 
 fun yaml_stringify_full() {
 	// arrange
-	var match_str = `---
+	var match_str = `
+---
 bool_true: true
 int: 1
 float: 10.500000
@@ -54,12 +55,13 @@ multi_dim_array:
     - 1
     - 2
     - 3
-...`;
+...
+`;
 
 	struct Foo {
 		var bar: int;
 		var qux: string;
-	};
+	}
 
 	var sub_dict: Dictionary = create_dictionary();
 	emplace(sub_dict, "one", 1);

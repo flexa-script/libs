@@ -14,7 +14,7 @@ emplace(default_dict, "four", 4);
 emplace(default_dict, "five", 5);
 emplace(default_dict, "six", 6);
 
-fun _arr_pair_comparator(rval[]: Pair, lval[]: Pair) {
+fun _arr_pair_comparator(rval: Pair[], lval: Pair[]) {
 	if (len(rval) != len(lval)) {
 		return false;
 	}

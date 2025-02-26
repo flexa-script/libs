@@ -2,7 +2,9 @@
 
 # Implement
 - [ ] Add core library:
-    - [X] File I/O
+    - [ ] Files
+        - [X] File I/O
+        - [ ] File system
     - [X] DateTime
     - [X] Graphics
     - [X] Input
@@ -23,11 +25,26 @@
         - [X] split: split string in array
         - [X] join: merge array values in string
         - [X] left_trim, right_trim, trim: removes whitespaces strings
-    - [X] Arrays
+    - [ ] Arrays
         - [X] size: size of array
         - [X] contains: value is contained in array
         - [X] sorted: sort an array
         - [X] reverse: reverse an array
+        - [ ] append: adds a value
+        - [ ] append_at: adds a value
+        - [ ] remove: deletes a value
+        - [ ] remove_at: deletes a value
+        - [ ] get: gets a value
+        - [ ] get_at: gets a value
+        - [ ] clear: delete all items
+        - [ ] is_empty: check if is empty
+        - [ ] enqueue: enqueue a value
+        - [ ] dequeue: dequeue a value
+        - [ ] front: gets fisrt
+        - [ ] back: gets last
+        - [ ] push: pushs end
+        - [ ] pop: pops end
+        - [ ] peek: gets top
     - [X] Math
         - [X] abs: ret absolute value of a number
         - [X] max: return greather from two or more parameters
@@ -38,7 +55,7 @@
     - [X] Random (https://docs.godotengine.org/en/stable/classes/class_randomnumbergenerator.html)
     - [X] Collections
         - [X] Collection
-            - [X] _default_add: adds end
+            - [X] _default_append: appends end
             - [X] _default_get: gets end
             - [X] _default_remove: removes end
             - [X] create: create new collection
@@ -47,41 +64,43 @@
             - [X] is_empty: check if is empty
             - [X] to_array: converts to array
         - [X] List
-            - [X] add: _default_add
-            - [X] insert: insert index
+            - [X] append: _default_append
+            - [X] append_at: insert index
             - [X] remove: _default_remove
-            - [X] delete: delete index
-            - [X] get: get index
+            - [X] remove_at: delete index
+            - [X] get: _default_get
+            - [X] get_at: get index
         - [X] Queue
-            - [X] enqueue: _default_add
+            - [X] enqueue: _default_append
             - [X] dequeue: removes from start
             - [X] front: gets fisrt
             - [X] back: _default_get
         - [X] Stack
-            - [X] push: _default_add
+            - [X] push: _default_append
             - [X] pop: _default_remove
             - [X] peek: _default_get
         - [x] Dict
             - [X] struct to dict
     - [X] DSL:
-        - [X] JSON:
+        - [ ] JSON:
             - [X] json_stringfy
             - [ ] json_parse
-        - [X] BML:
-            - [X] bml_stringfy
-            - [ ] bml_parse
-        - [X] YAML:
+        - [ ] FML:
+            - [X] fml_stringfy
+            - [ ] fml_parse
+        - [ ] YAML:
             - [X] yaml_stringfy
             - [ ] yaml_parse
-        - [X] XML:
+        - [ ] XML:
             - [X] xml_stringfy
             - [ ] xml_parse
-        - [X] CSV:
-            - [X] csv_stringfy
+        - [ ] CSV:
+            - [ ] csv_stringfy
             - [ ] csv_parse
     - [X] Util:
-        - [X] isnumber
-        - [X] istext
+        - [X] is_number
+        - [X] is_text
 
 ## Refactoring
-- [ ] Change size name to len in collections?
+- [ ] Change size name to len in libs
+- [ ] Change add name to append

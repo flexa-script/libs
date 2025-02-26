@@ -16,6 +16,9 @@ struct File {
 	var mode: int;
 }
 
+fun is_dir(path: string): bool;
+fun is_file(path: string): bool;
+
 fun open(path: string, mode: int): File;
 fun is_open(file: File): bool;
 fun read(file: File): string;
@@ -25,9 +28,8 @@ fun read_all_bytes(file: File): char[];
 fun write_bytes(file: File, bytes: char[]);
 fun close(file: File);
 
-fun del_file(path: string): bool;
-fun create_file(path: string): bool;
-fun del_folder(path: string): bool;
-fun create_folder(path: string): bool;
+fun create_dir(path: string);
+fun list_dir(path: string): string[];
 
 fun path_exists(path: string): bool;
+fun delete_path(path: string);

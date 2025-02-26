@@ -16,7 +16,7 @@ const OPTIONS = "OPTIONS";
 const TRACE = "TRACE";
 const CONNECT = "CONNECT";
 
-struct HttpConfig {
+struct HttpRequest {
 	var hostname: string;
 	var path: string;
 	var port: int;
@@ -35,4 +35,4 @@ struct HttpResponse {
 	var raw: string;
 }
 
-fun request(config: HttpConfig): HttpResponse;
+fun request(config: HttpRequest): HttpResponse;

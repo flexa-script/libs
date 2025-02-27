@@ -15,17 +15,17 @@ struct StopWatch {
 }
 
 fun create_stopwatch(): StopWatch {
-		return StopWatch{start_time=0, end_time=0, elapsed_time=0};
+	return StopWatch{start_time=0, end_time=0, elapsed_time=0};
 }
 
 fun timer_start(sw: StopWatch): void {
-		sw.elapsed_time = 0;
+	sw.elapsed_time = 0;
     sw.start_time = clock();
 }
 
 fun timer_stop(sw: StopWatch): void {
     sw.end_time = clock();
-		sw.elapsed_time = sw.end_time - sw.start_time;
+	sw.elapsed_time = sw.end_time - sw.start_time;
 }
 
 fun print_elapsed_time(sw: StopWatch): void {

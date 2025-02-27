@@ -35,4 +35,4 @@ struct HttpResponse {
 	var raw: string;
 }
 
-fun request(config: HttpRequest): HttpResponse;
+fun request(req: HttpRequest): HttpResponse;

@@ -15,7 +15,7 @@ fun create_stack(): Stack {
 }
 
 fun push(stack: Stack, value: any) {
-	_default_add(stack.collection, value);
+	_default_append(stack.collection, value);
 }
 
 fun pop(stack: Stack) {
@@ -38,7 +38,7 @@ fun clear(stack: Stack) {
 	stack = create_stack();
 }
 
-fun size(stack: Stack): int {
+fun len(stack: Stack): int {
 	return stack.collection.size;
 }
 

@@ -4,7 +4,7 @@
 
 namespace flx;
 
-using flx.std.structs;
+using flx.std.types;
 
 const KEY_A = 65;
 const KEY_B = 66;

@@ -8,18 +8,10 @@ const _CONVERTER = 32;
 const _LOWER = "abcdefghijklmnopqrstuvwxyzàáâãäèéêëìíîïòóôõöùúüŷç";
 const _UPPER = "ABCDEFGHIJKLMNOPQRSTUVWXYZÀÁÂÃÄÈÉÊËÌÍÎÏÒÓÔÕÖÙÚÜŶÇ";
 
-fun strlen(str: string): int {
-	var count: int = 0;
-	foreach (var c: char in str) {
-		count++;
-	}
-	return count;
-}
-
 fun substr(str: string, start: int, end: int = null): string {
 	var ss = "";
 	if (end == null) {
-		end = strlen(str);
+		end = len(str);
 	}
 	for (var i = start; i < end; i++) {
 		ss += str[i];
@@ -36,8 +28,8 @@ fun repeat(str: string, count: int): string {
 }
 
 fun contains(str: string, strc: string): bool {
-	var str_size = strlen(str);
-	var strc_size = strlen(strc);
+	var str_size = len(str);
+	var strc_size = len(strc);
 	var start: int = 0;
 	var end: int = strc_size;
 
@@ -57,8 +49,8 @@ fun contains(str: string, strc: string): bool {
 }
 
 fun counts(str: string, strc: string): int {
-	var str_size = strlen(str);
-	var strc_size = strlen(strc);
+	var str_size = len(str);
+	var strc_size = len(strc);
 	var start: int = 0;
 	var end: int = strc_size;
 
@@ -80,8 +72,8 @@ fun counts(str: string, strc: string): int {
 }
 
 fun starts_with(str: string, strc: string): bool {
-	var str_size = strlen(str);
-	var strc_size = strlen(strc);
+	var str_size = len(str);
+	var strc_size = len(strc);
 
 	if (str_size < strc_size) {
 		return false;
@@ -95,8 +87,8 @@ fun starts_with(str: string, strc: string): bool {
 }
 
 fun ends_with(str: string, strc: string): bool {
-	var str_size = strlen(str);
-	var strc_size = strlen(strc);
+	var str_size = len(str);
+	var strc_size = len(strc);
 
 	if (str_size < strc_size) {
 		return false;
@@ -126,7 +118,7 @@ fun left_trim(str: string): string {
 }
 
 fun right_trim(str: string): string {
-	var end = strlen(str) - 1;
+	var end = len(str) - 1;
 	while (str[end] == ' ') {
 		end--;
 	}
@@ -138,8 +130,8 @@ fun trim(str: string): string {
 }
 
 fun split(str: string, strc: string): string[] {
-	var str_size = strlen(str);
-	var strc_size = strlen(strc);
+	var str_size = len(str);
+	var strc_size = len(strc);
 
 	if (str_size < strc_size) {
 		return {};
@@ -167,9 +159,9 @@ fun split(str: string, strc: string): string[] {
 }
 
 fun replace(str: string, strc: string, strr: string): string {
-	var str_size = strlen(str);
-	var strc_size = strlen(strc);
-	var strr_size = strlen(strr);
+	var str_size = len(str);
+	var strc_size = len(strc);
+	var strr_size = len(strr);
 
 	if (str_size < strc_size) {
 		return str;
@@ -201,7 +193,7 @@ fun to_string(value: any): string {
 
 fun _turn_case(str: string, dir: int = 1): string {
 	var ss: string = "";
-	var str_size = strlen(str);
+	var str_size = len(str);
 	var dict = dir == 1 ? _LOWER : _UPPER;
 	var conv = _CONVERTER * dir;
 	

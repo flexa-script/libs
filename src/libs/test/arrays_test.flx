@@ -6,15 +6,147 @@ using flx.std.arrays;
 
 include namespace flx;
 
-fun calc_arr_size() {
+fun append_at_end() {
+	// arrange
+	var arr = {1, 2, 3, 4, 5};
+	
+	// act
+	var res = append_at(arr, 6, 5);
+	
+	// assert
+	assert_equals(this, {1, 2, 3, 4, 5, 6}, res);
+}
+
+fun append_at_midle() {
+	// arrange
+	var arr = {1, 2, 3, 5, 6};
+	
+	// act
+	var res = append_at(arr, 4, 3);
+	
+	// assert
+	assert_equals(this, {1, 2, 3, 4, 5, 6}, res);
+}
+
+fun append_at_start() {
+	// arrange
+	var arr = {2, 3, 4, 5, 6};
+	
+	// act
+	var res = append_at(arr, 1, 0);
+	
+	// assert
+	assert_equals(this, {1, 2, 3, 4, 5, 6}, res);
+}
+
+fun append_default() {
+	// arrange
+	var arr = {1, 2, 3, 4, 5};
+	
+	// act
+	var res = append(arr, 6);
+	
+	// assert
+	assert_equals(this, {1, 2, 3, 4, 5, 6}, res);
+}
+
+fun remove_default() {
 	// arrange
 	var arr = {1, 2, 3, 4, 5, 6};
 	
 	// act
-	var res: int = size(arr);
+	var res = remove(arr);
 	
 	// assert
-	assert_equals(this, 6, res);
+	assert_equals(this, {1, 2, 3, 4, 5}, res);
+}
+
+fun remove_at_out() {
+	// arrange
+	var arr = {1, 2, 3, 4, 5, 6};
+	
+	// act
+	var res = remove_at(arr, 6);
+	
+	// assert
+	assert_equals(this, {1, 2, 3, 4, 5, 6}, res);
+}
+
+fun remove_at_midle() {
+	// arrange
+	var arr = {1, 2, 3, 4, 5, 6};
+	
+	// act
+	var res = remove_at(arr, 2);
+	
+	// assert
+	assert_equals(this, {1, 2, 4, 5, 6}, res);
+}
+
+fun remove_at_start() {
+	// arrange
+	var arr = {1, 2, 3, 4, 5, 6};
+	
+	// act
+	var res = remove_at(arr, 0);
+	
+	// assert
+	assert_equals(this, {2, 3, 4, 5, 6}, res);
+}
+
+fun remove_at_end() {
+	// arrange
+	var arr = {1, 2, 3, 4, 5, 6};
+	
+	// act
+	var res = remove_at(arr, 5);
+	
+	// assert
+	assert_equals(this, {1, 2, 3, 4, 5}, res);
+}
+
+fun slice_endless() {
+	// arrange
+	var arr = {1, 2, 3, 4, 5, 6};
+	
+	// act
+	var res = slice(arr, 1);
+	
+	// assert
+	assert_equals(this, {2, 3, 4, 5, 6}, res);
+}
+
+fun slice_end() {
+	// arrange
+	var arr = {1, 2, 3, 4, 5, 6};
+	
+	// act
+	var res = slice(arr, 1, 5);
+	
+	// assert
+	assert_equals(this, {2, 3, 4, 5, 6}, res);
+}
+
+fun slice_start() {
+	// arrange
+	var arr = {1, 2, 3, 4, 5, 6};
+	
+	// act
+	var res = slice(arr, 0, 4);
+	
+	// assert
+	assert_equals(this, {1, 2, 3, 4, 5}, res);
+}
+
+fun slice_midle() {
+	// arrange
+	var arr = {1, 2, 3, 4, 5, 6};
+	
+	// act
+	var res = slice(arr, 1, 4);
+	
+	// assert
+	assert_equals(this, {2, 3, 4, 5}, res);
 }
 
 fun contains() {
@@ -110,7 +242,19 @@ fun reverse_palindrome() {
 }
 
 fun arrays_test_suite() {
-	calc_arr_size();
+	append_default();
+	append_at_start();
+	append_at_midle();
+	append_at_end();
+	remove_at_start();
+	remove_at_midle();
+	remove_at_end();
+	remove_at_out();
+	remove_default();
+	slice_start();
+	slice_midle();
+	slice_end();
+	slice_endless();
 	contains();
 	contains_start();
 	contains_end();

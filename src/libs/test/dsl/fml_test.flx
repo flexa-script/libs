@@ -2,22 +2,22 @@
 // Copyright (c) 2023 Carlos Eduardo de Borba Machado
 
 using flx.std.testing;
-using flx.std.DSL.BML;
+using flx.std.DSL.FML;
 
 include namespace flx;
 
-fun bps_parse_full() {
+fun fml_parse_full() {
 	// arrange
-	var bps = "";
+	var fml = "";
 	
 	// act
-	var val: Dictionary = bps_parse(bps);
+	var val: Dictionary = fml_parse(fml);
 	
 	// assert
 	assert_equals(this, null, val);
 }
 
-fun bps_stringify_full() {
+fun fml_stringify_full() {
 	// arrange
 	struct Foo {
 		var bar: int;
@@ -41,7 +41,7 @@ fun bps_stringify_full() {
 	emplace(dict, "sub_dict", sub_dict);
 	
 	// act
-	var val: string = bps_stringify(dict);
+	var val: string = fml_stringify(dict);
 	
 	// assert
 	assert_equals(this,
@@ -49,7 +49,7 @@ fun bps_stringify_full() {
 		val);
 }
 
-fun bps_test_suite() {
-	bps_parse_full();
-	bps_stringify_full();
+fun fml_test_suite() {
+	fml_parse_full();
+	fml_stringify_full();
 }

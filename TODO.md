@@ -25,26 +25,23 @@
         - [X] split: split string in array
         - [X] join: merge array values in string
         - [X] left_trim, right_trim, trim: removes whitespaces strings
-    - [ ] Arrays
+    - [X] Arrays
         - [X] size: size of array
         - [X] contains: value is contained in array
-        - [X] sorted: sort an array
+        - [X] sort: sort an array
         - [X] reverse: reverse an array
-        - [ ] append: adds a value
-        - [ ] append_at: adds a value
-        - [ ] remove: deletes a value
-        - [ ] remove_at: deletes a value
-        - [ ] get: gets a value
-        - [ ] get_at: gets a value
-        - [ ] clear: delete all items
-        - [ ] is_empty: check if is empty
-        - [ ] enqueue: enqueue a value
-        - [ ] dequeue: dequeue a value
-        - [ ] front: gets fisrt
-        - [ ] back: gets last
-        - [ ] push: pushs end
-        - [ ] pop: pops end
-        - [ ] peek: gets top
+        - [X] slice: returns a slice of array
+        - [X] append: adds a value
+        - [X] append_at: adds a value
+        - [X] remove: deletes a value
+        - [X] remove_at: deletes a value
+        - [X] enqueue: enqueue a value
+        - [X] dequeue: dequeue a value
+        - [X] front: gets fisrt
+        - [X] back: gets last
+        - [X] push: pushs end
+        - [X] pop: pops end
+        - [X] peek: gets top
     - [X] Math
         - [X] abs: ret absolute value of a number
         - [X] max: return greather from two or more parameters
@@ -52,7 +49,7 @@
         - [X] sum: sum all items from array
         - [X] round: round a float number
         - [X] hash: returns hash of string
-    - [X] Random (https://docs.godotengine.org/en/stable/classes/class_randomnumbergenerator.html)
+    - [X] Random
     - [X] Collections
         - [X] Collection
             - [X] _default_append: appends end
@@ -102,5 +99,5 @@
         - [X] is_text
 
 ## Refactoring
-- [ ] Change size name to len in libs
-- [ ] Change add name to append
+- [X] Change size name to len in libs
+- [X] Change add name to append

@@ -42,7 +42,7 @@ fun dict_emplace() {
 	emplace(dict, "three", 3);
 	
 	// assert
-	assert_equals(this + "[size]", 3, size(dict));
+	assert_equals(this + "[size]", 3, len(dict));
 	assert_equals(this + "[content]", {Pair{key="one", value=1}, Pair{key="two", value=2}, Pair{key="three", value=3}}, to_array(dict), _arr_pair_comparator);
 }
 
@@ -56,7 +56,7 @@ fun dict_erase() {
 	erase(dict, "six");
 	
 	// assert
-	assert_equals(this + "[size]", 3, size(dict));
+	assert_equals(this + "[size]", 3, len(dict));
 	assert_equals(this + "[content]", {Pair{key="one", value=1}, Pair{key="three", value=3}, Pair{key="five", value=5}}, to_array(dict), _arr_pair_comparator);
 }
 

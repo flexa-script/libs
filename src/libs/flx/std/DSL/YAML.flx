@@ -55,7 +55,7 @@ fun _yaml_stringify_data(data: Dictionary, level: int): string {
 	while (current != null) {
 		if (not exists(visited_list, current.key)) {
 			push(current_stack, current);
-			add(visited_list, current.key);
+			append(visited_list, current.key);
 			yaml += repeat(" ", level * 2);
 			yaml += current.key + ":" + _yaml_stringify_value(current.value, level);
 		}
@@ -65,7 +65,7 @@ fun _yaml_stringify_data(data: Dictionary, level: int): string {
 			current = current.right;
 		} else {
 			pop(current_stack);
-			current = size(current_stack) > 0 ? peek(current_stack) : null;
+			current = len(current_stack) > 0 ? peek(current_stack) : null;
 		}
 	}
 

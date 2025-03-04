@@ -14,11 +14,11 @@ fun create_list(): List {
 	return List{collection=create_collection()};
 }
 
-fun add(list: List, value: any) {
-	_default_add(list.collection, value);
+fun append(list: List, value: any) {
+	_default_append(list.collection, value);
 }
 
-fun insert(list: List, value: any, index: int) {
+fun append_at(list: List, value: any, index: int) {
 	var collection = list.collection;
 
 	if (index > collection.size) {
@@ -26,7 +26,7 @@ fun insert(list: List, value: any, index: int) {
 	}
 
 	if (index == collection.size) {
-		_default_add(collection, value);
+		_default_append(collection, value);
 		return;
 	}
 
@@ -58,7 +58,7 @@ fun remove(list: List) {
 	}
 }
 
-fun delete(list: List, index: int) {
+fun remove_at(list: List, index: int) {
 	var collection = list.collection;
 
 	if (index >= collection.size) {
@@ -84,7 +84,15 @@ fun delete(list: List, index: int) {
 	collection.size--;
 }
 
-fun get(list: List, index: int): any {
+fun get(list: List): any {
+	try {
+		return _default_get(list.collection);
+	} catch (...) {
+		throw "Tryed to get from empty list";
+	}
+}
+
+fun get_at(list: List, index: int): any {
 	var collection = list.collection;
 
 	if (index >= collection.size) {
@@ -100,7 +108,7 @@ fun get(list: List, index: int): any {
 	return node.value;
 }
 
-fun indexof(list: List, value: any, comparator: function = null): int {
+fun index_of(list: List, value: any, comparator: function = null): int {
 	var collection = list.collection;
 	var current = collection.first;
 	var index = 0;
@@ -126,7 +134,7 @@ fun exists(list: List, value: any, comparator: function = null) {
 	return exists(list.collection, value, comparator);
 }
 
-fun size(list: List): int {
+fun len(list: List): int {
 	return list.collection.size;
 }
 

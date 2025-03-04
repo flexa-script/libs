@@ -4,7 +4,7 @@
 
 namespace flx;
 
-using flx.std.structs;
+using flx.std.types;
 
 struct Node {
 	var value: any;
@@ -22,7 +22,7 @@ fun create_collection(): Collection {
 	return Collection{first=null, last=null, size=0};
 }
 
-fun _default_add(collection: Collection, value: any) {
+fun _default_append(collection: Collection, value: any) {
 	if (collection.first == null) {
 		collection.first = Node{value=value, next=null, prev=null};
 		collection.last = collection.first;
@@ -91,6 +91,10 @@ fun is_empty(collection: Collection): bool {
 	return collection.size == 0;
 }
 
+fun len(collection: Collection): int {
+	return collection.size;
+}
+
 fun to_array(collection: Collection): any[] {
 	var arr: any[collection.size] = {null};
 	var curr_node = collection.first;
@@ -109,7 +113,7 @@ fun copy(collection: Collection): Collection {
 	var copy = Collection{};
 	var arr = to_array(collection);
 	foreach (var v in arr) {
-		_default_add(copy, v);
+		_default_append(copy, v);
 	}
 	return copy;
 }

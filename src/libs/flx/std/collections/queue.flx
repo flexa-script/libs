@@ -15,7 +15,7 @@ fun create_queue(): Queue {
 }
 
 fun enqueue(queue: Queue, value: any) {
-	_default_add(queue.collection, value);
+	_default_append(queue.collection, value);
 }
 
 fun dequeue(queue: Queue) {
@@ -43,7 +43,7 @@ fun clear(queue: Queue) {
 	queue = create_queue();
 }
 
-fun size(queue: Queue): int {
+fun len(queue: Queue): int {
 	return queue.collection.size;
 }
 

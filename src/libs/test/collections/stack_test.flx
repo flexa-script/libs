@@ -24,7 +24,7 @@ fun stack_push() {
 	push(stack, 3);
 	
 	// assert
-	assert_equals(this + "[size]", 3, size(stack));
+	assert_equals(this + "[size]", 3, len(stack));
 	assert_equals(this + "[content]", {1, 2, 3}, to_array(stack));
 }
 
@@ -38,7 +38,7 @@ fun stack_pop() {
 	pop(stack);
 	
 	// assert
-	assert_equals(this + "[size]", 3, size(stack));
+	assert_equals(this + "[size]", 3, len(stack));
 	assert_equals(this + "[content]", {1, 2, 3}, to_array(stack));
 }
 

@@ -12,7 +12,7 @@ using test.collections.stack_test;
 using test.collections.dictionary_test;
 // using test.collections.hashtable_test;
 using test.dsl.json_test;
-using test.dsl.bml_test;
+using test.dsl.fml_test;
 using test.dsl.xml_test;
 using test.dsl.yaml_test;
 
@@ -36,7 +36,7 @@ fun execute_test_suite() {
 	print_test_suite("dictionary", dictionary_test_suite);
 	// print_test_suite("hashtable", hashtable_test_suite);
 	print_test_suite("JSON", json_test_suite);
-	print_test_suite("BPS", bps_test_suite);
+	print_test_suite("FML", fml_test_suite);
 	print_test_suite("XML", xml_test_suite);
 	print_test_suite("YAML", yaml_test_suite);
 }

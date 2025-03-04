@@ -1,4 +1,4 @@
-// structs std lib
+// types std lib
 // MIT License
 // Copyright (c) 2024 Carlos Eduardo de Borba Machado
 
@@ -22,4 +22,12 @@ struct Point {
 struct Size {
 	var width: int;
 	var height: int;
+}
+
+fun is_number(value: any) {
+	return typeof(value) in {typeof(int), typeof(float)};
+}
+
+fun is_text(value: any) {
+	return typeof(value) in {typeof(string), typeof(char)};
 }

@@ -29,8 +29,8 @@ fun _json_stringify_value(value: any): string {
 			json += _json_stringify_value(v) + ",";
 		}
 
-		if (json[strlen(json) - 1] == ',') {
-			json = substr(json, 0, strlen(json) - 1);
+		if (json[len(json) - 1] == ',') {
+			json = substr(json, 0, len(json) - 1);
 		}
 
 		json += "]";
@@ -51,7 +51,7 @@ fun json_stringify(dict: Dictionary): string {
 	while (current != null) {
 		if (not exists(visited_list, current.key)) {
 			push(current_stack, current);
-			add(visited_list, current.key);
+			append(visited_list, current.key);
 			json += '"' + current.key + "\":" + _json_stringify_value(current.value) + ',';
 		}
 		if (current.left != null and not exists(visited_list, current.left.key)) {
@@ -60,12 +60,12 @@ fun json_stringify(dict: Dictionary): string {
 			current = current.right;
 		} else {
 			pop(current_stack);
-			current = size(current_stack) > 0 ? peek(current_stack) : null;
+			current = len(current_stack) > 0 ? peek(current_stack) : null;
 		}
 	}
 
-	if (json[strlen(json) - 1] == ',') {
-		json = substr(json, 0, strlen(json) - 1);
+	if (json[len(json) - 1] == ',') {
+		json = substr(json, 0, len(json) - 1);
 	}
 
 	json += "}";

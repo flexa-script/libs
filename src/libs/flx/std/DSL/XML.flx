@@ -46,7 +46,7 @@ fun _xml_stringify_data(data: Dictionary): string {
 	while (current != null) {
 		if (not exists(visited_list, current.key)) {
 			push(current_stack, current);
-			add(visited_list, current.key);
+			append(visited_list, current.key);
 			xml += '<' + current.key + '>' + _xml_stringify_value(current.value) + "</" + current.key + '>';
 		}
 		if (current.left != null and not exists(visited_list, current.left.key)) {
@@ -55,7 +55,7 @@ fun _xml_stringify_data(data: Dictionary): string {
 			current = current.right;
 		} else {
 			pop(current_stack);
-			current = size(current_stack) > 0 ? peek(current_stack) : null;
+			current = len(current_stack) > 0 ? peek(current_stack) : null;
 		}
 	}
 

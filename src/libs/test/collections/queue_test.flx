@@ -24,7 +24,7 @@ fun queue_enqueue() {
 	enqueue(queue, 3);
 	
 	// assert
-	assert_equals(this + "[size]", 3, size(queue));
+	assert_equals(this + "[size]", 3, len(queue));
 	assert_equals(this + "[content]", {1, 2, 3}, to_array(queue));
 }
 
@@ -38,7 +38,7 @@ fun queue_dequeue() {
 	dequeue(queue);
 	
 	// assert
-	assert_equals(this + "[size]", 3, size(queue));
+	assert_equals(this + "[size]", 3, len(queue));
 	assert_equals(this + "[content]", {4, 5, 6}, to_array(queue));
 }
 

@@ -4,7 +4,7 @@
 
 namespace flx;
 
-using flx.std.structs;
+using flx.std.types;
 using flx.std.math;
 using flx.std.collections.stack;
 using flx.std.collections.list;
@@ -171,7 +171,7 @@ fun clear(dict: Dictionary) {
 	dict = create_dictionary();
 }
 
-fun size(dict: Dictionary): int {
+fun len(dict: Dictionary): int {
 	return dict.size;
 }
 
@@ -205,7 +205,7 @@ fun to_array(dict: Dictionary): any[] {
 
 		if (not exists(visited_list, current_pair, _pair_comparator)) {
 			push(current_stack, current);
-			add(visited_list, current_pair);
+			append(visited_list, current_pair);
 		}
 		if (current.left != null and not exists(visited_list, current_left_pair, _pair_comparator)) {
 			current = current.left;
@@ -213,7 +213,7 @@ fun to_array(dict: Dictionary): any[] {
 			current = current.right;
 		} else {
 			pop(current_stack);
-			current = size(current_stack) > 0 ? peek(current_stack) : null;
+			current = len(current_stack) > 0 ? peek(current_stack) : null;
 		}
 	}
 

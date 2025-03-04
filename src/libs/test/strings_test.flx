@@ -6,12 +6,12 @@ using flx.std.strings;
 
 include namespace flx;
 
-fun str_size() {
+fun str_len() {
 	// arrange
 	var s: string = "123456";
 	
 	// act
-	var res: int = strlen(s);
+	var res: int = len(s);
 	
 	// assert
 	assert_equals(this, 6, res);
@@ -385,7 +385,7 @@ fun str_to_lower() {
 }
 
 fun strings_test_suite() {
-	str_size();
+	str_len();
 	str_substring_start();
 	str_substring_midle();
 	str_substring_endless();

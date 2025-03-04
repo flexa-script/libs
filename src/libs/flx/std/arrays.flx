@@ -4,14 +4,79 @@
 
 namespace flx;
 
-const MAX_ARRAY_SIZE = 99999999;
+fun slice(arr: any[], start: int, end: int = 0): any[] {
+	var size = len(arr);
 
-fun size(arr: any[]): int {
-	var count: int = 0;
-	foreach (var v in arr) {
-		count++;
+	if (start > size) {
+		return {};
 	}
-	return count;
+
+	if (end == 0 and size > 0) {
+		end = size - 1;
+	}
+
+	var sliced: any[end - start + 1] = {};
+	var si = 0;
+
+	for (var i = start; i <= end; i++) {
+		sliced[si] = arr[i];
+		si++;
+	}
+
+	return sliced;
+}
+
+fun remove_at(arr: any[], at: int): any[] {
+	if (at == 0) {
+		return slice(arr, 1);
+	}
+
+	return slice(arr, 0, at - 1) + slice(arr, at + 1);
+}
+
+fun remove(arr: any[]): any[] {
+	return slice(arr, 0, len(arr) - 2);
+}
+
+fun append_at(arr: any[], value: any, at: int): any[] {
+	if (at == 0) {
+		return { value } + arr;
+	}
+
+	return slice(arr, 0, at - 1) + { value } + slice(arr, at);
+}
+
+fun append(arr: any[], value: any): any[] {
+	arr += { value };
+	return arr;
+}
+
+fun dequeue(arr: any[]): any[] {
+	return remove_at(arr, 0);
+}
+
+fun enqueue(arr: any[], value: any): any[] {
+	return append(arr, value);
+}
+
+fun front(arr: any[]): any {
+	return arr[0];
+}
+
+fun back(arr: any[]): any {
+	return arr[len(arr) - 1];
+}
+
+fun pop(arr: any[]): any[] {
+	return remove(arr);
+}
+
+fun push(arr: any[], value: any): any[] {
+	return append(arr, value);
+}
+
+fun peek(arr: any[]): any {
+	return back(arr);
 }
 
 fun contains(arr: any[], cval: any): bool {
@@ -25,7 +90,7 @@ fun contains(arr: any[], cval: any): bool {
 
 // temporary, it will be changed to quick sort
 fun sort(arr: any[], comparator: function = null): any[] {
-	var arr_size = size(arr);
+	var arr_size = len(arr);
 	for (var j = 0; j < arr_size; j++) {
 		for (var i = 0; i < arr_size - 1; i++) {
 			var res = false;
@@ -47,7 +112,7 @@ fun sort(arr: any[], comparator: function = null): any[] {
 }
 
 fun reverse(arr: any[]): any[] {
-	var arr_size = size(arr);
+	var arr_size = len(arr);
 	var rarr: any[arr_size] = {null};
 	var ri = 0;
 	for (var i = arr_size - 1; i >= 0; i--) {

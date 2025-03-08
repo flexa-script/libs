@@ -24,10 +24,10 @@ struct Size {
 	var height: int;
 }
 
-fun is_number(value: any) {
+fun is_numeric(value: any) {
 	return typeof(value) in {typeof(int), typeof(float)};
 }
 
-fun is_text(value: any) {
+fun is_textual(value: any) {
 	return typeof(value) in {typeof(string), typeof(char)};
 }

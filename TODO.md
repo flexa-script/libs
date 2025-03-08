@@ -1,10 +1,10 @@
 # TODO
 
 # Implement
-- [ ] Add core library:
-    - [ ] Files
+- [X] Add core library:
+    - [X] Files
         - [X] File I/O
-        - [ ] File system
+        - [X] File system
     - [X] DateTime
     - [X] Graphics
     - [X] Input

@@ -5,10 +5,9 @@
 namespace flx;
 
 using flx.std.types;
-using flx.std.arrays;
-using flx.std.collections.list;
+using flx.std.math;
 
-const HASHTABLE_SIZE: int = 500;
+const HASHTABLE_SIZE: int = 999;
 
 struct Hashtable {
 	var keys: string[HASHTABLE_SIZE];
@@ -26,6 +25,9 @@ fun hashtable_hash(key: string): int {
 
 fun put(ht: Hashtable, key: string, value: any) {
 	var h = hashtable_hash(key);
+	while (ht.keys[h] != null and ht.keys[h] != key) {
+		h = (h + 1) % HASHTABLE_SIZE;
+	}
 	ht.keys[h] = key;
 	ht.values[h] = value;
 	ht.size++;

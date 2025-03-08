@@ -16,17 +16,17 @@ struct File {
 	var mode: int;
 }
 
-fun is_dir(path: string): bool;
-fun is_file(path: string): bool;
-
 fun open(path: string, mode: int): File;
-fun is_open(file: File): bool;
 fun read(file: File): string;
 fun read_line(file: File): string;
-fun write(file: File, data: string);
 fun read_all_bytes(file: File): char[];
+fun write(file: File, data: string);
 fun write_bytes(file: File, bytes: char[]);
+fun is_open(file: File): bool;
 fun close(file: File);
+
+fun is_file(path: string): bool;
+fun is_dir(path: string): bool;
 
 fun create_dir(path: string);
 fun list_dir(path: string): string[];

@@ -14,7 +14,7 @@ put(default_hashtable, "four", 4);
 put(default_hashtable, "five", 5);
 put(default_hashtable, "six", 6);
 
-fun _ht_arr_pair_comparator(rval: Pair[], lval: Pair[]) {
+fun _ht_arr_pair_comparator(rval: Pair[], lval: Pair[]): bool {
 	if (len(rval) != len(lval)) {
 		return false;
 	}
@@ -67,7 +67,7 @@ fun hashtable_remove_at() {
 	
 	// assert
 	assert_equals(this + "[size]", 3, len(hashtable));
-	assert_equals(this + "[content]", {Pair{key="one", value=1}, Pair{key="three", value=3}, Pair{key="five", value=5}}, to_array(hashtable), _ht_arr_pair_comparator);
+	assert_equals(this + "[content]", {Pair{key="one", value=1}, Pair{key="five", value=5}, Pair{key="three", value=3}}, to_array(hashtable), _ht_arr_pair_comparator);
 }
 
 fun hashtable_test_suite() {

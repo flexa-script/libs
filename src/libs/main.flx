@@ -5,15 +5,15 @@
 
 // execute_test_suite();
 
-using test.dsl.json_test;
 using test.dsl.fml_test;
-using test.dsl.xml_test;
-using test.dsl.yaml_test;
+// using test.dsl.json_test;
+// using test.dsl.xml_test;
+// using test.dsl.yaml_test;
 
-json_test_suite();
 fml_test_suite();
-xml_test_suite();
-yaml_test_suite();
+// json_test_suite();
+// xml_test_suite();
+// yaml_test_suite();
 
 
 // var lexeme = string('A');
@@ -22,3 +22,13 @@ yaml_test_suite();
 // if (lexeme == "null") {
 //     println("entrou");
 // }
+
+// struct _Token {
+//   var type: int;
+// }
+
+// var tokens: _Token[] = {};
+// tokens += { _Token{type=1} };
+// tokens += { _Token{type=2} };
+// tokens += { _Token{type=3} };
+// println(tokens);

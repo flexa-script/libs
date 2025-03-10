@@ -7,14 +7,9 @@ namespace flx;
 using flx.std.collections.dictionary;
 using flx.std.strings;
 
-fun yaml_parse(data: string): Dictionary;
 fun _yaml_stringify_value(value: any, level: int): string;
 fun _yaml_stringify_data(data: Dictionary, level: int = 0): string;
 fun yaml_stringify(data: Dictionary): string;
-
-fun yaml_parse(data: string): Dictionary {
-	return null;
-}
 
 fun _yaml_stringify_value(value: any, level: int): string {
 	var yaml: string = "";

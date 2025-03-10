@@ -6,17 +6,6 @@ using flx.std.DSL.XML;
 
 include namespace flx;
 
-fun xml_parse_full() {
-	// arrange
-	var xml = "";
-
-	// act
-	var val: Dictionary = xml_parse(xml);
-	
-	// assert
-	assert_equals(this, null, val);
-}
-
 fun xml_stringify_full() {
 	// arrange
 	struct Foo {
@@ -50,6 +39,5 @@ fun xml_stringify_full() {
 }
 
 fun xml_test_suite() {
-	xml_parse_full();
 	xml_stringify_full();
 }

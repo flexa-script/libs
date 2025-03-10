@@ -6,14 +6,9 @@ namespace flx;
 
 using flx.std.collections.dictionary;
 
-fun xml_parse(data: string): Dictionary;
 fun _xml_stringify_value(value: any): string;
 fun _xml_stringify_data(data: Dictionary): string;
 fun xml_stringify(data: Dictionary): string;
-
-fun xml_parse(data: string): Dictionary {
-	return null;
-}
 
 fun _xml_stringify_value(value: any): string {
 	var xml: string = "";

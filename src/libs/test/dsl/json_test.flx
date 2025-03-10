@@ -6,17 +6,6 @@ using flx.std.DSL.JSON;
 
 include namespace flx;
 
-fun json_parse_full() {
-	// arrange
-	var json = "{\"bool_true\":true,\"int\":1,\"float\":10.500000,\"char\":\"X\",\"array\":[1,\"2\",\"3\",{\"bar\":5,\"qux\":\"5\"},true],\"string\":\"this is a string\",\"struct\":{\"bar\":10,\"qux\":\"str\"},\"sub_dict\":{\"one\":1,\"two\":2,\"six\":6,\"three\":3},\"bool_false\":false,\"multi_dim_array\":[[1,2,3],[1,2,3],[1,2,3]]}";
-
-	// act
-	var val: Dictionary = json_parse(json);
-	
-	// assert
-	assert_equals(this, null, val);
-}
-
 fun json_stringify_full() {
 	// arrange
 	struct Foo {
@@ -50,6 +39,5 @@ fun json_stringify_full() {
 }
 
 fun json_test_suite() {
-	json_parse_full();
 	json_stringify_full();
 }

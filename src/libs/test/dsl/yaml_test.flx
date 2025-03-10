@@ -6,17 +6,6 @@ using flx.std.DSL.YAML;
 
 include namespace flx;
 
-fun yaml_parse_full() {
-	// arrange
-	var yalm = "";
-
-	// act
-	var val: Dictionary = yaml_parse(yalm);
-	
-	// assert
-	assert_equals(this, null, val);
-}
-
 fun yaml_stringify_full() {
 	// arrange
 	var match_str = `
@@ -87,6 +76,5 @@ multi_dim_array:
 }
 
 fun yaml_test_suite() {
-	yaml_parse_full();
 	yaml_stringify_full();
 }

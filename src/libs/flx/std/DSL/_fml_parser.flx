@@ -1,0 +1,314 @@
+namespace flx;
+
+using flx.std.collections.dictionary;
+using flx.std.collections.stack;
+using flx.std.DSL._token;
+using flx.std.chars;
+
+struct _FmlLexer {
+    var input: string;
+
+    var prev_char: char;
+    var curr_char: char;
+    var next_char: char;
+
+    var prev_index: int;
+    var curr_index: int;
+    var next_index: int;
+
+    var curr_row: int;
+    var curr_col: int;
+
+}
+
+enum {
+    PSR_CONTEXT_KEY,
+    PSR_CONTEXT_ARRAY
+}
+
+struct _FmlParser {
+    var data: string;
+    var parsedData: Dictionary;
+
+    // Control variables
+    var tokens: _Token[];
+    var curToken: _Token;
+
+    var curIndex: int;
+
+    var key: string;
+    var value: any;
+    var arrStack: Stack; 
+
+    var context: int;
+
+    var isSubValue: bool;
+
+}
+
+fun _fml_not_end_of_input(lexer: _Lexer): bool {
+
+	// println("[", this, "] ", "lexer=", lexer);
+
+	// println("lexer.curr_index=", lexer.curr_index);
+	// println("lexer.input=", lexer.input);
+	// println("len(lexer.input)=", len(lexer.input));
+
+	return lexer.curr_index < len(lexer.input);
+}
+
+fun _fml_next_line(lexer: _Lexer) {
+	lexer.curr_row++;
+	lexer.curr_col = 0;
+}
+
+fun _fml_next_char(lexer: _Lexer) {
+	// println("[", this, "] ", "lexer.prev_index=", lexer.prev_index);
+	// println("[", this, "] ", "lexer.curr_index=", lexer.curr_index);
+	// println("[", this, "] ", "lexer.next_index=", lexer.next_index);
+	lexer.prev_index++;
+	lexer.curr_index++;
+	lexer.next_index++;
+	// println("[", this, "] ", "lexer.prev_index=", lexer.prev_index);
+	// println("[", this, "] ", "lexer.curr_index=", lexer.curr_index);
+	// println("[", this, "] ", "lexer.next_index=", lexer.next_index);
+
+	if (lexer.curr_index < len(lexer.input)) {
+		lexer.prev_char = lexer.prev_index >= 0 ? lexer.input[lexer.prev_index] : '\0';
+		lexer.curr_char = lexer.input[lexer.curr_index];
+		lexer.next_char = lexer.next_index < len(lexer.input) ? lexer.input[lexer.next_index] : '\0';
+		lexer.curr_col++;
+	}
+}
+
+fun _fml_tokenize(input: string): _Token[] {
+    var tokens: _Token[] = {};
+	var lexer = _Lexer{
+		input=input,
+		prev_index=-2,
+		curr_index=-1,
+		next_index=0,
+		curr_row=1,
+		curr_col=1
+	};
+
+	// println(lexer);
+
+	_fml_next_char(lexer);
+	
+	while (_fml_not_end_of_input(lexer)) {
+		// println("entrou");
+		// Skip whitespace and newlines
+		if (_is_skip(lexer.curr_char)) {
+			if (lexer.curr_char == SYM_NEWLINE) {
+				_fml_next_line(lexer);
+			}
+			_fml_next_char(lexer);
+			continue;
+		}
+
+		// Skip comments
+		if (lexer.curr_char == SYM_HASH) {
+			while (_fml_not_end_of_input(lexer) and lexer.curr_char != SYM_NEWLINE) {
+				_fml_next_char(lexer);
+			}
+			_fml_next_line(lexer);
+			_fml_next_char(lexer);
+		}
+		// Key, boolean, or null
+		else if (is_letter(lexer.curr_char) or lexer.curr_char == SYM_UNDERSCORE) {
+			var lexeme = string(lexer.curr_char);
+			var init_col = lexer.curr_col;
+			_fml_next_char(lexer);
+
+			// Loop through the current lexeme
+			while (_fml_not_end_of_input(lexer)
+					and ((lexer.curr_char != SYM_COLON and lexer.curr_char != SYM_SEMICOLON) or lexer.prev_char == '\\')
+					and not ((lexeme in { "true", "false" }) or lexeme == "null" and lexer.curr_char == SYM_COMMA)) {
+				lexeme += lexer.curr_char;
+				_fml_next_char(lexer);
+			}
+
+			// Boolean
+			if (lexeme in { "true", "false" }) {
+				tokens += { _Token{type=TKC_BOOL, image=lexeme, row=lexer.curr_row, col=init_col} };
+			}
+			// Null
+			else if (lexeme == "null") {
+				tokens += { _Token{type=TKC_NULL, image=lexeme, row=lexer.curr_row, col=init_col} };
+			}
+			// Key
+			else {
+				tokens += { _Token{type=TKC_KEY, image=lexeme, row=lexer.curr_row, col=init_col} };
+			}
+		}
+		// Open array
+		else if (lexer.curr_char == SYM_LEFT_BRACKETS) {
+			tokens += { _Token{type=TKC_OPEN_ARRAY, image=lexer.curr_char, row=lexer.curr_row, col=lexer.curr_col} };
+			_fml_next_char(lexer);
+		}
+		// Close array
+		else if (lexer.curr_char == SYM_RIGHT_BRACKETS) {
+			tokens += { _Token{type=TKC_CLOSE_ARRAY, image=lexer.curr_char, row=lexer.curr_row, col=lexer.curr_col} };
+			_fml_next_char(lexer);
+		}
+		// End of data
+		else if (lexer.curr_char == SYM_SEMICOLON) {
+			tokens += { _Token{type=TKC_END_OF_DATA, image=lexer.curr_char, row=lexer.curr_row, col=lexer.curr_col} };
+			_fml_next_char(lexer);
+		}
+		// Array separator
+		else if (lexer.curr_char == SYM_COMMA) {
+			tokens += { _Token{type=TKC_ARRAY_SEP, image=lexer.curr_char, row=lexer.curr_row, col=lexer.curr_col} };
+			_fml_next_char(lexer);
+		}
+		// Data separator
+		else if (lexer.curr_char == SYM_COLON) {
+			tokens += { _Token{type=TKC_DATA_SEP, image=lexer.curr_char, row=lexer.curr_row, col=lexer.curr_col} };
+			_fml_next_char(lexer);
+		}
+		// String
+		else if (lexer.curr_char == SYM_D_QUOTE) {
+			var lexeme: string = lexer.curr_char;
+			var init_col = lexer.curr_col;
+			_fml_next_char(lexer);
+			while (_fml_not_end_of_input(lexer) and (lexer.curr_char != SYM_D_QUOTE or lexer.prev_char == '\\')) {
+				if (lexer.curr_char != '\\' or lexer.prev_char == '\\') {
+					lexeme += lexer.curr_char;
+				}
+				_fml_next_char(lexer);
+			}
+			if (lexer.curr_char != SYM_D_QUOTE) {
+				throw "String was not closed at line " + string(lexer.curr_row) + " and column " + string(lexer.curr_col) + ".";
+			}
+			lexeme += lexer.curr_char;
+			tokens += { _Token{type=TKC_STRING, image=lexeme, row=lexer.curr_row, col=init_col} };
+			_fml_next_char(lexer);
+		}
+		// Char
+		else if (lexer.curr_char == SYM_QUOTE) {
+			var lexeme: string = lexer.curr_char;
+			var init_col = lexer.curr_col;
+			_fml_next_char(lexer);
+			if (lexer.curr_char == '\\') {
+				lexeme += lexer.curr_char;
+				_fml_next_char(lexer);
+			}
+			lexeme += lexer.curr_char;
+			_fml_next_char(lexer);
+			if (lexer.curr_char != SYM_QUOTE) {
+				throw "Char was not closed at line " + string(lexer.curr_row) + " and column " + string(lexer.curr_col) + ".";
+			}
+			lexeme += lexer.curr_char;
+			tokens += { _Token{type=TKC_CHAR, image=lexeme, row=lexer.curr_row, col=init_col} };
+			_fml_next_char(lexer);
+		}
+		// Numeric
+		else if (is_digit(lexer.curr_char) or lexer.curr_char == SYM_DOT or lexer.curr_char == SYM_MINUS) {
+			var lexeme: string = lexer.curr_char;
+			var init_col = lexer.curr_col;
+			var dotted = lexer.curr_char == SYM_DOT;
+			_fml_next_char(lexer);
+			while (_fml_not_end_of_input(lexer) and (is_digit(lexer.curr_char) or lexer.curr_char == SYM_DOT)) {
+				if (lexer.curr_char == SYM_DOT) {
+					if (dotted) {
+						throw "Invalid character '" + lexer.curr_char + "' encountered at line " + string(lexer.curr_row) + " and column " + string(lexer.curr_col) + ".";
+					} else {
+						dotted = true;
+					}
+				}
+				lexeme += lexer.curr_char;
+				_fml_next_char(lexer);
+			}
+			if (to_lower(string(lexer.curr_char)) == "f") {
+				lexeme += lexer.curr_char;
+				_fml_next_char(lexer);
+			}
+			// Float or integer
+			if ((SYM_DOT in lexeme) or ("f" in to_lower(lexeme))) {
+				tokens += { _Token{type=TKC_FLOAT, image=lexeme, row=lexer.curr_row, col=init_col} };
+			} else {
+				tokens += { _Token{type=TKC_INTEGER, image=lexeme, row=lexer.curr_row, col=init_col} };
+			}
+		} else {
+			throw "Invalid character '" + lexer.curr_char + "' encountered at line " + string(lexer.curr_row) + " and column " + string(lexer.curr_col) + ".";
+		}
+	}
+
+	// println(tokens);
+	// println(len(tokens));
+	tokens += { _Token{type=TKC_EOF, image=null, row=-1, col=-1} };
+
+	return tokens;
+}
+
+fun _fml_parse(parser: _FmlParser) {
+    if (not parser.isSubValue) {
+        tokens = new Lexer(data).tokenize();
+    }
+
+    start();
+}
+
+fun _fml_stringify_value(value: any): string {
+	var str_value: string = "";
+
+	if (typeof(value) == typeof(Dictionary)) {
+		str_value = fml_stringify(value);
+	} else if (is_struct(value)) {
+		str_value = fml_stringify(parse_struct(value));
+	} else if (typeof(value) == typeof(string)) {
+		str_value = '"' + string(value) + '"';
+	} else if (typeof(value) == typeof(char)) {
+		str_value = "'" + string(value) + "'";
+	} else if (is_array(value)) {
+		str_value = "[";
+		foreach (var v in value) {
+			str_value += _fml_stringify_value(v) + ",";
+		}
+
+		if (str_value[len(str_value) - 1] == ',') {
+			str_value = substr(str_value, 0, len(str_value) - 1);
+		}
+
+		str_value += "]";
+
+	} else {
+		str_value += string(value);
+	}
+	
+	return str_value;
+}
+
+fun _fml_parse(tokens: _Token[]) {
+
+}
+
+fun _fml_stringify(data: Dictionary): string {
+	var bps_str: string = "";
+	var visited_list = create_list();
+	var current_stack = create_stack();
+	var current = data.root;
+
+	while (current != null) {
+		if (not exists(visited_list, current.key)) {
+			push(current_stack, current);
+			append(visited_list, current.key);
+			bps_str += current.key + ':' + _fml_stringify_value(current.value) + ';';
+		}
+		if (current.left != null and not exists(visited_list, current.left.key)) {
+			current = current.left;
+		} else if (current.right != null and not exists(visited_list, current.right.key)) {
+			current = current.right;
+		} else {
+			pop(current_stack);
+			current = len(current_stack) > 0 ? peek(current_stack) : null;
+		}
+	}
+
+	if (bps_str[len(bps_str) - 1] == ',') {
+		bps_str = substr(bps_str, 0, len(bps_str) - 1);
+	}
+
+	return bps_str;
+}

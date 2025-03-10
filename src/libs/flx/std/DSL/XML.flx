@@ -18,7 +18,7 @@ fun xml_parse(data: string): Dictionary {
 fun _xml_stringify_value(value: any): string {
 	var xml: string = "";
 
-	if (typeof(value) == "Dictionary") {
+	if (typeof(value) == typeof(Dictionary)) {
 		xml = _xml_stringify_data(value);
 	} else if (is_struct(value)) {
 		xml = _xml_stringify_data(parse_struct(value));

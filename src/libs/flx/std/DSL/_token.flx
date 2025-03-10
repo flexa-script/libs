@@ -1,0 +1,46 @@
+namespace flx;
+
+enum {
+    TKC_EOF,
+    TKC_KEY,
+    TKC_NULL,
+    TKC_STRING,
+    TKC_CHAR,
+    TKC_INTEGER,
+    TKC_FLOAT,
+    TKC_BOOL,
+    TKC_OPEN_ARRAY,
+    TKC_CLOSE_ARRAY,
+    TKC_END_OF_DATA,
+    TKC_DATA_SEP,
+    TKC_ARRAY_SEP
+}
+
+var SYM_HASH: char = '#';
+var SYM_LEFT_BRACKETS: char = '{';
+var SYM_RIGHT_BRACKETS: char = '}';
+var SYM_DOT: char = '.';
+var SYM_COMMA: char = ',';
+var SYM_COLON: char = ':';
+var SYM_SEMICOLON: char = ';';
+var SYM_MINUS: char = '-';
+var SYM_UNDERSCORE: char = '_';
+var SYM_D_QUOTE: char = '"';
+var SYM_SPACE: char = ' ';
+var SYM_QUOTE: char = '\'';
+var SYM_NEWLINE: char = '\n';
+var SYM_RETURN: char = '\r';
+var SYM_TAB: char = '\t';
+
+var SKIP_CHARS: char[] = { SYM_SPACE, SYM_TAB, SYM_NEWLINE, SYM_RETURN };
+
+fun _is_skip(c: char): bool {
+    return c in SKIP_CHARS;
+}
+
+struct _Token {
+  var type: int;
+  var image: string;
+  var row: int;
+  var col: int;
+}

@@ -10,6 +10,7 @@ fun json_parse(data: string): Dictionary;
 fun _json_stringify_value(value: any): string;
 fun json_stringify(dict: Dictionary): string;
 
+
 fun json_parse(data: string): Dictionary {
 	return null;
 }
@@ -17,11 +18,11 @@ fun json_parse(data: string): Dictionary {
 fun _json_stringify_value(value: any): string {
 	var json: string = "";
 
-	if (typeof(value) == "Dictionary") {
+	if (typeof(value) == typeof(Dictionary)) {
 		json = json_stringify(value);
 	} else if (is_struct(value)) {
 		json = json_stringify(parse_struct(value));
-	} else if (typeof(value) in {typeof(string), typeof(char)}) {
+	} else if (is_textual_type(value)) {
 		json = '"' + string(value) + '"';
 	} else if (is_array(value)) {
 		json = "[";

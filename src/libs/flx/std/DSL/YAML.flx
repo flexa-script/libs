@@ -19,7 +19,7 @@ fun yaml_parse(data: string): Dictionary {
 fun _yaml_stringify_value(value: any, level: int): string {
 	var yaml: string = "";
 
-	if (typeof(value) == "Dictionary") {
+	if (typeof(value) == typeof(Dictionary)) {
 		level++;
 		yaml = "\n";
 		yaml += _yaml_stringify_data(value, level);

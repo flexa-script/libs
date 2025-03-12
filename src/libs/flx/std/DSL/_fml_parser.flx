@@ -65,10 +65,12 @@ fun _fml_open_array(parser: _FmlParser) {
 		parser.context = PSR_CONTEXT_ARRAY;
 		push(parser.arr_stack, {});
 	} else {
+		var new_dim = {};
 		var pv = peek(parser.arr_stack);
-		pv += { {} };
+		pv += { ref new_dim };
 		// peek(parser.arr_stack) += { {} };
-		push(parser.arr_stack, {});
+		push(parser.arr_stack, ref new_dim);
+		println(this, ": ", to_array(parser.arr_stack));
 	}
 }
 
@@ -77,6 +79,7 @@ fun _fml_set_value(parser: _FmlParser) {
 		var pv = peek(parser.arr_stack);
 		pv += { parser.value };
 		// peek(parser.arr_stack) += { parser.value };
+		println(this, ": ", to_array(parser.arr_stack));
 	} else {
 		emplace(parser.parsed_data, parser.key, parser.value);
 	}

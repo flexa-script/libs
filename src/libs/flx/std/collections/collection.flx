@@ -45,7 +45,7 @@ fun _default_get(collection: Collection): any {
 		throw "Tryed to get from empty collection";
 	}
 
-	return collection.last.value;
+	return ref collection.last.value;
 }
 
 fun _default_remove(collection: Collection) {

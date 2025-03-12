@@ -28,7 +28,7 @@ fun pop(stack: Stack) {
 
 fun peek(stack: Stack): any {
 	try {
-		return _default_get(stack.collection);
+		return ref _default_get(stack.collection);
 	} catch (...) {
 		throw "Tryed to peek from empty stack";
 	}

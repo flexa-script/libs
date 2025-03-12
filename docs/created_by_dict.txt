@@ -1,0 +1,26 @@
+flx::Dictionary{
+  root:flx::DictionaryNode{
+    key:bool_true,
+    right:flx::DictionaryNode{
+      key:bool_false,
+      right:flx::DictionaryNode{
+        key:multi_dim_array,
+        right:null,
+        key_hash:6526931426089381980,
+        left:null,
+        value:[[1,2,3],[1,2,3],[1,2,3]]
+      },
+      key_hash:2688906444431246,
+      left:null,
+      value:false
+    },
+    key_hash:86738917995971,
+    left:flx::DictionaryNode{
+      key:int,
+      right:flx::DictionaryNode{
+        key:float,
+        right:flx::DictionaryNode{
+          key:string,
+          right:flx::DictionaryNode{
+            key:struct,
+            right:flx::DictionaryNode{key:sub_dict,right:null,key_hash:3270685027925,left:null,value:flx::Dictionary{root:flx::DictionaryNode{key:one,right:flx::DictionaryNode{key:two,right:flx::DictionaryNode{key:three,right:null,key_hash:110339486,left:null,value:3},key_hash:115276,left:null,value:2},key_hash:110182,left:null,value:1},size:3}},key_hash:3402992597,left:null,value:Foo{bar:10,qux:str}},key_hash:3402981393,left:null,value:this is a string},key_hash:97526364,left:flx::DictionaryNode{key:char,right:flx::DictionaryNode{key:array,right:null,key_hash:93090393,left:null,value:[1,'2',"3",Foo{bar:5,qux:5},true]},key_hash:3052374,left:null,value:X},value:10.500000},key_hash:104431,left:null,value:1},value:true},size:10}

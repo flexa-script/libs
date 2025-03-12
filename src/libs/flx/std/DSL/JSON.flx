@@ -9,10 +9,6 @@ using flx.std.collections.dictionary;
 fun _json_stringify_value(value: any): string;
 fun json_stringify(dict: Dictionary): string;
 
-fun json_parse(data: string): Dictionary {
-	return null;
-}
-
 fun _json_stringify_value(value: any): string {
 	var json: string = "";
 

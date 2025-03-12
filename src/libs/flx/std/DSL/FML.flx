@@ -5,24 +5,25 @@
 namespace flx;
 
 using flx.std.collections.dictionary;
+using flx.std.DSL._fml_lexer;
 using flx.std.DSL._fml_parser;
+using flx.std.DSL._fml_stringifier;
 
 fun fml_parse(data: string): Dictionary {
 	var tokens = _fml_tokenize(data);
-	println(tokens);
 
-    var parser: _FmlParser {
+    var parser: _FmlParser = _FmlParser {
         data=data,
-        parsedData=create_dictionary(),
+        parsed_data=create_dictionary(),
         tokens=tokens,
-        curIndex=-1,
-        arrStack=create_stack(),
+        curr_index=-1,
+        arr_stack=create_stack(),
         context=PSR_CONTEXT_KEY,
-        isSubValue=false
+        is_sub_value=false
     };
 	_fml_parse(parser);
 
-	return null;
+	return parser.parsed_data;
 }
 
 fun fml_stringify(data: Dictionary): string {

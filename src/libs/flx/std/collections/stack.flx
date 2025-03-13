@@ -15,7 +15,7 @@ fun create_stack(): Stack {
 }
 
 fun push(stack: Stack, value: any) {
-	_default_append(stack.collection, value);
+	_default_append(stack.collection, ref value);
 }
 
 fun pop(stack: Stack) {

@@ -1,34 +1,6 @@
 // MIT License
 // Copyright (c) 2024 Carlos Eduardo de Borba Machado
 
-// using test.suite;
+using test.suite;
 
-// execute_test_suite();
-
-using test.dsl.fml_test;
-// using test.dsl.json_test;
-// using test.dsl.xml_test;
-// using test.dsl.yaml_test;
-
-fml_test_suite();
-// json_test_suite();
-// xml_test_suite();
-// yaml_test_suite();
-
-
-// var lexeme = string('A');
-
-// lexeme += 'B';
-// if (lexeme == "null") {
-//     println("entrou");
-// }
-
-// struct _Token {
-//   var type: int;
-// }
-
-// var tokens: _Token[] = {};
-// tokens += { _Token{type=1} };
-// tokens += { _Token{type=2} };
-// tokens += { _Token{type=3} };
-// println(tokens);
+execute_test_suite();

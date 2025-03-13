@@ -29,7 +29,7 @@ fun put(ht: Hashtable, key: string, value: any) {
 		h = (h + 1) % HASHTABLE_SIZE;
 	}
 	ht.keys[h] = key;
-	ht.values[h] = value;
+	ht.values[h] = ref value;
 	ht.size++;
 }
 
@@ -56,7 +56,7 @@ fun to_array(ht: Hashtable): any[] {
 
 	for (var i = 0; i < HASHTABLE_SIZE; i++) {
 		if (ht.keys[i] != null) {
-			ht_arr += { Pair{key=ht.keys[i], value=ht.values[i]} };
+			ht_arr += { Pair{key=ht.keys[i], value=ref ht.values[i]} };
 		}
 	}
 
@@ -78,7 +78,7 @@ fun copy(ht: Hashtable) {
 	for (var i = 0; i < HASHTABLE_SIZE; i++) {
 		if (ht.keys[i] != null) {
 			kc[i] = ht.keys[i];
-			vc[i] = ht.values[i];
+			vc[i] = ref ht.values[i];
 		}
 	}
 

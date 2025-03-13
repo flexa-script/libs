@@ -10,20 +10,15 @@ using flx.std.DSL._fml_parser;
 using flx.std.DSL._fml_stringifier;
 
 fun fml_parse(data: string): Dictionary {
-	var tokens = _fml_tokenize(data);
-
-    var parser: _FmlParser = _FmlParser {
+	return _fml_parse(_FmlParser {
         data=data,
         parsed_data=create_dictionary(),
-        tokens=tokens,
+        tokens={},
         curr_index=-1,
         arr_stack=create_stack(),
         context=PSR_CONTEXT_KEY,
         is_sub_value=false
-    };
-	_fml_parse(parser);
-
-	return parser.parsed_data;
+    }).parsed_data;
 }
 
 fun fml_stringify(data: Dictionary): string {

@@ -15,7 +15,7 @@ fun create_list(): List {
 }
 
 fun append(list: List, value: any) {
-	_default_append(list.collection, value);
+	_default_append(list.collection, ref value);
 }
 
 fun append_at(list: List, value: any, index: int) {
@@ -26,12 +26,12 @@ fun append_at(list: List, value: any, index: int) {
 	}
 
 	if (index == collection.size) {
-		_default_append(collection, value);
+		_default_append(collection, ref value);
 		return;
 	}
 
 	if (index == 0) {
-		var new_node = Node{value=value, next=collection.first};
+		var new_node = Node{value=ref value, next=collection.first};
 		new_node.next.prev = new_node;
 		collection.first = new_node;
 	} else {
@@ -43,7 +43,7 @@ fun append_at(list: List, value: any, index: int) {
 			curr_node = curr_node.next;
 		}
 
-		var new_node = Node{value=value, next=curr_node.next};
+		var new_node = Node{value=ref value, next=curr_node.next};
 		curr_node.next.prev = new_node;
 		curr_node.next = new_node;
 	}
@@ -105,7 +105,7 @@ fun get_at(list: List, index: int): any {
 		node = node.next;
 	}
 
-	return node.value;
+	return ref node.value;
 }
 
 fun index_of(list: List, value: any, comparator: function = null): int {
@@ -115,7 +115,7 @@ fun index_of(list: List, value: any, comparator: function = null): int {
 
 	while (current != null) {
 		if (comparator != null) {
-			if (comparator(current.value, value)) {
+			if (comparator(ref current.value, ref value)) {
 				return index;
 			}
 		} else {
@@ -131,7 +131,7 @@ fun index_of(list: List, value: any, comparator: function = null): int {
 }
 
 fun exists(list: List, value: any, comparator: function = null) {
-	return exists(list.collection, value, comparator);
+	return exists(list.collection, ref value, comparator);
 }
 
 fun len(list: List): int {

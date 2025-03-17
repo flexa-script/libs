@@ -63,6 +63,7 @@ fun fml_parse_full() {
 	
 	// assert
 	assert_equals(this, dict, val);
+	// assert_equals(this, string(to_array(dict)), string(to_array(val)));
 }
 
 fun fml_stringify_full() {

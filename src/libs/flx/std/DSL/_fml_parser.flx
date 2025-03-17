@@ -66,18 +66,18 @@ fun _fml_open_array(parser: _FmlParser) {
 		push(parser.arr_stack, {});
 	} else {
 		var new_dim = {};
-		var pv = peek(parser.arr_stack);
-		pv += { ref new_dim };
-		// peek(parser.arr_stack) += { {} };
+		// var pv = peek(parser.arr_stack);
+		// pv += { ref new_dim };
+		peek(parser.arr_stack) += { ref new_dim };
 		push(parser.arr_stack, ref new_dim);
 	}
 }
 
 fun _fml_set_value(parser: _FmlParser) {
 	if (parser.context == PSR_CONTEXT_ARRAY) {
-		var pv = peek(parser.arr_stack);
-		pv += { parser.value };
-		// peek(parser.arr_stack) += { parser.value };
+		// var pv = peek(parser.arr_stack);
+		// pv += { parser.value };
+		peek(parser.arr_stack) += { parser.value };
 	} else {
 		emplace(parser.parsed_data, parser.key, parser.value);
 	}

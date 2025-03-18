@@ -84,13 +84,13 @@ fun _fml_set_value(parser: _FmlParser) {
 	_fml_next_token(parser);
 }
 
-fun nullValue(parser: _FmlParser) {
+fun _null_value(parser: _FmlParser) {
 	parser.value = null;
 	_fml_set_value(parser);
 }
 
 fun _fml_bool_value(parser: _FmlParser) {
-	parser.value = bool(parser.curr_token.image);
+	parser.value = parser.curr_token.image == "true";
 	_fml_set_value(parser);
 }
 
@@ -180,7 +180,7 @@ fun _fml_value(parser: _FmlParser) {
 			_fml_bool_value(parser);
 			break;
 		case TKC_NULL:
-			nullValue(parser);
+			_null_value(parser);
 			break;
 		case TKC_KEY:
 			_fml_sub_value(parser);

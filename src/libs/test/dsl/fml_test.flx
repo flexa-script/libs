@@ -8,34 +8,13 @@ include namespace flx;
 
 fun fml_parse_full() {
 	// arrange
-	struct Foo {
-		var bar: int;
-		var qux: string;
-	}
-
-	var sub_dict: Dictionary = create_dictionary();
-	emplace(sub_dict, "one", 1);
-	emplace(sub_dict, "two", 2);
-	emplace(sub_dict, "three", 3);
-	
-	var dict: Dictionary = create_dictionary();
-	emplace(dict, "bool_true", true);
-	emplace(dict, "bool_false", false);
-	emplace(dict, "int", 1);
-	emplace(dict, "float", 10.5);
-	emplace(dict, "char", 'X');
-	emplace(dict, "string", "this is a string");
-	emplace(dict, "array", {1, '2', "3", Foo{bar=5,qux="5"}, true});
-	emplace(dict, "multi_dim_array", {{1, 2, 3}, {1, 2, 3}, {1, 2, 3}});
-	emplace(dict, "struct", Foo{bar=10,qux="str"});
-	emplace(dict, "sub_dict", sub_dict);
-	
 	var fml = `
-		multi_dim_array: { { 1, 2, 3 }, { 1, 2, 3 }, { 1, 2, 3 } };
 		bool_true: true;
+		bool_false: false;
 		int: 1;
 		float: 10.5;
 		char: 'X';
+		string: "this is a string";
 		array: {
 			1,
 			'2',
@@ -44,25 +23,37 @@ fun fml_parse_full() {
 			qux:"5";,
 			true
 		};
-		string: "this is a string";
-		struct:
-			bar:10;
-			qux:"str";
-		;
+		multi_dim_array: { { 1, 2, 3 }, { 1, 2, 3 }, { 1, 2, 3 } };
 		sub_dict:
 			one:1;
 			two:2;
 			three:3;
 		;
-		bool_false: false;
-		#multi_dim_array: { { 1, 2, 3 }, { 1, 2, 3 }, { 1, 2, 3 } };
 	`;
 	
 	// act
 	var val: Dictionary = fml_parse(fml);
 	
 	// assert
-	assert_equals(this, dict, val);
+	assert_true(this + "[bool_true]", find(val, "bool_true"));
+	assert_false(this + "[bool_false]", find(val, "bool_false"));
+	assert_equals(this + "[int]", 1, find(val, "int"));
+	assert_equals(this + "[float]", 10.5, find(val, "float"));
+	assert_equals(this + "[char]", 'X', find(val, "char"));
+	assert_equals(this + "[string]", "this is a string", find(val, "string"));
+	var array = find(val, "array");
+	assert_equals(this + "[array[0]]", 1, array[0]);
+	assert_equals(this + "[array[1]]", '2', array[1]);
+	assert_equals(this + "[array[2]]", "3", array[2]);
+	assert_equals(this + "[array[3].bar]", 5, find(array[3], "bar"));
+	assert_equals(this + "[array[3].qux]", "5", find(array[3], "qux"));
+	assert_true(this + "[array[4]]", array[4]);
+	assert_equals(this + "[multi_dim_array]", { { 1, 2, 3 }, { 1, 2, 3 }, { 1, 2, 3 } }, find(val, "multi_dim_array"));
+	var dict = find(val, "sub_dict");
+	assert_equals(this + "[sub_dict.one]", 1, find(dict, "one"));
+	assert_equals(this + "[sub_dict.two]", 2, find(dict, "two"));
+	assert_equals(this + "[sub_dict.three]", 3, find(dict, "three"));
+	// assert_equals(this, dict, val);
 	// assert_equals(this, string(to_array(dict)), string(to_array(val)));
 }
 

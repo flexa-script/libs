@@ -200,7 +200,7 @@ fun str_join_any_ret() {
 	var res: string = join("12", 34, '5', 6789f);
 	
 	// assert
-	assert_equals(this, "123456789.000000", res);
+	assert_equals(this, "123456789.0", res);
 }
 
 fun str_join_any_ret2() {
@@ -214,7 +214,7 @@ fun str_join_any_ret2() {
 	var res: string = join(v1, v2, v3, v4);
 	
 	// assert
-	assert_equals(this, "123456789.000000", res);
+	assert_equals(this, "123456789.0", res);
 }
 
 fun str_join_type_ret() {
@@ -228,7 +228,7 @@ fun str_join_type_ret() {
 	var res: string = join(v1, v2, v3, v4);
 	
 	// assert
-	assert_equals(this, "123456789.000000", res);
+	assert_equals(this, "123456789.0", res);
 }
 
 fun str_join_any_arr() {
@@ -238,7 +238,7 @@ fun str_join_any_arr() {
 	var res: string = join({"12", 34, '5', 6789f});
 	
 	// assert
-	assert_equals(this, "123456789.000000", res);
+	assert_equals(this, "123456789.0", res);
 }
 
 fun str_join_any_arr2() {
@@ -249,7 +249,7 @@ fun str_join_any_arr2() {
 	var res: string = join(v);
 	
 	// assert
-	assert_equals(this, "123456789.000000", res);
+	assert_equals(this, "123456789.0", res);
 }
 
 fun str_join_type_arr() {

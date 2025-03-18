@@ -12,7 +12,7 @@ fun yaml_stringify_full() {
 ---
 bool_true: true
 int: 1
-float: 10.500000
+float: 10.5
 char: "X"
 array:
   - 1

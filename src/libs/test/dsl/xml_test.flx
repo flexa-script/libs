@@ -34,7 +34,7 @@ fun xml_stringify_full() {
 	
 	// assert
 	assert_equals(this,
-		"<root><bool_true>true</bool_true><int>1</int><float>10.500000</float><char>X</char><array><item>1</item><item>2</item><item>3</item><item><bar>5</bar><qux>5</qux></item><item>true</item></array><string>this is a string</string><struct><bar>10</bar><qux>str</qux></struct><sub_dict><one>1</one><two>2</two><three>3</three></sub_dict><bool_false>false</bool_false><multi_dim_array><array><item>1</item><item>2</item><item>3</item></array><array><item>1</item><item>2</item><item>3</item></array><array><item>1</item><item>2</item><item>3</item></array></multi_dim_array></root>",
+		"<root><bool_true>true</bool_true><int>1</int><float>10.5</float><char>X</char><array><item>1</item><item>2</item><item>3</item><item><bar>5</bar><qux>5</qux></item><item>true</item></array><string>this is a string</string><struct><bar>10</bar><qux>str</qux></struct><sub_dict><one>1</one><two>2</two><three>3</three></sub_dict><bool_false>false</bool_false><multi_dim_array><array><item>1</item><item>2</item><item>3</item></array><array><item>1</item><item>2</item><item>3</item></array><array><item>1</item><item>2</item><item>3</item></array></multi_dim_array></root>",
 		val);
 }
 

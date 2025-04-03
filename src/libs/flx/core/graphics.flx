@@ -43,6 +43,7 @@ struct Image {
 }
 
 fun load_image(path: string): Image;
+fun destroy_image(image: Image);
 
 const FW_DONTCARE = 0;
 const FW_THIN = 100;
@@ -73,6 +74,7 @@ struct Font {
 
 fun create_font(size: int = 20, name: string = "Arial", weight: int = 0, italic: bool = false,
 	underline: bool = false, strike: bool = false, orientation: int = 0): Font;
+fun destroy_font(font: Font);
 
 struct Window {
 	var title: string;

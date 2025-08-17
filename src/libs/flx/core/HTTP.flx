@@ -4,7 +4,7 @@
 
 namespace flx;
 
-using flx.std.collections.dictionary;
+using flx.std.types;
 
 const GET = "GET";
 const PUT = "PUT";
@@ -21,13 +21,13 @@ struct HttpRequest {
 	var path: string;
 	var port: int;
 	var method: string;
-	var headers: Dictionary;
-	var parameters: Dictionary;
+	var headers: Pair[];
+	var parameters: Pair[];
 	var data: string;
 }
 
 struct HttpResponse {
-	var headers: Dictionary;
+	var headers: Pair[];
 	var status: int;
 	var status_description: int;
 	var data: string;

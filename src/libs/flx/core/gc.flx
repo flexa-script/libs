@@ -10,4 +10,5 @@ fun gc_is_enabled(): bool;
 fun gc_enable(enable: bool);
 fun gc_get_max_heap(): int;
 fun gc_set_max_heap(max_heap: int);
+fun gc_maybe_collect();
 fun gc_collect();

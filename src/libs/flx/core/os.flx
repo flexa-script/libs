@@ -1,0 +1,12 @@
+// os core lib
+// MIT License
+// Copyright (c) 2025 Carlos Eduardo de Borba Machado
+
+namespace flx;
+
+struct OS {
+	var name: string;
+	var cwd: string;
+}
+
+const os = OS{};

@@ -4,7 +4,7 @@
 
 namespace flx;
 
-const MAX_HEAP = 9999;
+const MAX_HEAP = 0;
 
 fun gc_is_enabled(): bool;
 fun gc_enable(enable: bool);

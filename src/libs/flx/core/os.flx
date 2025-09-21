@@ -5,8 +5,8 @@
 namespace flx;
 
 struct OS {
-	var name: string;
-	var cwd: string;
+	const name: string;
+	const cwd: string;
 }
 
 const os = OS{};

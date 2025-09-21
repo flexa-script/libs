@@ -5,7 +5,7 @@
 namespace flx;
 
 struct Sys {
-	var argv: string[];
+	const argv: string[];
 }
 
 const sys = Sys{};

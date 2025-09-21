@@ -4,11 +4,6 @@
 
 namespace flx;
 
-struct Exception {
-	var error: string;
-	var code: int;
-}
-
 struct Pair {
 	var key: string;
 	var value: any;

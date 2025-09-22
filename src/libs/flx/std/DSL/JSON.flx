@@ -6,10 +6,22 @@ namespace flx;
 
 using flx.std.collections.dictionary;
 
-fun _json_stringify_value(value: any): string;
-fun json_stringify(dict: Dictionary): string;
+// todo: error: the pointer of the function is not beign correct calculated...
+fun _json_stringify_value(value: any,  level = 0): string;
+fun json_stringify(dict: Dictionary,  level = 0): string;
 
-fun _json_stringify_value(value: any): string {
+fun rstr(str: string, count: int): string {
+	var res = "";
+	for (var i = 0; i < count; i++) {
+		res += str;
+	}
+	return res;
+}
+
+fun _json_stringify_value(value: any, level = 0): string {
+	level++;
+	println(rstr("  ", level), this.name, ": entered -> param -> ", value);
+
 	var json: string = "";
 
 	if (typeof(value) == typeof(Dictionary)) {
@@ -21,7 +33,9 @@ fun _json_stringify_value(value: any): string {
 	} else if (is_array(value)) {
 		json = "[";
 		foreach (var v in value) {
-			json += _json_stringify_value(v) + ",";
+			println(rstr(" ", level), this.name, ": will call -> _json_stringify_value");
+			json += _json_stringify_value(v, level) + ",";
+			println(rstr(" ", level), this.name, ": return from call -> _json_stringify_value -> ", json);
 		}
 
 		if (json[len(json) - 1] == ',') {
@@ -34,10 +48,14 @@ fun _json_stringify_value(value: any): string {
 		json += string(value);
 	}
 	
+	println(rstr(" ", level), this.name, ": is returning -> ", json);
 	return json;
 }
 
-fun json_stringify(dict: Dictionary): string {
+fun json_stringify(dict: Dictionary, level = 0): string {
+	level++;
+	println(rstr(" ", level), this.name, ": entered -> param -> ", dict);
+
 	var json: string = "{";
 	var visited_list = create_list();
 	var current_stack = create_stack();
@@ -47,13 +65,16 @@ fun json_stringify(dict: Dictionary): string {
 		if (not exists(visited_list, current.key)) {
 			push(current_stack, current);
 			append(visited_list, current.key);
-			json += '"' + current.key + "\":" + _json_stringify_value(current.value) + ',';
+			println(rstr(" ", level), this.name, ": will call -> _json_stringify_value");
+			json += '"' + current.key + "\":" + _json_stringify_value(current.value, level) + ',';
+			println(rstr(" ", level), this.name, ": return from call -> _json_stringify_value -> ", json);
 		}
 		if (current.left != null and not exists(visited_list, current.left.key)) {
 			current = current.left;
 		} else if (current.right != null and not exists(visited_list, current.right.key)) {
 			current = current.right;
 		} else {
+			// println(rstr(" ", level), "wll pop ", current_stack);
 			pop(current_stack);
 			current = len(current_stack) > 0 ? peek(current_stack) : null;
 		}
@@ -65,5 +86,6 @@ fun json_stringify(dict: Dictionary): string {
 
 	json += "}";
 
+	println(rstr(" ", level), this.name, ": is returning -> ", json);
 	return json;
 }

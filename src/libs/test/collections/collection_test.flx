@@ -24,7 +24,7 @@ fun collection_removed() {
 	_default_remove(collection);
 	
 	// assert
-	assert_equals(this, {1, 2, 3}, to_array(collection));
+	assert_equals(this.name, {1, 2, 3}, to_array(collection));
 }
 
 fun collection_removed_all() {
@@ -37,7 +37,7 @@ fun collection_removed_all() {
 	_default_remove(collection);
 	
 	// assert
-	assert_equals(this, {1, 2, 3}, to_array(collection));
+	assert_equals(this.name, {1, 2, 3}, to_array(collection));
 }
 
 fun collection_is_empty() {
@@ -48,7 +48,7 @@ fun collection_is_empty() {
 	var res: bool = is_empty(collection);
 	
 	// assert
-	assert_true(this, res);
+	assert_true(this.name, res);
 }
 
 fun collection_is_not_empty() {
@@ -58,7 +58,7 @@ fun collection_is_not_empty() {
 	var res: bool = is_empty(default_collection);
 	
 	// assert
-	assert_false(this, res);
+	assert_false(this.name, res);
 }
 
 fun collection_is_empty_removed() {
@@ -75,7 +75,7 @@ fun collection_is_empty_removed() {
 	var res: bool = is_empty(collection);
 	
 	// assert
-	assert_true(this, res);
+	assert_true(this.name, res);
 }
 
 fun collection_is_empty_cleared() {
@@ -87,7 +87,7 @@ fun collection_is_empty_cleared() {
 	var res: bool = is_empty(collection);
 	
 	// assert
-	assert_true(this, res);
+	assert_true(this.name, res);
 }
 
 fun collection_test_suite() {

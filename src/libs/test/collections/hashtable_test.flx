@@ -39,7 +39,7 @@ fun hashtable_get() {
 	var val: int = get(default_hashtable, "four");
 	
 	// assert
-	assert_equals(this, 4, val);
+	assert_equals(this.name, 4, val);
 }
 
 fun hashtable_put() {
@@ -52,8 +52,8 @@ fun hashtable_put() {
 	put(hashtable, "three", 3);
 	
 	// assert
-	assert_equals(this + "[size]", 3, len(hashtable));
-	assert_equals(this + "[content]", {Pair{key="one", value=1}, Pair{key="two", value=2}, Pair{key="three", value=3}}, to_array(hashtable), _ht_arr_pair_comparator);
+	assert_equals(this.name + "_size", 3, len(hashtable));
+	assert_equals(this.name + "_content", {Pair{key="one", value=1}, Pair{key="two", value=2}, Pair{key="three", value=3}}, to_array(hashtable), _ht_arr_pair_comparator);
 }
 
 fun hashtable_remove_at() {
@@ -66,8 +66,8 @@ fun hashtable_remove_at() {
 	delete(hashtable, "six");
 	
 	// assert
-	assert_equals(this + "[size]", 3, len(hashtable));
-	assert_equals(this + "[content]", {Pair{key="one", value=1}, Pair{key="five", value=5}, Pair{key="three", value=3}}, to_array(hashtable), _ht_arr_pair_comparator);
+	assert_equals(this.name + "_size", 3, len(hashtable));
+	assert_equals(this.name + "_content", {Pair{key="one", value=1}, Pair{key="five", value=5}, Pair{key="three", value=3}}, to_array(hashtable), _ht_arr_pair_comparator);
 }
 
 fun hashtable_test_suite() {

@@ -72,7 +72,7 @@ multi_dim_array:
 	var val: string = yaml_stringify(dict);
 	
 	// assert
-	assert_equals(this, match_str, val);
+	assert_equals(this.name, match_str, val);
 }
 
 fun yaml_test_suite() {

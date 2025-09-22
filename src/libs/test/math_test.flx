@@ -75,7 +75,7 @@ fun round_higher_low_limit() {
 	var res: int = round(num);
 	
 	// assert
-	assert_equals(this, 2, res);
+	assert_equals(this.name, 2, res);
 }
 
 fun round_higher_high_limit() {
@@ -86,7 +86,7 @@ fun round_higher_high_limit() {
 	var res: int = round(num);
 	
 	// assert
-	assert_equals(this, 2, res);
+	assert_equals(this.name, 2, res);
 }
 
 fun round_higher_mid_limit() {
@@ -97,7 +97,7 @@ fun round_higher_mid_limit() {
 	var res: int = round(num);
 	
 	// assert
-	assert_equals(this, 2, res);
+	assert_equals(this.name, 2, res);
 }
 
 fun math_test_suite() {

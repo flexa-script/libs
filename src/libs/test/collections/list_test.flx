@@ -24,8 +24,8 @@ fun list_append() {
 	append(list, 3);
 	
 	// assert
-	assert_equals(this + "[size]", 3, len(list));
-	assert_equals(this + "[content]", {1, 2, 3}, to_array(list));
+	assert_equals(this.name + "_size", 3, len(list));
+	assert_equals(this.name + "_content", {1, 2, 3}, to_array(list));
 }
 
 fun list_add_position() {
@@ -41,8 +41,8 @@ fun list_add_position() {
 	append_at(list, 6, 5);
 	
 	// assert
-	assert_equals(this + "[size]", 6, len(list));
-	assert_equals(this + "[content]", {1, 2, 3, 4, 5, 6}, to_array(list));
+	assert_equals(this.name + "_size", 6, len(list));
+	assert_equals(this.name + "_content", {1, 2, 3, 4, 5, 6}, to_array(list));
 }
 
 fun list_add_position_with_existent() {
@@ -59,8 +59,8 @@ fun list_add_position_with_existent() {
 	append_at(list, 6, 6);
 	
 	// assert
-	assert_equals(this + "[size]", 7, len(list));
-	assert_equals(this + "[content]", {0, 1, 2, 3, 4, 5, 6}, to_array(list));
+	assert_equals(this.name + "_size", 7, len(list));
+	assert_equals(this.name + "_content", {0, 1, 2, 3, 4, 5, 6}, to_array(list));
 }
 
 fun list_remove_at() {
@@ -73,8 +73,8 @@ fun list_remove_at() {
 	remove_at(list, 1);
 	
 	// assert
-	assert_equals(this + "[size]", 3, len(list));
-	assert_equals(this + "[content]", {2, 4, 5}, to_array(list));
+	assert_equals(this.name + "_size", 3, len(list));
+	assert_equals(this.name + "_content", {2, 4, 5}, to_array(list));
 }
 
 fun list_get_start() {
@@ -84,7 +84,7 @@ fun list_get_start() {
 	var val: int = get_at(default_list, 0);
 	
 	// assert
-	assert_equals(this, 1, val);
+	assert_equals(this.name, 1, val);
 }
 
 fun list_get_middle() {
@@ -94,7 +94,7 @@ fun list_get_middle() {
 	var val: int = get_at(default_list, 2);
 	
 	// assert
-	assert_equals(this, 3, val);
+	assert_equals(this.name, 3, val);
 }
 
 fun list_get_end() {
@@ -104,7 +104,7 @@ fun list_get_end() {
 	var val: int = get_at(default_list, 5);
 	
 	// assert
-	assert_equals(this, 6, val);
+	assert_equals(this.name, 6, val);
 }
 
 fun list_index_of() {
@@ -114,7 +114,7 @@ fun list_index_of() {
 	var val: int = index_of(default_list, 5);
 	
 	// assert
-	assert_equals(this, 4, val);
+	assert_equals(this.name, 4, val);
 }
 
 fun list_test_suite() {

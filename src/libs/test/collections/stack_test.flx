@@ -24,8 +24,8 @@ fun stack_push() {
 	push(stack, 3);
 	
 	// assert
-	assert_equals(this + "[size]", 3, len(stack));
-	assert_equals(this + "[content]", {1, 2, 3}, to_array(stack));
+	assert_equals(this.name + "_size", 3, len(stack));
+	assert_equals(this.name + "_content", {1, 2, 3}, to_array(stack));
 }
 
 fun stack_pop() {
@@ -38,8 +38,8 @@ fun stack_pop() {
 	pop(stack);
 	
 	// assert
-	assert_equals(this + "[size]", 3, len(stack));
-	assert_equals(this + "[content]", {1, 2, 3}, to_array(stack));
+	assert_equals(this.name + "_size", 3, len(stack));
+	assert_equals(this.name + "_content", {1, 2, 3}, to_array(stack));
 }
 
 fun stack_peek() {
@@ -49,7 +49,7 @@ fun stack_peek() {
 	var val: int = peek(default_stack);
 	
 	// assert
-	assert_equals(this, 6, val);
+	assert_equals(this.name, 6, val);
 }
 
 fun stack_test_suite() {

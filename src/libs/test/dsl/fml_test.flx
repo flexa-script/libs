@@ -35,26 +35,26 @@ fun fml_parse_full() {
 	var val: Dictionary = fml_parse(fml);
 	
 	// assert
-	assert_true(this + "[bool_true]", find(val, "bool_true"));
-	assert_false(this + "[bool_false]", find(val, "bool_false"));
-	assert_equals(this + "[int]", 1, find(val, "int"));
-	assert_equals(this + "[float]", 10.5, find(val, "float"));
-	assert_equals(this + "[char]", 'X', find(val, "char"));
-	assert_equals(this + "[string]", "this is a string", find(val, "string"));
+	assert_true(this.name + "[bool_true]", find(val, "bool_true"));
+	assert_false(this.name + "[bool_false]", find(val, "bool_false"));
+	assert_equals(this.name + "_int", 1, find(val, "int"));
+	assert_equals(this.name + "_float", 10.5, find(val, "float"));
+	assert_equals(this.name + "_char", 'X', find(val, "char"));
+	assert_equals(this.name + "_string", "this is a string", find(val, "string"));
 	var array = find(val, "array");
-	assert_equals(this + "[array[0]]", 1, array[0]);
-	assert_equals(this + "[array[1]]", '2', array[1]);
-	assert_equals(this + "[array[2]]", "3", array[2]);
-	assert_equals(this + "[array[3].bar]", 5, find(array[3], "bar"));
-	assert_equals(this + "[array[3].qux]", "5", find(array[3], "qux"));
-	assert_true(this + "[array[4]]", array[4]);
-	assert_equals(this + "[multi_dim_array]", { { 1, 2, 3 }, { 1, 2, 3 }, { 1, 2, 3 } }, find(val, "multi_dim_array"));
+	assert_equals(this.name + "[array[0]]", 1, array[0]);
+	assert_equals(this.name + "[array[1]]", '2', array[1]);
+	assert_equals(this.name + "[array[2]]", "3", array[2]);
+	assert_equals(this.name + "[array[3].bar]", 5, find(array[3], "bar"));
+	assert_equals(this.name + "[array[3].qux]", "5", find(array[3], "qux"));
+	assert_true(this.name + "[array[4]]", array[4]);
+	assert_equals(this.name + "[multi_dim_array]", { { 1, 2, 3 }, { 1, 2, 3 }, { 1, 2, 3 } }, find(val, "multi_dim_array"));
 	var dict = find(val, "sub_dict");
-	assert_equals(this + "[sub_dict.one]", 1, find(dict, "one"));
-	assert_equals(this + "[sub_dict.two]", 2, find(dict, "two"));
-	assert_equals(this + "[sub_dict.three]", 3, find(dict, "three"));
-	// assert_equals(this, dict, val);
-	// assert_equals(this, string(to_array(dict)), string(to_array(val)));
+	assert_equals(this.name + "[sub_dict.one]", 1, find(dict, "one"));
+	assert_equals(this.name + "[sub_dict.two]", 2, find(dict, "two"));
+	assert_equals(this.name + "[sub_dict.three]", 3, find(dict, "three"));
+	// assert_equals(this.name, dict, val);
+	// assert_equals(this.name, string(to_array(dict)), string(to_array(val)));
 }
 
 fun fml_stringify_full() {
@@ -84,7 +84,7 @@ fun fml_stringify_full() {
 	var val: string = fml_stringify(dict);
 	
 	// assert
-	assert_equals(this,
+	assert_equals(this.name,
 		"bool_true:true;int:1;float:10.5;char:'X';array:[1,'2',\"3\",bar:5;qux:\"5\";,true];string:\"this is a string\";struct:bar:10;qux:\"str\";;sub_dict:one:1;two:2;three:3;;bool_false:false;multi_dim_array:[[1,2,3],[1,2,3],[1,2,3]];",
 		val);
 }

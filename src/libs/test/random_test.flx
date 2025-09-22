@@ -15,7 +15,7 @@ fun rand_int_range() {
 	var res: int = randi_range(min, max);
 	
 	// assert
-	assert_between(this, min, max, res);
+	assert_between(this.name, min, max, res);
 }
 
 fun rand_float_range() {
@@ -27,7 +27,7 @@ fun rand_float_range() {
 	var res: float = randf_range(min, max);
 	
 	// assert
-	assert_between(this, min, max, res);
+	assert_between(this.name, min, max, res);
 }
 
 fun random_test_suite() {

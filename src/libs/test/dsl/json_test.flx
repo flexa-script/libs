@@ -33,7 +33,7 @@ fun json_stringify_full() {
 	var valx: string = json_stringify(dict);
 	
 	// assert
-	assert_equals(this,
+	assert_equals(this.name,
 		"{\"bool_true\":true,\"int\":1,\"float\":10.5,\"char\":\"X\",\"array\":[1,\"2\",\"3\",{\"bar\":5,\"qux\":\"5\"},true],\"string\":\"this is a string\",\"struct\":{\"bar\":10,\"qux\":\"str\"},\"sub_dict\":{\"one\":1,\"two\":2,\"three\":3},\"bool_false\":false,\"multi_dim_array\":[[1,2,3],[1,2,3],[1,2,3]]}",
 		valx);
 }

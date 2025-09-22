@@ -14,7 +14,7 @@ fun str_len() {
 	var res: int = len(s);
 	
 	// assert
-	assert_equals(this, 6, res);
+	assert_equals(this.name, 6, res);
 }
 
 fun str_substring_start() {
@@ -25,7 +25,7 @@ fun str_substring_start() {
 	var res: string = substr(s, 0, 5);
 	
 	// assert
-	assert_equals(this, "12345", res);
+	assert_equals(this.name, "12345", res);
 }
 
 fun str_substring_midle() {
@@ -36,7 +36,7 @@ fun str_substring_midle() {
 	var res: string = substr(s, 2, 7);
 	
 	// assert
-	assert_equals(this, "34567", res);
+	assert_equals(this.name, "34567", res);
 }
 
 fun str_substring_end() {
@@ -47,7 +47,7 @@ fun str_substring_end() {
 	var res: string = substr(s, 5, 9);
 	
 	// assert
-	assert_equals(this, "67890", res);
+	assert_equals(this.name, "67890", res);
 }
 
 fun str_substring_endless() {
@@ -58,7 +58,7 @@ fun str_substring_endless() {
 	var res: string = substr(s, 5);
 	
 	// assert
-	assert_equals(this, "67890", res);
+	assert_equals(this.name, "67890", res);
 }
 
 fun str_counts() {
@@ -69,7 +69,7 @@ fun str_counts() {
 	var res: int = counts(s, "123");
 	
 	// assert
-	assert_equals(this, 3, res);
+	assert_equals(this.name, 3, res);
 }
 
 fun str_counts_0() {
@@ -80,7 +80,7 @@ fun str_counts_0() {
 	var res: int = counts(s, "9");
 	
 	// assert
-	assert_equals(this, 0, res);
+	assert_equals(this.name, 0, res);
 }
 
 fun str_contains_start() {
@@ -91,7 +91,7 @@ fun str_contains_start() {
 	var res: bool = contains(s, "123");
 	
 	// assert
-	assert_true(this, res);
+	assert_true(this.name, res);
 }
 
 fun str_contains_end() {
@@ -102,7 +102,7 @@ fun str_contains_end() {
 	var res: bool = contains(s, "7890");
 	
 	// assert
-	assert_true(this, res);
+	assert_true(this.name, res);
 }
 
 fun str_contains_midle() {
@@ -113,7 +113,7 @@ fun str_contains_midle() {
 	var res: bool = contains(s, "4567");
 	
 	// assert
-	assert_true(this, res);
+	assert_true(this.name, res);
 }
 
 fun str_contains_all() {
@@ -124,7 +124,7 @@ fun str_contains_all() {
 	var res: bool = contains(s, "1234567890");
 	
 	// assert
-	assert_true(this, res);
+	assert_true(this.name, res);
 }
 
 fun str_not_contains() {
@@ -135,7 +135,7 @@ fun str_not_contains() {
 	var res: bool = contains(s, "abc");
 	
 	// assert
-	assert_false(this, res);
+	assert_false(this.name, res);
 }
 
 fun str_not_contains_part() {
@@ -146,7 +146,7 @@ fun str_not_contains_part() {
 	var res: bool = contains(s, "1258");
 	
 	// assert
-	assert_false(this, res);
+	assert_false(this.name, res);
 }
 
 fun str_starts_with() {
@@ -157,7 +157,7 @@ fun str_starts_with() {
 	var res: bool = starts_with(s, "123");
 	
 	// assert
-	assert_true(this, res);
+	assert_true(this.name, res);
 }
 
 fun str_starts_with_false() {
@@ -168,7 +168,7 @@ fun str_starts_with_false() {
 	var res: bool = starts_with(s, "890");
 	
 	// assert
-	assert_false(this, res);
+	assert_false(this.name, res);
 }
 
 fun str_ends_with() {
@@ -179,7 +179,7 @@ fun str_ends_with() {
 	var res: bool = ends_with(s, "123");
 	
 	// assert
-	assert_false(this, res);
+	assert_false(this.name, res);
 }
 
 fun str_ends_with_false() {
@@ -190,7 +190,7 @@ fun str_ends_with_false() {
 	var res: bool = ends_with(s, "890");
 	
 	// assert
-	assert_true(this, res);
+	assert_true(this.name, res);
 }
 
 fun str_join_any_ret() {
@@ -200,7 +200,7 @@ fun str_join_any_ret() {
 	var res: string = join("12", 34, '5', 6789f);
 	
 	// assert
-	assert_equals(this, "123456789.0", res);
+	assert_equals(this.name, "123456789.0", res);
 }
 
 fun str_join_any_ret2() {
@@ -214,7 +214,7 @@ fun str_join_any_ret2() {
 	var res: string = join(v1, v2, v3, v4);
 	
 	// assert
-	assert_equals(this, "123456789.0", res);
+	assert_equals(this.name, "123456789.0", res);
 }
 
 fun str_join_type_ret() {
@@ -228,7 +228,7 @@ fun str_join_type_ret() {
 	var res: string = join(v1, v2, v3, v4);
 	
 	// assert
-	assert_equals(this, "123456789.0", res);
+	assert_equals(this.name, "123456789.0", res);
 }
 
 fun str_join_any_arr() {
@@ -238,7 +238,7 @@ fun str_join_any_arr() {
 	var res: string = join({"12", 34, '5', 6789f});
 	
 	// assert
-	assert_equals(this, "123456789.0", res);
+	assert_equals(this.name, "123456789.0", res);
 }
 
 fun str_join_any_arr2() {
@@ -249,7 +249,7 @@ fun str_join_any_arr2() {
 	var res: string = join(v);
 	
 	// assert
-	assert_equals(this, "123456789.0", res);
+	assert_equals(this.name, "123456789.0", res);
 }
 
 fun str_join_type_arr() {
@@ -260,7 +260,7 @@ fun str_join_type_arr() {
 	var res: string = join(v);
 	
 	// assert
-	assert_equals(this, "123456789", res);
+	assert_equals(this.name, "123456789", res);
 }
 
 fun str_left_trim() {
@@ -271,7 +271,7 @@ fun str_left_trim() {
 	var res: string = left_trim(v);
 	
 	// assert
-	assert_equals(this, "123456789", res);
+	assert_equals(this.name, "123456789", res);
 }
 
 fun str_right_trim() {
@@ -282,7 +282,7 @@ fun str_right_trim() {
 	var res: string = right_trim(v);
 	
 	// assert
-	assert_equals(this, "123456789", res);
+	assert_equals(this.name, "123456789", res);
 }
 
 fun str_trim() {
@@ -293,7 +293,7 @@ fun str_trim() {
 	var res: string = trim(v);
 	
 	// assert
-	assert_equals(this, "123456789", res);
+	assert_equals(this.name, "123456789", res);
 }
 
 fun str_split_multi() {
@@ -304,7 +304,7 @@ fun str_split_multi() {
 	var res: any[] = split(v, "123");
 
 	// assert
-	assert_equals(this, {"", "456", "789", "987", ""}, res);
+	assert_equals(this.name, {"", "456", "789", "987", ""}, res);
 }
 
 fun str_split_single() {
@@ -315,7 +315,7 @@ fun str_split_single() {
 	var res: any[] = split(v, "2");
 
 	// assert
-	assert_equals(this, {"1", "34561", "37891", "39871", "3"}, res);
+	assert_equals(this.name, {"1", "34561", "37891", "39871", "3"}, res);
 }
 
 fun str_split_multi_repeat() {
@@ -326,7 +326,7 @@ fun str_split_multi_repeat() {
 	var res: any[] = split(v, "123");
 
 	// assert
-	assert_equals(this, {"", "456", "789", "", "987", "", ""}, res);
+	assert_equals(this.name, {"", "456", "789", "", "987", "", ""}, res);
 }
 
 fun str_split_single_repeat() {
@@ -337,7 +337,7 @@ fun str_split_single_repeat() {
 	var res: any[] = split(v, "2");
 
 	// assert
-	assert_equals(this, {"1", "", "34561", "37891", "", "39871", "3"}, res);
+	assert_equals(this.name, {"1", "", "34561", "37891", "", "39871", "3"}, res);
 }
 
 fun str_replace_multi() {
@@ -348,7 +348,7 @@ fun str_replace_multi() {
 	var res: string = replace(v, "123", "999999");
 
 	// assert
-	assert_equals(this, "999999456999999789999999987999999", res);
+	assert_equals(this.name, "999999456999999789999999987999999", res);
 }
 
 fun str_replace_single() {
@@ -359,7 +359,7 @@ fun str_replace_single() {
 	var res: string = replace(v, "2", "7777");
 
 	// assert
-	assert_equals(this, "177773456177773789177773987177773", res);
+	assert_equals(this.name, "177773456177773789177773987177773", res);
 }
 
 fun str_to_upper() {
@@ -370,7 +370,7 @@ fun str_to_upper() {
 	var res: string = to_upper(v);
 
 	// assert
-	assert_equals(this, "ABCDEFGHIJKLMNOPQRSTUVWXYZ", res);
+	assert_equals(this.name, "ABCDEFGHIJKLMNOPQRSTUVWXYZ", res);
 }
 
 fun str_to_lower() {
@@ -381,7 +381,7 @@ fun str_to_lower() {
 	var res: string = to_lower(v);
 
 	// assert
-	assert_equals(this, "abcdefghijklmnopqrstuvwxyz", res);
+	assert_equals(this.name, "abcdefghijklmnopqrstuvwxyz", res);
 }
 
 fun strings_test_suite() {

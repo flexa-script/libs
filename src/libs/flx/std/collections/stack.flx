@@ -10,6 +10,8 @@ struct Stack {
 	var collection: Collection;
 }
 
+fun len(stack: Stack): int;
+
 fun create_stack(): Stack {
 	return Stack{collection=create_collection()};
 }
@@ -18,20 +20,44 @@ fun push(stack: Stack, value: any) {
 	_default_append(stack.collection, ref value);
 }
 
-fun pop(stack: Stack) {
+fun rstr2(str: string, count: int): string {
+	var res = "";
+	for (var i = 0; i < count; i++) {
+		res += str;
+	}
+	return res;
+}
+
+fun pop(stack: Stack, level) {
+	level++;
+	println(rstr2("│ ", level), "├─", this.name, ": entered -> len(stack) -> ", len(stack));
+
+	if (len(stack) == 0) {
+		println(rstr2("##", level), "##", this.name, ": empty stack ERROR ----------------------------------------------------------------------");
+	}
+
 	try {
 		_default_remove(stack.collection);
-	} catch (...) {
-		throw "Tryed to pop from empty stack";
+		println(rstr2("│ ", level), "└─", this.name, ": is returning");
+	} catch (ex: Exception) {
+		if (ex.error == "Tryed to remove from empty collection"){
+			throw "Tryed to pop from empty stack";
+		} else {
+			throw ex;
+		}
 	}
 }
 
 fun peek(stack: Stack): any {
-	try {
+	// try {
 		return ref _default_get(stack.collection);
-	} catch (...) {
-		throw "Tryed to peek from empty stack";
-	}
+	// } catch (ex: Exception) {
+	// 	if (ex.error == "Tryed to get from empty collection"){
+	// 		throw "Tryed to peek from empty stack";
+	// 	} else {
+	// 		throw ex;
+	// 	}
+	// }
 }
 
 fun clear(stack: Stack) {

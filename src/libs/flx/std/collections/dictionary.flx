@@ -216,7 +216,8 @@ fun to_array(dict: Dictionary): any[] {
 		} else if (current.right != null and not exists(visited_list, current_right_pair, _pair_comparator)) {
 			current = current.right;
 		} else {
-			pop(current_stack);
+			println("#####################################################################################");
+			pop(current_stack, 0);
 			current = len(current_stack) > 0 ? peek(current_stack) : null;
 		}
 	}

@@ -42,6 +42,7 @@ fun _default_append(collection: Collection, value: any) {
 
 fun _default_get(collection: Collection): any {
 	if (collection.first == null) {
+			println("collection get empty #####################################################################################");
 		throw "Tryed to get from empty collection";
 	}
 
@@ -50,6 +51,7 @@ fun _default_get(collection: Collection): any {
 
 fun _default_remove(collection: Collection) {
 	if (collection.first == null) {
+			println("collection remove empty #####################################################################################");
 		throw "Tryed to remove from empty collection";
 	}
 	if (collection.size == 1) {

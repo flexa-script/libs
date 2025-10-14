@@ -67,9 +67,9 @@ fun _fml_open_array(parser: _FmlParser) {
 	} else {
 		var new_dim = {};
 		// var pv = peek(parser.arr_stack);
-		// pv += { ref new_dim };
-		peek(parser.arr_stack) += { ref new_dim };
-		push(parser.arr_stack, ref new_dim);
+		// pv += { new_dim };
+		peek(parser.arr_stack) += { new_dim };
+		push(parser.arr_stack, new_dim);
 	}
 }
 

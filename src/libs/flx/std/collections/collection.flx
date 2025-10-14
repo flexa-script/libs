@@ -24,16 +24,16 @@ fun create_collection(): Collection {
 
 fun _default_append(collection: Collection, value: any) {
 	if (collection.first == null) {
-		collection.first = Node{value=ref value, next=null, prev=null};
+		collection.first = Node{value=value, next=null, prev=null};
 		collection.last = collection.first;
 		collection.size = 1;
-	} else if (ref collection.first == ref collection.last) {
-		var new_node = Node{value=ref value, prev=collection.first, next=null};
+	} else if (collection.first == collection.last) {
+		var new_node = Node{value=value, prev=collection.first, next=null};
 		collection.first.next = new_node;
 		collection.last = new_node;
 		collection.size = 2;
 	} else {
-		var new_node = Node{value=ref value, prev=collection.last, next=null};
+		var new_node = Node{value=value, prev=collection.last, next=null};
 		collection.last.next = new_node;
 		collection.last = new_node;
 		collection.size++;
@@ -42,16 +42,14 @@ fun _default_append(collection: Collection, value: any) {
 
 fun _default_get(collection: Collection): any {
 	if (collection.first == null) {
-			println("collection get empty #####################################################################################");
 		throw "Tryed to get from empty collection";
 	}
 
-	return ref collection.last.value;
+	return collection.last.value;
 }
 
 fun _default_remove(collection: Collection) {
 	if (collection.first == null) {
-			println("collection remove empty #####################################################################################");
 		throw "Tryed to remove from empty collection";
 	}
 	if (collection.size == 1) {

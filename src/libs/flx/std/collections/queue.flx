@@ -15,7 +15,7 @@ fun create_queue(): Queue {
 }
 
 fun enqueue(queue: Queue, value: any) {
-	_default_append(queue.collection, ref value);
+	_default_append(queue.collection, value);
 }
 
 fun dequeue(queue: Queue) {
@@ -32,11 +32,11 @@ fun front(queue: Queue): any {
 		throw "Tryed to get from empty collection";
 	}
 
-	return ref queue.collection.first.value;
+	return queue.collection.first.value;
 }
 
 fun back(queue: Queue): any {
-	return _default_get(ref queue.collection);
+	return _default_get(queue.collection);
 }
 
 fun clear(queue: Queue) {

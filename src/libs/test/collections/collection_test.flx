@@ -7,7 +7,7 @@ using flx.std.collections.list;
 include namespace flx;
 
 var default_collection: Collection = create_collection();
-_default_append(ref default_collection, 1);
+_default_append(default_collection, 1);
 _default_append(default_collection, 2);
 _default_append(default_collection, 3);
 _default_append(default_collection, 4);

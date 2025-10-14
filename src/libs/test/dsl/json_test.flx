@@ -7,8 +7,6 @@ using flx.std.DSL.JSON;
 include namespace flx;
 
 fun json_stringify_full() {
-	println("chamou ", this.name);
-
 	// arrange
 	struct Foo {
 		var bar: int;

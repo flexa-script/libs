@@ -7,8 +7,8 @@ namespace flx;
 using flx.std.collections.dictionary;
 
 
-fun _json_stringify_value(value: any,  level): string;
-fun json_stringify(dict: Dictionary,  level = 0): string;
+fun _json_stringify_value(value: any): string;
+fun json_stringify(dict: Dictionary): string;
 
 fun rstr(str: string, count: int): string {
 	var res = "";
@@ -18,24 +18,19 @@ fun rstr(str: string, count: int): string {
 	return res;
 }
 
-fun _json_stringify_value(value: any, level): string {
-	level++;
-	println(rstr("│ ", level), "├─", this.name, ": entered -> typeof(value) -> ", typeof(value));
-
+fun _json_stringify_value(value: any): string {
 	var json: string = "";
 
 	if (typeof(value) == typeof(Dictionary)) {
-		json = json_stringify(value, level);
+		json = json_stringify(value);
 	} else if (is_struct(value)) {
-		json = json_stringify(parse_struct(value), level);
+		json = json_stringify(parse_struct(value));
 	} else if (is_textual_type(value)) {
 		json = '"' + string(value) + '"';
 	} else if (is_array(value)) {
 		json = "[";
 		foreach (var v in value) {
-			println(rstr("│ ", level), "├─", this.name, ": will call -> _json_stringify_value");
-			json += _json_stringify_value(v, level) + ",";
-			println(rstr("│ ", level), "├─", this.name, ": return from call -> _json_stringify_value -> ", json);
+			json += _json_stringify_value(v) + ",";
 		}
 
 		if (json[len(json) - 1] == ',') {
@@ -48,16 +43,11 @@ fun _json_stringify_value(value: any, level): string {
 		json += string(value);
 	}
 	
-	println(rstr("│ ", level), "└─", this.name, ": is returning -> ", json);
 	return json;
 }
 
-fun json_stringify(dict: Dictionary, level = 0): string {
-	level++;
-	println(rstr("│ ", level), "├─", this.name, ": entered -> len(dict) -> ", len(dict));
-
+fun json_stringify(dict: Dictionary): string {
 	var json: string = "{";
-	println(rstr("│ ", level), "├─", this.name, ": json (start) -> ", json);
 	var visited_list = create_list();
 	var current_stack = create_stack();
 	var current = dict.root;
@@ -66,40 +56,23 @@ fun json_stringify(dict: Dictionary, level = 0): string {
 		if (not exists(visited_list, current.key)) {
 			push(current_stack, current);
 			append(visited_list, current.key);
-			println(rstr("│ ", level), "├─", this.name, ": will call -> _json_stringify_value");
-			json += '"' + current.key + "\":" + _json_stringify_value(current.value, level) + ',';
-			println(rstr("│ ", level), "├─", this.name, ": return from call -> _json_stringify_value");
-			println(rstr("│ ", level), "├─", this.name, ": json (return _json_stringify_value) -> ", json);
+			json += '"' + current.key + "\":" + _json_stringify_value(current.value) + ',';
 		}
 		if (current.left != null and not exists(visited_list, current.left.key)) {
-			println(rstr("│ ", level), "├─", "got left");
 			current = current.left;
 		} else if (current.right != null and not exists(visited_list, current.right.key)) {
-			println(rstr("│ ", level), "├─", "got right");
 			current = current.right;
 		} else {
-			if (len(current_stack) == 0) {
-				println(rstr("##", level), "##", this.name, ": current_stack is empty ERROR ----------------------------------------------------------------------");
-			}
-			println(rstr("│ ", level), "├─", "will pop len(current_stack) -> ", len(current_stack));
-			pop(current_stack, level);
-			println(rstr("│ ", level), "├─", "popped len(current_stack) -> ", len(current_stack));
+			pop(current_stack);
 			current = len(current_stack) > 0 ? peek(current_stack) : null;
-
-			if (current == null) {
-				println(rstr("│ ", level), "├─", "current is null, SHOULD RETURN");
-			}
 		}
 	}
 
 	if (json[len(json) - 1] == ',') {
 		json = substr(json, 0, len(json) - 1);
-		println(rstr("│ ", level), "├─", this.name, ": json (return comma)  -> ", json);
 	}
 
 	json += "}";
-	println(rstr("│ ", level), "├─", this.name, ": json (final) -> ", json);
-
-	println(rstr("│ ", level), "└─", this.name, ": is returning -> ", json);
+	
 	return json;
 }
